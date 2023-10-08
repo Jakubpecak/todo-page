@@ -1,0 +1,7 @@
+@import '/src/styles/shared/animations.scss';
+
+:host {
+    .test {
+        @include fade-in(2s);
+    }
+}
