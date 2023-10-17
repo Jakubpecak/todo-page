@@ -1,6 +1,22 @@
+@mixin rounded($radius: 5px) {
+    border-radius: $radius;
+}
+
+@mixin shadow($x: 0, $y: 4px, $blur: 8px, $color: rgba(0, 0, 0, 0.1)) {
+    box-shadow: $x $y $blur $color;
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
 @mixin transition($property: all, $duration: 0.3s, $timing: ease) {
     transition: $property $duration $timing;
 }
+
 
 //animations
 @mixin fade-in($duration: 1s) {

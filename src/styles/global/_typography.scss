@@ -1,6 +1,4 @@
-body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+@use '/src/styles/shared/variables' as var;
 
 h1,
 h2,
@@ -38,6 +36,10 @@ p {
 }
 
 a {
-  color: #000;
+  color: var.$link; 
   text-decoration: none;
+}
+
+a:hover {
+  color: var.$link;
 }

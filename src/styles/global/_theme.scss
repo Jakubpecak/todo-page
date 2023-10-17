@@ -1,0 +1,39 @@
+@use '/src/styles/shared/variables' as var;
+
+html,
+body {
+    height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var.$main-font;
+    color: var.$main-text;
+    background-color: white;
+}
+
+fieldset {
+    padding: 15px;
+    border-color: rgb(211 211 211 / 35%)
+}
+
+legend {
+    color: rgb(168, 168, 168);
+}
+
+// .active {}
+
+.m-auto {
+    margin-left: auto;
+    margin-right: auto;
+}

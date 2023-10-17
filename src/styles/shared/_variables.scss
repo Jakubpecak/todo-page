@@ -1,0 +1,18 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+//fonts
+$main-font: "Poppins, sans-serif";
+$material-font: $main-font;
+$btn-font: $main-font;
+
+//colors
+$main-text: #000;
+$link: #000;
+
+//breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xll: 1450px;
