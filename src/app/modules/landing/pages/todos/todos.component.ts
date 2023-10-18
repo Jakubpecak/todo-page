@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-todos',
@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent {
-
 }
