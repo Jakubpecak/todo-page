@@ -5,6 +5,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ProfileBarComponent } from './components/profile-bar/profile-bar.component';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,8 +18,9 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
-  exports: [NavigationComponent, FooterComponent, ProfileBarComponent, MatButtonModule]
+  exports: [NavigationComponent, FooterComponent, ProfileBarComponent, MatButtonModule, ReactiveFormsModule]
 })
 export class SharedModule { }

@@ -3,6 +3,7 @@
     {
       "id": 1,
       "name": "Eduweb User",
+      "username": "User",
       "email": "Sincere@april.biz",
       "address": {
         "street": "Kulas Light",
@@ -27,10 +28,37 @@
       ],
       "roles": [
         "USER"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Eduweb User",
+      "username": "Admin",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "city": "Gwenborough",
+        "country": "Poland",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+        }
+      },
+      "phone": "1-770-736-8031 x56442",
+      "company": {
+        "name": "Romaguera-Crona"
+      },
+      "todos": [
+        {
+          "id": 1,
+          "title": "accusamus beatae ad facilis cum similique qui sunt",
+          "description": "Test 1234",
+          "isActive": false
+        }
       ],
-      "title": "Test2",
-      "description": "Test2",
-      "isActive": false
+      "roles": [
+        "ADMIN"
+      ]
     }
   ],
   "posts": [
