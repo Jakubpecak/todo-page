@@ -3,3 +3,9 @@
 <input type="text" #input>
 
 <button (click)="addTodo(input.value)">CreateTodo</button>
+
+<div>
+    <ul *ngFor="let todo of todoList">
+        <li>{{ todo.title }}</li>
+    </ul>
+</div>
