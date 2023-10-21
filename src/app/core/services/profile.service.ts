@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 import { Observable, filter, map } from 'rxjs';
 
@@ -9,22 +7,21 @@ import { Observable, filter, map } from 'rxjs';
   providedIn: 'root'
 })
 export class ProfileService {
-  private user_request: Observable<User | null> | null = null;
+  private userRequest: Observable<User | null> | null = null;
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private auth: AuthService) {}
 
-  getProfile() {
-    if (!this.user_request) {
-      this.user_request = this.authService.state.pipe(
-        filter(() => this.authService.isAuthenticated),
-        map(() => this.authService.getCurrentUser())
+  getUserProfile(): Observable<User | null> {
+    if (!this.userRequest) {
+      this.userRequest = this.auth.state.pipe(
+        filter(() => this.auth.isAuthenticated),
+        map(() => this.auth.getCurrentUser()),
       )
     }
-    return this.user_request;
+    return this.userRequest;
   }
 
-  clearCache() {
-    this.user_request = null;
+  clearCache(): void {
+    this.userRequest = null;
   }
-
 }

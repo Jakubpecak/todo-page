@@ -1,2 +1,5 @@
 <p>todos works!</p>
 <button mat-button color="warn">Warn</button>
+<input type="text" #input>
+
+<button (click)="addTodo(input.value)">CreateTodo</button>

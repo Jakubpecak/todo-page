@@ -1,1 +1,3 @@
-<p>profile-bar works!</p>
+<p *ngIf="user">Hello {{ user.username }}
+    <button (click)="this.auth.logout()"> | Logout</button>
+</p>

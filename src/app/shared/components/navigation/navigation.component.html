@@ -1,26 +1,20 @@
-<ul style="display: flex; gap: 50px" class="test">
-    <li *ngIf="!auth.isAuthenticated">
-        <a routerLink="/">Landing</a>
-    </li>
-    <li>
-        <a routerLink="/home">Home</a>
-    </li>
-    <li>
-        <a routerLink="/todos">Todos</a>
-    </li>
-    <li>
-        <a routerLink="/auth">Auth</a>
-    </li>
-    <li>
-        <a routerLink="/auth/login">Login</a>
-    </li>
-    <li>
-        <a routerLink="/auth/register">Register</a>
-    </li>
-    <li>
-        <a routerLink="/profile">Profile</a>
-    </li>
-    <li>
-        <a routerLink="/test123">404</a>
-    </li>
-</ul>
+<div class="test">
+    <ul style="display: flex; gap: 50px" class="test">
+        <li>
+            <a routerLink="/home">Home</a>
+        </li>
+        <li>
+            <a routerLink="/todos">Todos</a>
+        </li>
+        <li>
+            <a routerLink="/profile">Profile</a>
+        </li>
+        <li>
+            <a routerLink="/auth/login">Login</a>
+        </li>
+        <li>
+            <a routerLink="/auth/register">Register</a>
+        </li>
+    </ul>
+    <app-profile-bar *ngIf="isAuthenticated"></app-profile-bar>
+</div>

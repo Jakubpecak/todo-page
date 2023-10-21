@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -7,11 +7,12 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  @Input() isAuthenticated: boolean = false;
 
   constructor(protected auth: AuthService) {}
 
   ngOnInit(): void {
-    this.auth.state.subscribe();
+   
   }
 
 }

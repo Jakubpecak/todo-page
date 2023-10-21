@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "Eduweb User",
+      "name": "KUba Pęcak",
       "username": "User",
       "email": "Sincere@april.biz",
       "address": {
@@ -32,7 +32,7 @@
     },
     {
       "id": 2,
-      "name": "Eduweb User",
+      "name": "Julia Tokarska",
       "username": "Admin",
       "email": "Sincere@april.biz",
       "address": {
@@ -76,6 +76,25 @@
       "title": "accusamus beatae ad facilis cum similique qui sunt",
       "url": "http://placehold.it/600/92c952",
       "thumbnailUrl": "http://placehold.it/150/92c952"
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "title": "test1",
+      "completed": false
+    },
+    {
+      "title": "dthdfgdf",
+      "userId": 1,
+      "createdAt": 1697885345236,
+      "id": 2
+    },
+    {
+      "title": "dthdfgdfdftgfgf",
+      "userId": 1,
+      "createdAt": 1697885374187,
+      "id": 3
     }
   ]
 }

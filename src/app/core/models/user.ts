@@ -1,15 +1,17 @@
 import { Address } from "./address";
-import { Todo } from "./todo";
 
 export interface User {
-    id: number;
-    name: string;
-    email: string;
-    address: Address;
-    phone: string;
-    company: {
-        name: string;
-      },
-    todos: [Todo],
-    roles: [string]
+    id?: number
+    name?: string
+    username?: string
+    email?: string
+    address?: Address
+    phone?: string
+    website?: string
+    company?: {
+      name?: string
+      catchPhrase?: string
+      bs?: string
+    },
+    roles?: string[]
 }

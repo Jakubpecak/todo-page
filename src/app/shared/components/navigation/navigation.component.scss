@@ -1,5 +1,6 @@
-
-
 :host {
-
+    .test {
+        display: flex;
+        justify-content: space-around;
+    }
 }

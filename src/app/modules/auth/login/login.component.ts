@@ -1,8 +1,6 @@
 
 import { Component} from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { filter } from 'rxjs/operators';
-import { Credentials } from 'src/app/core/models/credentials';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -11,21 +9,18 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  loginForm = this.fb.group({
+  message: string | null | undefined;
+  isAuthenticate = false;
+
+  form: FormGroup = this.fb.group({
     username: '',
     password: ''
   });
 
-  isAuthenticate = false;
-
-  constructor(private authService: AuthService, private fb: FormBuilder) {}
+  constructor(private auth: AuthService, private fb: FormBuilder) {}
 
   login() {
-    this.authService.login(this.loginForm.value as Credentials);
-  }
-
-  logout() {
-    this.authService.logout();
+    this.auth.login(this.form.value);
   }
 
 }

@@ -1,31 +1,37 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Credentials } from '../models/credentials';
-import { Session } from '../models/session';
 import { BehaviorSubject, map, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { User } from '../models/user';
+
+interface Credentials {
+  username: string;
+  password: string;
+}
+
+interface Session {
+  token: string | null;
+  user: User | null;
+  message?: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
-  private apiUrl = environment.apiUrl + 'login';
-  private session = new BehaviorSubject<Session | null>(null);
+  private session = new BehaviorSubject<Session | null>(this.getStoredSession());
   isAuthenticated = false;
 
   state = this.session.pipe(
-    map((session) => session && !!session.token),
-    tap((state) => (this.isAuthenticated = !!state))
+    map((session) => !!session && !!session.token),
+    tap((state) => {
+      console.log('isAuthenticated', state)
+      this.isAuthenticated = state
+    })
   );
 
-  constructor(private http: HttpClient, private router: Router) {
-    const savedUser = localStorage.getItem('currentUser');
-    if (savedUser) {
-      const session: Session = JSON.parse(savedUser);
-      this.session.next(session);
-    }
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   getToken() {
     const session = this.session.getValue();
@@ -37,17 +43,46 @@ export class AuthService {
     return session && session.user;
   }
 
-  login(credentials: Credentials) {
-    this.http.post<Session>(this.apiUrl, credentials).subscribe((session) => {
-      localStorage.setItem('currentUser', JSON.stringify(session));
-      this.session.next(session);
-      this.router.navigate(['/home']);
-    });
+  getMessage() {
+    const session = this.session.getValue();
+    return session && session.message;
   }
 
-  logout() {
-    localStorage.removeItem('currentUser');
-    this.session.next(null);
-    this.router.navigate(['/login']);
+  login(credentials: Credentials) {
+    this.http.post<Session>('http://localhost:3000/login', credentials).subscribe({
+      next: (session: Session) => {
+        this.session.next(session);
+        this.storeSession(session);
+        this.router.navigate(['/profile']);
+      },
+      error: err => {
+        if(err instanceof HttpErrorResponse) {
+          console.error(err.error);
+        }
+      }
+    })
   }
+
+  logout(message?: string) {
+    localStorage.removeItem('session');
+    this.router.navigate(['/login']);
+    const session = this.session.getValue();
+    if (session) {
+      this.session.next({
+        ...session,
+        token: null,
+        message
+      });
+    }
+  }
+
+  private storeSession(session: Session) {
+    localStorage.setItem('session', JSON.stringify(session));
+  }
+
+  private getStoredSession(): Session | null {
+    const storedSession = localStorage.getItem('session');
+    return storedSession ? JSON.parse(storedSession) : null;
+  }
+
 }
