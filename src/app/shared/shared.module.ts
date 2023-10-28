@@ -6,20 +6,25 @@ import { ProfileBarComponent } from './components/profile-bar/profile-bar.compon
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import { MenuComponent } from './components/navigation/menu/menu.component';
 
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavigationComponent,
-    ProfileBarComponent
+    ProfileBarComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatMenuModule
   ],
   exports: [NavigationComponent, FooterComponent, ProfileBarComponent, MatButtonModule, ReactiveFormsModule]
 })

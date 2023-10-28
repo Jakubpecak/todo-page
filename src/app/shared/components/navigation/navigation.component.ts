@@ -8,11 +8,17 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class NavigationComponent implements OnInit {
   @Input() isAuthenticated: boolean = false;
+  showMenu = false;
 
   constructor(protected auth: AuthService) {}
 
   ngOnInit(): void {
-   
+
   }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
+
 
 }

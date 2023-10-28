@@ -1,2 +1,14 @@
-<p>register works!</p>
-<button mat-button color="warn">Warn</button>
+<div class="container">
+    <h2>Register</h2>
+    <form [formGroup]="form" (ngSubmit)="createUser()">
+        <div>
+            <h5>username:</h5>
+            <input type="text" formControlName="username">
+        </div>
+        <div>
+            <h5>any password:</h5>
+            <input type="password" formControlName="password">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>

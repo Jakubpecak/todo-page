@@ -1,0 +1,10 @@
+<div class="menu" [ngClass]="{'show-menu': showMenu}">
+    <button class="close-button" mat-icon-button (click)="closeMenu()">
+        <mat-icon>close</mat-icon>
+    </button>
+    <ul>
+      <li *ngFor="let menuItem of menuItems">
+        <a [routerLink]="menuItem.routerLink" (click)="closeMenu()">{{ menuItem.label }}</a>
+      </li>
+    </ul>
+</div>

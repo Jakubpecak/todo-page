@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '', component: LandingComponent,
     children: [
       {
-        path: 'home', component: HomeComponent
+        path: '', component: HomeComponent
       },
       {
         path: 'todos', component: TodosComponent

@@ -1,11 +1,11 @@
-<p>todos works!</p>
-<button mat-button color="warn">Warn</button>
-<input type="text" #input>
-
-<button (click)="addTodo(input.value)">CreateTodo</button>
-
-<div>
-    <ul *ngFor="let todo of todoList">
-        <li>{{ todo.title }}</li>
-    </ul>
+<div class="container">
+    <h3>Add todo:</h3>
+    <input type="text" #input>
+    <button (click)="addTodo(input.value)">CreateTodo</button>
+    <div>
+        <h3>My Todos:</h3>
+        <ul *ngFor="let todo of todoList">
+            <li>{{ todo.title }}</li>
+        </ul>
+    </div>
 </div>

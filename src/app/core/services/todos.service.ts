@@ -15,7 +15,7 @@ export class TodosService {
 
 
   createTodo(todo: Partial<Todo>): Observable<Todo> {
-    return this.http.post<Todo>('todos', todo);
+    return this.http.post<Todo>(this.url, todo);
   }
 
   getTodos() {

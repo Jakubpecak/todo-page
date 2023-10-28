@@ -1,9 +1,16 @@
-<form [formGroup]="form" (ngSubmit)="login()">
-    <div>
-        <input type="text" formControlName="username">
-    </div>
-    <div>
-        <input type="text" formControlName="password">
-    </div>
-    <button type="submit">Submit</button>
-</form>
+<div class="container">
+    <h2>Login</h2>
+    <form [formGroup]="form" (ngSubmit)="login()">
+        <div>
+            <h5>username:</h5>
+            <input type="text" formControlName="username">
+        </div>
+        <div>
+            <h5>any password:</h5>
+            <input type="password" formControlName="password">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <button routerLink="/register">register</button>
+</div>

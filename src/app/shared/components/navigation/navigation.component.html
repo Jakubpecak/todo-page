@@ -1,20 +1,11 @@
-<div class="test">
-    <ul style="display: flex; gap: 50px" class="test">
-        <li>
-            <a routerLink="/home">Home</a>
-        </li>
-        <li>
-            <a routerLink="/todos">Todos</a>
-        </li>
-        <li>
-            <a routerLink="/profile">Profile</a>
-        </li>
-        <li>
-            <a routerLink="/auth/login">Login</a>
-        </li>
-        <li>
-            <a routerLink="/auth/register">Register</a>
-        </li>
-    </ul>
-    <app-profile-bar *ngIf="isAuthenticated"></app-profile-bar>
+<div class="container nav">
+    <div class="nav__logo"><a routerLink="/">Logo</a></div>
+    <div class="nav__menu">
+        <div class="nav__menu__login" *ngIf="!isAuthenticated"><a routerLink="/login">Login</a></div>
+        <div class="nav__menu__login" *ngIf="isAuthenticated"><a routerLink="/login" (click)="this.auth.logout()">Logout</a></div>
+        <button class="nav__menu__btn" mat-icon-button (click)="toggleMenu()">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+    <app-menu [showMenu]="showMenu" (closeMenuEmitter)="toggleMenu()"></app-menu>
 </div>
