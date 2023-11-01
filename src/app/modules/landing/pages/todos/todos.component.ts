@@ -37,15 +37,15 @@ export class TodosComponent implements OnInit {
 
   saveTodo(index: number) {
     if (this.todoList && this.selectedIndex === index) {
-      const newTitle = { title: 'Test kuba 12356' }
+      const newTitle = { title: 'kogutcik' }
       this.todosService.editTodo(this.todoList[index].id, newTitle).subscribe(() => {
         this.selectedIndex = null;
       });
     }
   }
 
-  deleteTodo(id: any) {
-    this.todosService.deleteTodo(id).subscribe();
+  deleteTodo(todoId: any) {
+    this.todosService.deleteTodo(todoId).subscribe();
   }
 
   getTodos() {

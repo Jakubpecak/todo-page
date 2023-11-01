@@ -34,14 +34,14 @@ export class TodosService {
     );
   }
 
-  editTodo(todoId: number | undefined, newTitle: Todo) {
-    return this.http.patch(this.url + '/' + todoId, newTitle).pipe(
+  editTodo(id: number | undefined, newTitle: Todo) {
+    return this.http.patch(this.url + '/' + id, newTitle).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
   }
 
-  deleteTodo(todoId: number) {
-    return this.http.delete(this.url + '/' + todoId).pipe(
+  deleteTodo(id: number) {
+    return this.http.delete(this.url + '/' + id).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
   }
