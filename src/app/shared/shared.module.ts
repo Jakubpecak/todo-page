@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { MenuComponent } from './components/navigation/menu/menu.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -24,8 +25,9 @@ import { MenuComponent } from './components/navigation/menu/menu.component';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatPaginatorModule
   ],
-  exports: [NavigationComponent, FooterComponent, ProfileBarComponent, MatButtonModule, ReactiveFormsModule]
+  exports: [NavigationComponent, FooterComponent, ProfileBarComponent, MatButtonModule, ReactiveFormsModule, MatPaginatorModule]
 })
 export class SharedModule { }

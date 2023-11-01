@@ -18,14 +18,6 @@
       "company": {
         "name": "Romaguera-Crona"
       },
-      "todos": [
-        {
-          "id": 1,
-          "title": "accusamus beatae ad facilis cum similique qui sunt",
-          "description": "Test 1234",
-          "isActive": false
-        }
-      ],
       "roles": [
         "USER"
       ]
@@ -48,17 +40,101 @@
       "company": {
         "name": "Romaguera-Crona"
       },
-      "todos": [
-        {
-          "id": 1,
-          "title": "accusamus beatae ad facilis cum similique qui sunt",
-          "description": "Test 1234",
-          "isActive": false
-        }
-      ],
       "roles": [
         "ADMIN"
       ]
+    },
+    {
+      "id": 3,
+      "createdAt": 1698845627287,
+      "name": null,
+      "username": "test123",
+      "email": "test123@o2.pl",
+      "address": {
+        "street": null,
+        "city": null,
+        "country": null,
+        "geo": {
+          "lat": null,
+          "lng": null
+        }
+      },
+      "phone": null,
+      "company": {
+        "name": null
+      },
+      "roles": [
+        "USER"
+      ]
+    },
+    {
+      "name": null,
+      "username": "jakub",
+      "email": "jakub@o2.pl",
+      "address": {
+        "street": null,
+        "city": null,
+        "country": null,
+        "geo": {
+          "lat": null,
+          "lng": null
+        }
+      },
+      "phone": null,
+      "company": {
+        "name": null
+      },
+      "roles": [
+        "USER"
+      ],
+      "createdAt": 1698845787982,
+      "id": 4
+    },
+    {
+      "name": null,
+      "username": "kuba1234",
+      "email": "test@o2.pl",
+      "address": {
+        "street": null,
+        "city": null,
+        "country": null,
+        "geo": {
+          "lat": null,
+          "lng": null
+        }
+      },
+      "phone": null,
+      "company": {
+        "name": null
+      },
+      "roles": [
+        "USER"
+      ],
+      "createdAt": 1698845939942,
+      "id": 5
+    },
+    {
+      "name": null,
+      "username": "kuba12345",
+      "email": "test@o2.pl",
+      "address": {
+        "street": null,
+        "city": null,
+        "country": null,
+        "geo": {
+          "lat": null,
+          "lng": null
+        }
+      },
+      "phone": null,
+      "company": {
+        "name": null
+      },
+      "roles": [
+        "USER"
+      ],
+      "createdAt": 1698845947653,
+      "id": 6
     }
   ],
   "posts": [
@@ -80,22 +156,101 @@
   ],
   "todos": [
     {
-      "title": "dthdfgdf",
-      "userId": 1,
-      "createdAt": 1697885345236,
-      "id": 2
-    },
-    {
-      "title": "dthdfgdfdftgfgf",
+      "title": "Test kuba 12356",
       "userId": 1,
       "createdAt": 1697885374187,
       "id": 3
     },
     {
-      "title": "Test123",
-      "userId": 2,
-      "createdAt": 1698486661560,
-      "id": 4
+      "title": "Test kuba 12356",
+      "userId": 1,
+      "createdAt": 1698492229679,
+      "id": 7
+    },
+    {
+      "title": "Test kuba 12356",
+      "userId": 1,
+      "createdAt": 1698492232199,
+      "id": 10
+    },
+    {
+      "title": "Test kuba 12356",
+      "userId": 1,
+      "createdAt": 1698492260984,
+      "id": 13
+    },
+    {
+      "title": "Test kuba 12356",
+      "userId": 1,
+      "createdAt": 1698492261841,
+      "id": 14
+    },
+    {
+      "title": "kuba",
+      "userId": 1,
+      "createdAt": 1698495262753,
+      "id": 15
+    },
+    {
+      "title": "julka",
+      "userId": 1,
+      "createdAt": 1698496407868,
+      "id": 16
+    },
+    {
+      "title": "janek marek",
+      "userId": 1,
+      "createdAt": 1698666704114,
+      "id": 17
+    },
+    {
+      "title": "test",
+      "userId": 1,
+      "createdAt": 1698667796398,
+      "id": 18
+    },
+    {
+      "title": "janek",
+      "userId": 1,
+      "createdAt": 1698668029578,
+      "id": 19
+    },
+    {
+      "title": "test11",
+      "userId": 1,
+      "createdAt": 1698669845724,
+      "id": 20
+    },
+    {
+      "title": "aaaaaa",
+      "userId": 1,
+      "createdAt": 1698673590326,
+      "id": 21
+    },
+    {
+      "title": "bbbbb",
+      "userId": 1,
+      "createdAt": 1698673610639,
+      "id": 22
+    },
+    {
+      "title": "testowo",
+      "createdAt": 1698846243424,
+      "id": 23
+    },
+    {
+      "title": "jakubin",
+      "completed": false,
+      "userId": 5,
+      "createdAt": 1698846680221,
+      "id": 24
+    },
+    {
+      "title": "kuba",
+      "completed": false,
+      "userId": 5,
+      "createdAt": 1698847323147,
+      "id": 25
     }
   ]
 }

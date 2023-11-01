@@ -1,11 +1,30 @@
 <div class="container">
     <h3>Add todo:</h3>
-    <input type="text" #input>
-    <button (click)="addTodo(input.value)">CreateTodo</button>
+    <input type="text" #newTodo>
+    <button (click)="createTodo(newTodo.value)">CreateTodo</button>
     <div>
         <h3>My Todos:</h3>
-        <ul *ngFor="let todo of todoList">
-            <li>{{ todo.title }}</li>
+        <input type="text" #input (keyup)="search(input.value)"> search
+        <ul *ngFor="let todo of todoList; let index = index">
+            <div [ngStyle]="{'display': 'flex', 'gap': '10px'}">
+                <li>{{ todo.title }}</li>
+                <button (click)="editTodo(index)" *ngIf="index !== selectedIndex; else saveTemplate">Edit</button>
+                <ng-template #saveTemplate>
+                    <button (click)="saveTodo(index)">save</button>
+                </ng-template>
+                <button (click)="deleteTodo(todo.id)">delete</button>
+            </div>
         </ul>
     </div>
+
+    <mat-paginator
+        class="todos"
+        [length]="todosService.state.total"
+        [pageSize]="todosService.params.getValue().perPage"
+        [pageSizeOptions]="options"
+        [pageIndex]="todosService.params.getValue().page - 1"
+        (page)="handlePageEvent($event)"
+        [showFirstLastButtons]="true"
+    ></mat-paginator>
+
 </div>
