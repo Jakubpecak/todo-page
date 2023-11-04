@@ -5,12 +5,14 @@ import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './landing.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TodosComponent } from './pages/todos/todos.component';
+import { TodoComponent } from './pages/todos/todo/todo.component';
 
 
 @NgModule({
   declarations: [
     LandingComponent,
-    TodosComponent
+    TodosComponent,
+    TodoComponent
   ],
   imports: [
     CommonModule,

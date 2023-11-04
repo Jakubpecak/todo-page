@@ -3,5 +3,6 @@ export interface Todo {
     title?: string;
     completed?: boolean;
     userId?: number;
-
+    description?: string;
+    createdAt?: number;
 }

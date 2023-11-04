@@ -7,6 +7,8 @@ interface Params {
   query: string;
   perPage: number;
   page: number;
+  sort: string;
+  order: string;
 }
 
 @Injectable({
@@ -18,7 +20,9 @@ export class TodosService {
   params = new BehaviorSubject<Params>({
     query: '',
     perPage: 5,
-    page: 1
+    page: 1,
+    sort: 'createdAt',
+    order: 'desc'
   });
 
   state = {
@@ -68,6 +72,20 @@ export class TodosService {
     });
   }
 
+  setSort(sort: string) {
+    this.params.next({
+      ...this.params.getValue(),
+      sort
+    })
+  }
+
+  setOrder(order: string) {
+    this.params.next({
+      ...this.params.getValue(),
+      order
+    })
+  }
+
   setTotalCount(total: number) {
     this.state = {
       total,
@@ -83,7 +101,9 @@ export class TodosService {
           params: {
             q: params.query,
             _limit: params.perPage,
-            _page: params.page
+            _page: params.page,
+            _sort: params.sort,
+            _order: params.order
           },
           observe: 'response'
         })
@@ -93,6 +113,11 @@ export class TodosService {
         return response.body;
       })
     );
+  }
+  
+
+  getTodo(id: number) {
+    return this.http.get<Todo>(this.url + '/' + id);
   }
 
 }

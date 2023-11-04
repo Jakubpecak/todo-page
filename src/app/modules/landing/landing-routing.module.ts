@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TodosComponent } from './pages/todos/todos.component';
+import { TodoComponent } from './pages/todos/todo/todo.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
       },
       {
         path: 'todos', component: TodosComponent
+      },
+      {
+        path: 'todo/:id', component: TodoComponent
       }
     ]
   }

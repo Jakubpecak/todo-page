@@ -4,10 +4,16 @@
     <button (click)="createTodo(newTodo.value)">CreateTodo</button>
     <div>
         <h3>My Todos:</h3>
+        <div>
+            <button (click)="setOrder('asc')">Sort Asc</button>
+            <button (click)="setOrder('desc')">Sort Desc</button>           
+            <button (click)="setSort('title')">Sort by Title</button>
+            <button (click)="setSort('createdAt')">Sort by Date</button>
+          </div>
         <input type="text" #input (keyup)="search(input.value)"> search
         <ul *ngFor="let todo of todoList; let index = index">
             <div [ngStyle]="{'display': 'flex', 'gap': '10px'}">
-                <li>{{ todo.title }}</li>
+                <a [routerLink]="'/todo/' + todo.id"><li>{{ todo.title }} - {{ todo.createdAt | date }}</li></a>
                 <button (click)="editTodo(index)" *ngIf="index !== selectedIndex; else saveTemplate">Edit</button>
                 <ng-template #saveTemplate>
                     <button (click)="saveTodo(index)">save</button>
@@ -26,5 +32,6 @@
         (page)="handlePageEvent($event)"
         [showFirstLastButtons]="true"
     ></mat-paginator>
+
 
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Todo } from 'src/app/core/models/todo';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -9,11 +10,12 @@ import { TodosService } from 'src/app/core/services/todos.service';
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss']
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent implements OnInit, OnDestroy{
   todoList: Todo[] | null | undefined = [];
   options: number[] = [5, 10, 50];
   userId: number | undefined;
   selectedIndex!: number | null;
+  subscriptions = new Subscription();
 
   constructor(protected todosService: TodosService, private auth: AuthService){}
 
@@ -25,6 +27,7 @@ export class TodosComponent implements OnInit {
   createTodo(title: string) {
     const todo = {
       title: title,
+      description: 'description test 123 1212 3423232 32',
       completed: false,
       userId: this.userId
     }
@@ -49,20 +52,30 @@ export class TodosComponent implements OnInit {
   }
 
   getTodos() {
-    this.todosService.getTodos().subscribe((todos) => {
+    this.subscriptions.add(this.todosService.getTodos().subscribe((todos) => {
       this.todoList = todos;
-      console.log(todos)
-    });
+    }));
   }
 
   search(query: string) {
     this.todosService.setQuery(query);
   }
 
+  setOrder(order: string) {
+    this.todosService.setOrder(order);
+  }
+  
+  setSort(sortKey: string) {
+    this.todosService.setSort(sortKey);
+  }
+
   handlePageEvent(event: PageEvent) {
-    console.log(event)
     this.todosService.setPage(event.pageIndex + 1);
     this.todosService.setPerPage(event.pageSize);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
 }
