@@ -10,9 +10,9 @@ export class MenuComponent {
   @Output() closeMenuEmitter = new EventEmitter<boolean>();
 
   menuItems = [
-    { label: 'Home', routerLink: '/' },
-    { label: 'My profile', routerLink: '/profile' },
+    { label: 'Profile', routerLink: '/profile' },
     { label: 'Todos', routerLink: '/todos' },
+    { label: 'Blog', routerLink: '/blog' },
   ];
 
   closeMenu() {

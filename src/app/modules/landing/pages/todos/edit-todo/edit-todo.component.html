@@ -1,0 +1,15 @@
+<form class="example-form" [formGroup]="form" (ngSubmit)="saveTodo()">
+    <h1>Edit todo:</h1>
+    <mat-form-field>
+      <mat-label>Todo title</mat-label>
+      <input matInput placeholder="Ex. Go shopping" formControlName="title">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Todo description</mat-label>
+      <textarea matInput placeholder="Ex. Date or time..." formControlName="description"></textarea>
+    </mat-form-field>
+    <button type="submit">Edit todo</button>
+</form>
+
+<button class="cancelBtn" (click)="onHideEditTodo()">Cancel</button>

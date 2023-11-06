@@ -1,0 +1,15 @@
+<form class="example-form" [formGroup]="form" (ngSubmit)="createTodo()">
+    <h1>Add todo:</h1>
+    <mat-form-field>
+      <mat-label>Todo title</mat-label>
+      <input matInput placeholder="Ex. Go shopping" formControlName="title">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Todo description</mat-label>
+      <textarea matInput placeholder="Ex. Date or time..." formControlName="description"></textarea>
+    </mat-form-field>
+        <button type="submit">Add todo</button>
+</form>
+
+<button class="cancelBtn" (click)="onHideAddTodo()">Cancel</button>

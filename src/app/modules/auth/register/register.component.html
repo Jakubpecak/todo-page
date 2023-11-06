@@ -1,18 +1,23 @@
 <div class="container">
-    <h2>Register</h2>
     <form [formGroup]="form" (ngSubmit)="createUser()">
-        <div>
-            <h5>username:</h5>
-            <input type="text" formControlName="username">
+        <h1>Register:</h1>
+        <mat-form-field class="register">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="username">
+        </mat-form-field>
+
+        <mat-form-field class="register">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email">
+        </mat-form-field>
+    
+        <mat-form-field class="register">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+        </mat-form-field>
+    
+        <div class="test">
+            <button type="submit" class="login">Submit</button>
         </div>
-        <div>
-            <h5>email:</h5>
-            <input type="email" formControlName="email">
-        </div>
-        <div>
-            <h5>any password:</h5>
-            <input type="password" formControlName="password">
-        </div>
-        <button type="submit">Submit</button>
     </form>
 </div>

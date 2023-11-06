@@ -6,13 +6,19 @@ import { LandingComponent } from './landing.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TodosComponent } from './pages/todos/todos.component';
 import { TodoComponent } from './pages/todos/todo/todo.component';
+import { AddTodoComponent } from './pages/todos/add-todo/add-todo.component';
+import { FiltersTodoComponent } from './pages/todos/filters-todo/filters-todo.component';
+import { EditTodoComponent } from './pages/todos/edit-todo/edit-todo.component';
 
 
 @NgModule({
   declarations: [
     LandingComponent,
     TodosComponent,
-    TodoComponent
+    TodoComponent,
+    AddTodoComponent,
+    FiltersTodoComponent,
+    EditTodoComponent
   ],
   imports: [
     CommonModule,

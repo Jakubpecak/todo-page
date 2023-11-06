@@ -3,3 +3,18 @@
     padding: 10px 0;
     gap: 10px;
 }
+
+.todos svg {
+    fill: #fff;
+}
+
+.todos.mat-mdc-paginator {
+    background: transparent;
+    color: #fff;
+    padding-top: 25px;
+}
+
+.todos mat-form-field {
+    background: #fff;
+    border-radius: 5px;
+}

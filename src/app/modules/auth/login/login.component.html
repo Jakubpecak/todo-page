@@ -1,16 +1,20 @@
-<div class="container">
-    <h2>Login</h2>
-    <form [formGroup]="form" (ngSubmit)="login()">
-        <div>
-            <h5>username:</h5>
-            <input type="text" formControlName="username">
-        </div>
-        <div>
-            <h5>any password:</h5>
-            <input type="password" formControlName="password">
-        </div>
-        <button type="submit">Submit</button>
-    </form>
 
-    <button routerLink="/register">register</button>
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="login()">
+        <h1>Login:</h1>
+        <mat-form-field class="login">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="username">
+        </mat-form-field>
+    
+        <mat-form-field class="login">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+        </mat-form-field>
+    
+        <div class="test">
+            <button type="submit" class="login">Submit</button>
+            <button routerLink="/register" class="login">register</button>
+        </div>
+    </form>
 </div>

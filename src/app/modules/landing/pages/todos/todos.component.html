@@ -1,37 +1,38 @@
 <div class="container">
-    <h3>Add todo:</h3>
-    <input type="text" #newTodo>
-    <button (click)="createTodo(newTodo.value)">CreateTodo</button>
-    <div>
-        <h3>My Todos:</h3>
+    <app-add-todo [userId]="userId" *ngIf="isAddTodo && !isEditTodo" (hideAddTodo)="onHideAddTodo($event)"></app-add-todo>
+    <app-edit-todo [selectedIndex]="selectedIndex" [todoList]="todoList" (hideEditTodo)="onHideEditTodo($event)" *ngIf="!isAddTodo && isEditTodo"></app-edit-todo>
+    <ng-container *ngIf="!isAddTodo && !isEditTodo">
         <div>
-            <button (click)="setOrder('asc')">Sort Asc</button>
-            <button (click)="setOrder('desc')">Sort Desc</button>           
-            <button (click)="setSort('title')">Sort by Title</button>
-            <button (click)="setSort('createdAt')">Sort by Date</button>
-          </div>
-        <input type="text" #input (keyup)="search(input.value)"> search
-        <ul *ngFor="let todo of todoList; let index = index">
-            <div [ngStyle]="{'display': 'flex', 'gap': '10px'}">
-                <a [routerLink]="'/todo/' + todo.id"><li>{{ todo.title }} - {{ todo.createdAt | date }}</li></a>
-                <button (click)="editTodo(index)" *ngIf="index !== selectedIndex; else saveTemplate">Edit</button>
-                <ng-template #saveTemplate>
-                    <button (click)="saveTodo(index)">save</button>
-                </ng-template>
-                <button (click)="deleteTodo(todo.id)">delete</button>
+            <h1>My Todos:</h1>
+            <div class="row">
+                <mat-form-field [ngStyle]="{'width': '100%'}">
+                    <mat-label>Search</mat-label>
+                    <input matInput #input (keyup)="search(input.value)">
+                </mat-form-field>
+                <app-filters-todo></app-filters-todo>
             </div>
-        </ul>
-    </div>
+            <div [ngStyle]="{'text-align': 'right', 'padding-bottom': '25px'}">
+                <button (click)="isAddTodo = true">Add Todo</button>
+            </div>
+            <ul *ngFor="let todo of todoList; let index = index">
+                <div class="test">
+                    <a [routerLink]="'/todo/' + todo.id"><li>{{ todo.title }} -<span [ngStyle]="{'font-size': '16px'}"> {{ todo.createdAt | date }}</span></li></a>
+                    <div class="test2">
+                        <button (click)="editTodo(index)">Edit</button>
+                        <button (click)="deleteTodo(todo.id)">delete</button>
+                    </div>
+                </div>
+            </ul>
+        </div>
 
-    <mat-paginator
-        class="todos"
-        [length]="todosService.state.total"
-        [pageSize]="todosService.params.getValue().perPage"
-        [pageSizeOptions]="options"
-        [pageIndex]="todosService.params.getValue().page - 1"
-        (page)="handlePageEvent($event)"
-        [showFirstLastButtons]="true"
-    ></mat-paginator>
-
-
+        <mat-paginator
+            class="todos"
+            [length]="todosService.state.total"
+            [pageSize]="todosService.params.getValue().perPage"
+            [pageSizeOptions]="options"
+            [pageIndex]="todosService.params.getValue().page - 1"
+            (page)="handlePageEvent($event)"
+            [showFirstLastButtons]="true"
+        ></mat-paginator>
+    </ng-container>
 </div>

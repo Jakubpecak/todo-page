@@ -73,17 +73,17 @@ export class TodosService {
   }
 
   setSort(sort: string) {
-    this.params.next({
-      ...this.params.getValue(),
-      sort
-    })
-  }
-
-  setOrder(order: string) {
-    this.params.next({
-      ...this.params.getValue(),
-      order
-    })
+    if (sort === 'asc' || sort === 'desc') {
+      this.params.next({
+        ...this.params.getValue(),
+        order: sort
+      })
+    } else {
+      this.params.next({
+        ...this.params.getValue(),
+        sort
+      })
+    }
   }
 
   setTotalCount(total: number) {

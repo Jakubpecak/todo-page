@@ -2,5 +2,8 @@
     <ng-container *ngIf="user">
         <h2>Hello, {{ user.username }}</h2>
         <h3>Email: {{ user.email }}</h3>
+        <h3>Phone: {{ user.phone }}</h3>
+        <h3>Address: {{ user.address?.country }}, {{ user.address?.city }}, {{ user.address?.street }}</h3>
+        <h3>Company name: {{ user.company?.name }}</h3>
     </ng-container>
 </div>

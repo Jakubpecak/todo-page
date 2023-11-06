@@ -10,7 +10,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { MenuComponent } from './components/navigation/menu/menu.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+import { MatOptionModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -26,8 +30,25 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ReactiveFormsModule,
     MatIconModule,
     MatMenuModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule
   ],
-  exports: [NavigationComponent, FooterComponent, ProfileBarComponent, MatButtonModule, ReactiveFormsModule, MatPaginatorModule]
+  exports: [
+    NavigationComponent, 
+    FooterComponent, 
+    ProfileBarComponent, 
+    MatButtonModule, 
+    ReactiveFormsModule, 
+    MatPaginatorModule, 
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule
+  ]
 })
 export class SharedModule { }

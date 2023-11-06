@@ -1,0 +1,11 @@
+:host {
+    .login {
+        width: 100%;
+    }
+
+    .test {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

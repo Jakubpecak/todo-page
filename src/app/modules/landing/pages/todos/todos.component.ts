@@ -16,6 +16,8 @@ export class TodosComponent implements OnInit, OnDestroy{
   userId: number | undefined;
   selectedIndex!: number | null;
   subscriptions = new Subscription();
+  isAddTodo: boolean =  false;
+  isEditTodo: boolean =  false;
 
   constructor(protected todosService: TodosService, private auth: AuthService){}
 
@@ -24,27 +26,9 @@ export class TodosComponent implements OnInit, OnDestroy{
     this.userId = this.auth.getCurrentUser()?.id;
   }
 
-  createTodo(title: string) {
-    const todo = {
-      title: title,
-      description: 'description test 123 1212 3423232 32',
-      completed: false,
-      userId: this.userId
-    }
-    this.todosService.createTodo(todo).subscribe();
-  }
-
   editTodo(index: number) {
     this.selectedIndex = index;
-  }
-
-  saveTodo(index: number) {
-    if (this.todoList && this.selectedIndex === index) {
-      const newTitle = { title: 'kogutcik' }
-      this.todosService.editTodo(this.todoList[index].id, newTitle).subscribe(() => {
-        this.selectedIndex = null;
-      });
-    }
+    this.isEditTodo = true;
   }
 
   deleteTodo(todoId: any) {
@@ -61,17 +45,17 @@ export class TodosComponent implements OnInit, OnDestroy{
     this.todosService.setQuery(query);
   }
 
-  setOrder(order: string) {
-    this.todosService.setOrder(order);
-  }
-  
-  setSort(sortKey: string) {
-    this.todosService.setSort(sortKey);
-  }
-
   handlePageEvent(event: PageEvent) {
     this.todosService.setPage(event.pageIndex + 1);
     this.todosService.setPerPage(event.pageSize);
+  }
+
+  onHideAddTodo(value: boolean) {
+    this.isAddTodo = value;
+  }
+
+  onHideEditTodo(value: boolean) {
+    this.isEditTodo = value;
   }
 
   ngOnDestroy(): void {
