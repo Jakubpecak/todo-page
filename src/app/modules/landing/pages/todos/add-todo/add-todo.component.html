@@ -9,7 +9,7 @@
       <mat-label>Todo description</mat-label>
       <textarea matInput placeholder="Ex. Date or time..." formControlName="description"></textarea>
     </mat-form-field>
-        <button type="submit">Add todo</button>
+        <button class="add" type="submit">Add todo</button>
 </form>
 
-<button class="cancelBtn" (click)="onHideAddTodo()">Cancel</button>
+<button class="cancelBtn delete" (click)="onHideAddTodo()">Cancel</button>

@@ -4,20 +4,30 @@
         padding: 20px;
     }
 
+    .nav__logo {
+        i {
+            font-size: 35px;
+        }
+    }
+
     .nav__menu__btn {
         position: absolute;
-        top: 10px;
+        top: 14px;
         right: 10px;
         color: #fff;
     }
 
     .nav__menu__login {
         position: absolute;
-        top: 20px;
+        top: 23px;
         right: 75px;
-    }
 
-    a {
-        font-size: 20px;
+        a {
+            font-size: 20px;
+
+            i {
+                font-size: 30px;
+            }
+        }
     }
 }

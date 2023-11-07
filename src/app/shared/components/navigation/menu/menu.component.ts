@@ -8,14 +8,21 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class MenuComponent {
   @Input() showMenu: boolean | undefined;
   @Output() closeMenuEmitter = new EventEmitter<boolean>();
+  @Output() userLoggedOut = new EventEmitter<boolean>();
+  @Input() isAuthenticated: boolean = false;
 
   menuItems = [
+    { label: 'Home', routerLink: '/' },
     { label: 'Profile', routerLink: '/profile' },
     { label: 'Todos', routerLink: '/todos' },
-    { label: 'Blog', routerLink: '/blog' },
   ];
 
   closeMenu() {
     this.closeMenuEmitter.emit();
+  }
+
+  logout() {
+    this.closeMenuEmitter.emit();
+    this.userLoggedOut.emit();
   }
 }

@@ -3,8 +3,16 @@
         <mat-icon>close</mat-icon>
     </button>
     <ul>
-      <li *ngFor="let menuItem of menuItems">
-        <a [routerLink]="menuItem.routerLink" (click)="closeMenu()">{{ menuItem.label }}</a>
+      <ng-container *ngIf="isAuthenticated">
+        <li *ngFor="let menuItem of menuItems">
+          <a [routerLink]="menuItem.routerLink" (click)="closeMenu()">{{ menuItem.label }}</a>
+        </li>
+        <li *ngIf="isAuthenticated">
+          <a (click)="logout()">Logout</a>
+        </li>
+      </ng-container>
+      <li *ngIf="!isAuthenticated">
+        <a [routerLink]="menuItems[0].routerLink" (click)="closeMenu()">{{ menuItems[0].label }}</a>
       </li>
     </ul>
 </div>

@@ -1,9 +1,12 @@
 <div class="container">
     <ng-container *ngIf="user">
-        <h2>Hello, {{ user.username }}</h2>
+        <h1>Hello, {{ user.username }}</h1>
         <h3>Email: {{ user.email }}</h3>
         <h3>Phone: {{ user.phone }}</h3>
         <h3>Address: {{ user.address?.country }}, {{ user.address?.city }}, {{ user.address?.street }}</h3>
         <h3>Company name: {{ user.company?.name }}</h3>
+        <div class="user__edit">
+            <button class="edit" [routerLink]="'/profile/edit/' + user.id">Edit profile</button>
+        </div>
     </ng-container>
 </div>

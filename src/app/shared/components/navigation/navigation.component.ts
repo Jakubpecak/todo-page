@@ -12,12 +12,14 @@ export class NavigationComponent implements OnInit {
 
   constructor(protected auth: AuthService) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   toggleMenu() {
     this.showMenu = !this.showMenu;
+  }
+
+  logout() {
+    this.auth.logout();
   }
 
 

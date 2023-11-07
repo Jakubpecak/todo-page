@@ -7,19 +7,19 @@
             <div class="row">
                 <mat-form-field [ngStyle]="{'width': '100%'}">
                     <mat-label>Search</mat-label>
-                    <input matInput #input (keyup)="search(input.value)">
+                    <input matInput #input (keyup)="search(input.value)" placeholder="by title and description">
                 </mat-form-field>
                 <app-filters-todo></app-filters-todo>
             </div>
             <div [ngStyle]="{'text-align': 'right', 'padding-bottom': '25px'}">
-                <button (click)="isAddTodo = true">Add Todo</button>
+                <button class="add" (click)="isAddTodo = true">Add Todo</button>
             </div>
             <ul *ngFor="let todo of todoList; let index = index">
                 <div class="test">
                     <a [routerLink]="'/todo/' + todo.id"><li>{{ todo.title }} -<span [ngStyle]="{'font-size': '16px'}"> {{ todo.createdAt | date }}</span></li></a>
                     <div class="test2">
-                        <button (click)="editTodo(index)">Edit</button>
-                        <button (click)="deleteTodo(todo.id)">delete</button>
+                        <button class="edit" (click)="editTodo(index)">Edit</button>
+                        <button class="delete" (click)="deleteTodo(todo.id)">delete</button>
                     </div>
                 </div>
             </ul>

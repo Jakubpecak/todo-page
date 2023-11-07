@@ -5,12 +5,14 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { UserComponent } from './user/user.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    UserComponent
+    UserComponent,
+    UserEditComponent
   ],
   imports: [
     CommonModule,
