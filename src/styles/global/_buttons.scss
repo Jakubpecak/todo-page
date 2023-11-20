@@ -25,6 +25,10 @@ button {
     background: #ba2e08;
 }
 
+.disabled {
+    opacity: 0.5;
+}
+
 /* Wariant "Disabled" */
 .btn:disabled {
     cursor: not-allowed;

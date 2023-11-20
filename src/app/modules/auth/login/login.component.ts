@@ -1,6 +1,6 @@
 
-import { Component} from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -8,19 +8,33 @@ import { AuthService } from 'src/app/core/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   message: string | null | undefined;
   isAuthenticate = false;
-
-  form: FormGroup = this.fb.group({
-    username: '',
-    password: ''
-  });
+  isValid: boolean = false;
+  form!: FormGroup;
 
   constructor(private auth: AuthService, private fb: FormBuilder) {}
 
+  ngOnInit(): void {
+    this.setForm();
+
+    this.form.valueChanges.subscribe(() => {
+      this.isValid = this.form.valid;
+    });
+  }
+
+  setForm() {
+    this.form = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+
   login() {
-    this.auth.login(this.form.value);
+    if (this.isValid) {
+      this.auth.login(this.form.value);
+    }
   }
 
 }

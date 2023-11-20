@@ -1,4 +1,4 @@
-<form class="example-form" [formGroup]="form" (ngSubmit)="saveTodo()">
+<form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h1>Edit todo:</h1>
     <mat-form-field>
       <mat-label>Todo title</mat-label>
@@ -9,7 +9,7 @@
       <mat-label>Todo description</mat-label>
       <textarea matInput placeholder="Ex. Date or time..." formControlName="description"></textarea>
     </mat-form-field>
-    <button type="submit">Edit todo</button>
+    <button type="submit" [ngClass]="{'disabled' : !isValid}">Edit todo</button>
 </form>
 
 <button class="cancelBtn delete" (click)="onHideEditTodo()">Cancel</button>

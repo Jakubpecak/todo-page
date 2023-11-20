@@ -1,6 +1,9 @@
-<div class="container">
+<div class="container user">
     <ng-container *ngIf="user">
-        <h1>Hello, {{ user.username }}</h1>
+        <h1>My profile</h1>
+        <div class="user__picture">
+            
+        </div>
         <h3>Email: {{ user.email }}</h3>
         <h3>Phone: {{ user.phone }}</h3>
         <h3>Address: {{ user.address?.country }}, {{ user.address?.city }}, {{ user.address?.street }}</h3>

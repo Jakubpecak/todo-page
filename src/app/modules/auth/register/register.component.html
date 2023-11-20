@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="form" (ngSubmit)="createUser()">
+    <form [formGroup]="form" (ngSubmit)="registerUser()">
         <h1>Register:</h1>
         <mat-form-field class="register">
           <mat-label>Username</mat-label>
@@ -22,7 +22,7 @@
         </mat-form-field>
     
         <div class="test">
-            <button type="submit" class="login add">Submit</button>
+            <button type="submit" class="login add" [ngClass]="{'disabled' : !isValid}">Submit</button>
         </div>
     </form>
 </div>
