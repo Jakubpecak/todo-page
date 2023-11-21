@@ -13,5 +13,6 @@ export interface User {
       catchPhrase?: string | null;
       bs?: string
     },
+    photo?: string;
     roles?: string[]
 }

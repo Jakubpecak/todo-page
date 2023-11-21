@@ -6,7 +6,7 @@ import { ProfileComponent } from './profile.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
     CommonModule,
     SharedModule,
     ProfileRoutingModule,
+    ImageCropperModule
   ]
 })
 export class ProfileModule { }

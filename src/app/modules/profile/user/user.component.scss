@@ -1,10 +1,56 @@
 :host {
-    h1 {
-        text-align: center;
+    .user {
+        h1 {
+            text-align: center;
+        }
+        &__picture {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &__label {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                i {
+                    font-size: 50px;
+                    color: gray;
+                    &:hover {
+                        transition: all 0.5s ease-in-out;
+                        transform: scale(1.15);
+                        color: #000;
+                    }
+                }
+            }
+            &__image {
+                border-radius: 50%;
+                width: 230px;
+                height: 230px;
+                background-color: rgba(219,219,220,0.4);
+                border: 2px solid white;
+            }
+        }
+        &__edit {
+            text-align: right;
+            padding-top: 20px;
+        }
+        &__button {
+            padding: 20px 0;
+            text-align: center;
+        }
     }
 
-    .user__edit {
-        text-align: right;
-        padding-top: 20px;
+    input[type="file"] {
+        display: none;
+    }
+}
+
+.editIcon  {
+    opacity: 0;
+    &:hover {
+        opacity: 1;
     }
 }

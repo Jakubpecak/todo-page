@@ -13,4 +13,8 @@ export class UserService {
   createUser(userData: User) {
     return this.http.post<User>(this.url, userData);
   }
+
+  changePhotoUser(id: any, photo: any) {
+    return this.http.patch(this.url + '/' + id, { photo });
+  }
 }

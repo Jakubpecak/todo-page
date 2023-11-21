@@ -20,7 +20,8 @@
       },
       "roles": [
         "USER"
-      ]
+      ],
+      "photo": "blob:http://localhost:4200/2996e4f0-d6ec-497a-a7f9-24e347c90adb"
     },
     {
       "id": 2,

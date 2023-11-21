@@ -1,9 +1,32 @@
 <div class="container user">
     <ng-container *ngIf="user">
         <h1>My profile</h1>
+
+
+
         <div class="user__picture">
-            
+            <label for="fileInput" class="user__picture__label" [ngClass]="{'editIcon' : !isDisplayEditIcon }">
+                <i class="fa fa-pencil"></i>
+            </label>
+            <input type="file" id="fileInput" (change)="fileChangeEvent($event)" />
+            <image-cropper
+              *ngIf="imageChangedEvent"
+              [imageChangedEvent]="imageChangedEvent"
+              [maintainAspectRatio]="true"
+              [aspectRatio]="4 / 4"
+              format="png"
+              (imageCropped)="imageCropped($event)"
+            ></image-cropper>
+            <img *ngIf="!imageChangedEvent && croppedImage" class="user__picture__image" [src]="croppedImage"/>
+            <img *ngIf="!imageChangedEvent && !croppedImage" class="user__picture__image" />
         </div>
+        <div class="user__button">
+            <button *ngIf="isDisplaySaveBtn" (click)="saveImage(user.id, croppedImage)">Save</button>
+        </div>
+
+
+
+
         <h3>Email: {{ user.email }}</h3>
         <h3>Phone: {{ user.phone }}</h3>
         <h3>Address: {{ user.address?.country }}, {{ user.address?.city }}, {{ user.address?.street }}</h3>
