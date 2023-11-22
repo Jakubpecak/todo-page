@@ -16,11 +16,13 @@ export class UserComponent implements OnInit {
   isDisplaySaveBtn: boolean = false;
   imageChangedEvent: any = '';
   croppedImage: any = '';
+  openAccordionIndex: number | null = null;
 
   constructor(private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService) {}
 
   ngOnInit(): void {
     this.user = this.auth.getCurrentUser();
+    this.setOpenAccordion(0);
   }
 
   fileChangeEvent(event: any): void {
@@ -45,6 +47,10 @@ export class UserComponent implements OnInit {
       this.isDisplaySaveBtn = false;
       this.userService.changePhotoUser(id, safePhoto).subscribe();
     }
+  }
+
+  setOpenAccordion(index: number) {
+    this.openAccordionIndex = index === this.openAccordionIndex ? null : index;
   }
 
 }

@@ -1,9 +1,6 @@
 <div class="container user">
     <ng-container *ngIf="user">
         <h1>My profile</h1>
-
-
-
         <div class="user__picture">
             <label for="fileInput" class="user__picture__label" [ngClass]="{'editIcon' : !isDisplayEditIcon }">
                 <i class="fa fa-pencil"></i>
@@ -24,13 +21,24 @@
             <button *ngIf="isDisplaySaveBtn" (click)="saveImage(user.id, croppedImage)">Save</button>
         </div>
 
+        <app-user-progress-bar></app-user-progress-bar>
 
 
+        <div class="user__info">
+            <app-user-basic-info 
+                [openAccordionIndex]="openAccordionIndex"
+                (sendIndexNumber)="setOpenAccordion($event)"
+            ></app-user-basic-info>
+            <app-user-contact
+                [openAccordionIndex]="openAccordionIndex"
+                (sendIndexNumber)="setOpenAccordion($event)"
+            ></app-user-contact>
+            <app-user-settings
+                [openAccordionIndex]="openAccordionIndex"
+                (sendIndexNumber)="setOpenAccordion($event)"
+            ></app-user-settings>
+        </div>
 
-        <h3>Email: {{ user.email }}</h3>
-        <h3>Phone: {{ user.phone }}</h3>
-        <h3>Address: {{ user.address?.country }}, {{ user.address?.city }}, {{ user.address?.street }}</h3>
-        <h3>Company name: {{ user.company?.name }}</h3>
         <div class="user__edit">
             <button class="edit" [routerLink]="'/profile/edit/' + user.id">Edit profile</button>
         </div>

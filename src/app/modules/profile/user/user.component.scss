@@ -41,6 +41,11 @@
             padding: 20px 0;
             text-align: center;
         }
+        &__info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
     }
 
     input[type="file"] {

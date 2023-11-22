@@ -18,6 +18,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { InputComponent } from './components/input/input.component';
 import { SearchComponent } from './components/search/search.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { AccordionComponent } from './components/accordion/accordion.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     MenuComponent,
     InputComponent,
     SearchComponent,
-    TextareaComponent
+    TextareaComponent,
+    AccordionComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +44,8 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     MatInputModule,
     FormsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    CdkAccordionModule
   ],
   exports: [
     NavigationComponent, 
@@ -57,7 +61,9 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     MatSelectModule,
     InputComponent,
     SearchComponent,
-    TextareaComponent
+    TextareaComponent,
+    CdkAccordionModule,
+    AccordionComponent
   ]
 })
 export class SharedModule { }

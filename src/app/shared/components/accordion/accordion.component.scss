@@ -1,0 +1,23 @@
+:host {
+    .accordion {
+      display: block;
+      width: 100%;
+      
+      &__item {
+        display: block;
+        border: 2px solid #ccc;
+        padding: 10px 20px;
+        border-radius: 10px;
+        
+        &__header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        &__body {
+            border-top: 1px solid gray;
+        }
+      }
+    }
+  }
