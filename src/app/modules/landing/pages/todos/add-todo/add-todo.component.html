@@ -1,15 +1,17 @@
-<form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form class="add__form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h1>Add todo:</h1>
-    <mat-form-field>
-      <mat-label>Todo title</mat-label>
-      <input matInput placeholder="Ex. Go shopping" formControlName="title">
-    </mat-form-field>
-  
-    <mat-form-field class="example-full-width">
-      <mat-label>Todo description</mat-label>
-      <textarea matInput placeholder="Ex. Date or time..." formControlName="description"></textarea>
-    </mat-form-field>
-        <button class="add" type="submit" [ngClass]="{'disabled' : !isValid}">Add todo</button>
+    <app-input
+      [label]="'Todo title'"
+      [control]="this.form.get('title')"
+      [type]="'text'"
+      [placeholder]="'Ex. Go shopping'"
+    ></app-input>
+    <app-textarea
+      [label]="'Todo description'"
+      [control]="this.form.get('description')"
+      [placeholder]="'Ex. Date or time...'"
+      [type]="'textarea'"
+    ></app-textarea>
+    <button class="add" type="submit" [ngClass]="{'disabled' : !isValid}">Add todo</button>
 </form>
-
-<button class="cancelBtn delete" (click)="onHideAddTodo()">Cancel</button>
+<button class="add__button delete" (click)="onHideAddTodo()">Cancel</button>

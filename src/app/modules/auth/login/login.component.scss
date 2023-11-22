@@ -1,11 +1,10 @@
 :host {
-    .login {
-        width: 100%;
-    }
-
-    .test {
+    .login__buttons {
         display: flex;
         flex-direction: column;
         gap: 20px;
+        &__button {
+            width: 100%;
+        }
     }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/core/models/user';
 import { UserService } from 'src/app/core/services/user.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   newUser: User | null = null;
   isValid: boolean = false;
   
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(private fb: FormBuilder, private userService: UserService, private location: Location) {}
 
   ngOnInit(): void {
     this.setForm();
@@ -68,6 +69,10 @@ export class RegisterComponent implements OnInit {
     Object.keys(this.form.controls).forEach(key => {
       this.form.get(key)?.setErrors(null);
     });
+  }
+
+  back() {
+    this.location.back();
   }
 
 }

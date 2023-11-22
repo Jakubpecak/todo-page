@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TodosService } from 'src/app/core/services/todos.service';
 
 @Component({
@@ -7,7 +7,10 @@ import { TodosService } from 'src/app/core/services/todos.service';
   styleUrls: ['./filters-todo.component.scss']
 })
 export class FiltersTodoComponent {
+  @Input() label!: string;
   selectedValue: string | undefined;
+
+  constructor(private todosService: TodosService) {}
 
   filters = [
     {value: 'asc', label: 'Ascending'},
@@ -15,8 +18,6 @@ export class FiltersTodoComponent {
     {value: 'title', label: 'Title'},
     {value: 'createdAt', label: 'Date'}
   ];
-
-  constructor(private todosService: TodosService) {}
   
   setSort(sortKey: string) {
     this.todosService.setSort(sortKey);

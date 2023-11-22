@@ -1,9 +1,5 @@
 :host {
-    .register {
-        width: 100%;
-    }
-
-    .test {
+    .register__buttons {
         display: flex;
         flex-direction: column;
         gap: 20px;

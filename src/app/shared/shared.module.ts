@@ -15,13 +15,19 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { InputComponent } from './components/input/input.component';
+import { SearchComponent } from './components/search/search.component';
+import { TextareaComponent } from './components/textarea/textarea.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavigationComponent,
     ProfileBarComponent,
-    MenuComponent
+    MenuComponent,
+    InputComponent,
+    SearchComponent,
+    TextareaComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +54,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     FormsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    InputComponent,
+    SearchComponent,
+    TextareaComponent
   ]
 })
 export class SharedModule { }

@@ -1,5 +1,5 @@
 <mat-form-field>
-  <mat-label>Sort</mat-label>
+  <mat-label>{{ label }}</mat-label>
   <mat-select [(ngModel)]="selectedValue" name="filters"  matSelectTrigger>
     <mat-option *ngFor="let filter of filters" [value]="filter.value" (click)="setSort(filter.value)">
       {{ filter.label }}

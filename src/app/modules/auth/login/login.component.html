@@ -1,20 +1,20 @@
 
-<div class="container">
+<div class="container login">
     <form [formGroup]="form" (ngSubmit)="login()">
         <h1>Login:</h1>
-        <mat-form-field class="login">
-          <mat-label>Username</mat-label>
-          <input type="text" matInput formControlName="username">
-        </mat-form-field>
-    
-        <mat-form-field class="login">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password">
-        </mat-form-field>
-    
-        <div class="test">
-            <button type="submit" class="login add" [ngClass]="{'disabled' : !isValid}">Submit</button>
-            <button routerLink="/register" class="login">register</button>
+        <app-input
+            [label]="'Login'"
+            [control]="this.form.get('username')"
+            [type]="'text'">
+        </app-input>
+        <app-input
+            [label]="'Password'"
+            [control]="this.form.get('password')"
+            [type]="'password'">
+        </app-input>
+        <div class="login__buttons">
+            <button type="submit" class="login__buttons__button add" [ngClass]="{'disabled' : !isValid}">Submit</button>
+            <button routerLink="/register" class="login__buttons__button">Register</button>
         </div>
     </form>
 </div>

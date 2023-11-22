@@ -1,18 +1,11 @@
 :host {
-    form {
+    .add__form {
         display: flex;
         flex-direction: column;
         gap: 5px;
         padding-bottom: 20px;
     }
-
-    textarea {
-        resize: none;
-        height: 100px;
-    }
-
-    .cancelBtn {
+    .add__button {
         width: 100%;
     }
-
 }

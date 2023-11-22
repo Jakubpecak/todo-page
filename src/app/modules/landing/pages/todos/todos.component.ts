@@ -12,7 +12,7 @@ import { TodosService } from 'src/app/core/services/todos.service';
 })
 export class TodosComponent implements OnInit, OnDestroy{
   todoList: Todo[] | null | undefined = [];
-  options: number[] = [5, 10, 50];
+  options: number[] = [5, 10, 25];
   userId: number | undefined;
   selectedIndex!: number | null;
   subscriptions = new Subscription();
@@ -39,10 +39,6 @@ export class TodosComponent implements OnInit, OnDestroy{
     this.subscriptions.add(this.todosService.getTodos().subscribe((todos) => {
       this.todoList = todos;
     }));
-  }
-
-  search(query: string) {
-    this.todosService.setQuery(query);
   }
 
   handlePageEvent(event: PageEvent) {

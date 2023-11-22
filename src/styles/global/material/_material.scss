@@ -1,20 +1,20 @@
-.todos .mat-mdc-paginator-container {
+.todos__pagination .mat-mdc-paginator-container {
     justify-content: center;
     padding: 10px 0;
     gap: 10px;
 }
 
-.todos svg {
+.todos__pagination svg {
     fill: #fff;
 }
 
-.todos.mat-mdc-paginator {
+.todos__pagination.mat-mdc-paginator {
     background: transparent;
     color: #fff;
     padding-top: 25px;
 }
 
-.todos mat-form-field {
+.todos__pagination mat-form-field {
     background: #fff;
     border-radius: 5px;
 }

@@ -1,28 +1,29 @@
-<div class="container">
+<div class="container register">
     <form [formGroup]="form" (ngSubmit)="registerUser()">
         <h1>Register:</h1>
-        <mat-form-field class="register">
-          <mat-label>Username</mat-label>
-          <input type="text" matInput formControlName="username">
-        </mat-form-field>
-
-        <mat-form-field class="register">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput formControlName="email">
-        </mat-form-field>
-    
-        <mat-form-field class="register">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password">
-        </mat-form-field>
-
-        <mat-form-field class="register">
-            <mat-label>Repeat password</mat-label>
-            <input type="password" matInput formControlName="repeatPassword">
-        </mat-form-field>
-    
-        <div class="test">
-            <button type="submit" class="login add" [ngClass]="{'disabled' : !isValid}">Submit</button>
+        <app-input
+            [label]="'Username'"
+            [control]="this.form.get('username')"
+            [type]="'text'">
+        ></app-input>
+        <app-input
+            [label]="'Email'"
+            [control]="this.form.get('email')"
+            [type]="'email'">
+        ></app-input>
+        <app-input
+            [label]="'Password'"
+            [control]="this.form.get('password')"
+            [type]="'password'">
+        ></app-input>
+        <app-input
+            [label]="'Repeat password'"
+            [control]="this.form.get('repeatPassword')"
+            [type]="'password'">
+        ></app-input>
+        <div class="register__buttons">
+            <button type="submit" class="add" [ngClass]="{'disabled' : !isValid}">Create</button>
+            <button (click)="back()">Back</button>
         </div>
     </form>
 </div>

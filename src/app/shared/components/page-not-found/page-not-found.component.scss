@@ -1,5 +1,12 @@
 :host {
     .container {
-        text-align: center;
+        img {
+            border-radius: 10px;
+        }
+        .not-found {
+            text-align: center;
+            padding-top: 20px;
+        }
+
     }
 }
