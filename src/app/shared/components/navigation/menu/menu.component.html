@@ -4,15 +4,17 @@
     </button>
     <ul>
       <ng-container *ngIf="isAuthenticated">
-        <li *ngFor="let menuItem of menuItems">
+        <li *ngFor="let menuItem of authorizedMenuItems">
           <a [routerLink]="menuItem.routerLink" (click)="closeMenu()">{{ menuItem.label }}</a>
         </li>
-        <li *ngIf="isAuthenticated">
+        <li>
           <a (click)="logout()">Logout</a>
         </li>
       </ng-container>
-      <li *ngIf="!isAuthenticated">
-        <a [routerLink]="menuItems[0].routerLink" (click)="closeMenu()">{{ menuItems[0].label }}</a>
-      </li>
+      <ng-container *ngIf="!isAuthenticated">
+        <li *ngFor="let menuItem of notAuthorizedMenuItems">
+          <a [routerLink]="menuItem.routerLink" (click)="closeMenu()">{{ menuItem.label }}</a>
+        </li>
+      </ng-container>
     </ul>
 </div>

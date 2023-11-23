@@ -16,8 +16,13 @@ const routes: Routes = [
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   },
   {
-    path: '**',
+    path: 'not-found',
     component: PageNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
+    pathMatch: 'full'
   }
 ];
 

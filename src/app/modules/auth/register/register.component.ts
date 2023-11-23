@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/core/models/user';
 import { UserService } from 'src/app/core/services/user.service';
 import { Location } from '@angular/common';
+import { required } from 'src/app/core/validators/required';
+import { matchPassword } from 'src/app/core/validators/match';
 
 @Component({
   selector: 'app-register',
@@ -13,23 +15,28 @@ export class RegisterComponent implements OnInit {
   form!: FormGroup;
   newUser: User | null = null;
   isValid: boolean = false;
+  password: string = '';
   
   constructor(private fb: FormBuilder, private userService: UserService, private location: Location) {}
 
   ngOnInit(): void {
     this.setForm();
+    this.password = this.form.get('password')?.value;
 
     this.form.valueChanges.subscribe(() => {
       this.isValid = this.form.valid;
+      this.password = this.form.get('password')?.value;
     });
   }
 
+  getCurrentPassword = () => this.password;
+
   setForm() {
     this.form = this.fb.group({
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      repeatPassword: ['', Validators.required]
+      username: ['', [required('Username is required')]],
+      email: ['', [required('Email is required')]],
+      password: ['', [required('Password is required')]],
+      repeatPassword: ['', [required('Repeat password is required'), matchPassword(this.getCurrentPassword, 'Password not match')]]
     });
   }
 

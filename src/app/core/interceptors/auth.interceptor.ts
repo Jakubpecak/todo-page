@@ -25,9 +25,7 @@ export class AuthInterceptor implements HttpInterceptor {
               break;
 
             case 403:
-              // you can redirect here
               alert('Access denied. You do not have the necessary permissions.');
-              // this.router.navigate(['/home']);
               break;
 
             default:
@@ -47,7 +45,6 @@ export class AuthInterceptor implements HttpInterceptor {
       }
     })
   }
-
 }
 
 export const AuthInterceptorProvider = {

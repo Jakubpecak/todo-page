@@ -19,7 +19,7 @@
 
 
 //animations
-@mixin fade-in($duration: 1s) {
+  @mixin fade-in($duration: 1s) {
     animation: fadein $duration ease-in;
     @keyframes fadein {
       from { opacity: 0; }

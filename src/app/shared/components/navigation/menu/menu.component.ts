@@ -11,10 +11,16 @@ export class MenuComponent {
   @Output() userLoggedOut = new EventEmitter<boolean>();
   @Input() isAuthenticated: boolean = false;
 
-  menuItems = [
+  authorizedMenuItems = [
     { label: 'Home', routerLink: '/' },
     { label: 'Profile', routerLink: '/profile' },
-    { label: 'Todos', routerLink: '/todos' },
+    { label: 'Todos', routerLink: '/todos' }
+  ];
+
+  notAuthorizedMenuItems = [
+    { label: 'Home', routerLink: '/' },
+    { label: 'Login', routerLink: '/login' },
+    { label: 'Register', routerLink: '/register' },
   ];
 
   closeMenu() {

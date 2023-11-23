@@ -2,16 +2,21 @@
 <div class="container login">
     <form [formGroup]="form" (ngSubmit)="login()">
         <h1>Login:</h1>
-        <app-input
-            [label]="'Login'"
-            [control]="this.form.get('username')"
-            [type]="'text'">
-        </app-input>
-        <app-input
-            [label]="'Password'"
-            [control]="this.form.get('password')"
-            [type]="'password'">
-        </app-input>
+        <app-error controlName="username">
+            <app-input
+                [label]="'Username'"
+                [control]="this.form.get('username')"
+                [type]="'text'"
+                >
+            </app-input>
+        </app-error>
+        <app-error controlName="password">
+            <app-input
+                [label]="'Password'"
+                [control]="this.form.get('password')"
+                [type]="'password'">
+            </app-input>
+        </app-error>
         <div class="login__buttons">
             <button type="submit" class="login__buttons__button add" [ngClass]="{'disabled' : !isValid}">Submit</button>
             <button routerLink="/register" class="login__buttons__button">Register</button>

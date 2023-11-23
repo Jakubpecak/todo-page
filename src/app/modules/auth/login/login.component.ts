@@ -1,7 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { minLength } from 'src/app/core/validators/min';
+import { required } from 'src/app/core/validators/required';
 
 @Component({
   selector: 'app-login',
@@ -26,8 +28,8 @@ export class LoginComponent implements OnInit {
 
   setForm() {
     this.form = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      username: ['', [required('Username is required'), minLength('Min. length 3')]],
+      password: ['', required('Password is required')],
     });
   }
 

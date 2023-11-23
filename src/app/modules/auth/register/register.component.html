@@ -1,26 +1,34 @@
 <div class="container register">
     <form [formGroup]="form" (ngSubmit)="registerUser()">
         <h1>Register:</h1>
-        <app-input
-            [label]="'Username'"
-            [control]="this.form.get('username')"
-            [type]="'text'">
-        ></app-input>
-        <app-input
-            [label]="'Email'"
-            [control]="this.form.get('email')"
-            [type]="'email'">
-        ></app-input>
-        <app-input
-            [label]="'Password'"
-            [control]="this.form.get('password')"
-            [type]="'password'">
-        ></app-input>
-        <app-input
-            [label]="'Repeat password'"
-            [control]="this.form.get('repeatPassword')"
-            [type]="'password'">
-        ></app-input>
+        <app-error controlName="username">
+            <app-input
+                [label]="'Username'"
+                [control]="this.form.get('username')"
+                [type]="'text'">
+            </app-input>
+        </app-error>
+        <app-error controlName="email">
+            <app-input
+                [label]="'Email'"
+                [control]="this.form.get('email')"
+                [type]="'email'">
+            </app-input>
+        </app-error>
+        <app-error controlName="password">
+            <app-input
+                [label]="'Password'"
+                [control]="this.form.get('password')"
+                [type]="'password'">
+            ></app-input>
+        </app-error>
+        <app-error controlName="repeatPassword">
+            <app-input
+                [label]="'Repeat password'"
+                [control]="this.form.get('repeatPassword')"
+                [type]="'password'">
+            ></app-input>
+        </app-error>
         <div class="register__buttons">
             <button type="submit" class="add" [ngClass]="{'disabled' : !isValid}">Create</button>
             <button (click)="back()">Back</button>

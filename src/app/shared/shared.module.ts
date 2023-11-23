@@ -20,6 +20,8 @@ import { SearchComponent } from './components/search/search.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { AccordionComponent } from './components/accordion/accordion.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AccordionComponent } from './components/accordion/accordion.component';
     InputComponent,
     SearchComponent,
     TextareaComponent,
-    AccordionComponent
+    AccordionComponent,
+    PageNotFoundComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +67,8 @@ import { AccordionComponent } from './components/accordion/accordion.component';
     SearchComponent,
     TextareaComponent,
     CdkAccordionModule,
-    AccordionComponent
+    AccordionComponent,
+    ErrorComponent
   ]
 })
 export class SharedModule { }

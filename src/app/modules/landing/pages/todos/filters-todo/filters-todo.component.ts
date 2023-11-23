@@ -19,8 +19,8 @@ export class FiltersTodoComponent {
     {value: 'createdAt', label: 'Date'}
   ];
   
-  setSort(sortKey: string) {
-    this.todosService.setSort(sortKey);
+  setSort(key: string) {
+    this.todosService.setSort(key);
   }
 
 }

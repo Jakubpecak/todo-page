@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile.component';
 import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { AuthorizedGuard } from 'src/app/core/guards/authorized.guard';
 
 const routes: Routes = [
   {
-    path: '', component: ProfileComponent,
+    path: '', component: ProfileComponent, canActivate: [AuthorizedGuard],
     children: [
       {
         path: '', component: UserComponent,

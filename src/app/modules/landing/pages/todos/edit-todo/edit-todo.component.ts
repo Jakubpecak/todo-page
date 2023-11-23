@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Todo } from 'src/app/core/models/todo';
 import { TodosService } from 'src/app/core/services/todos.service';
+import { required } from 'src/app/core/validators/required';
 
 @Component({
   selector: 'app-edit-todo',
@@ -27,8 +28,8 @@ export class EditTodoComponent implements OnInit {
 
   setForm() {
     this.form = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
+      title: ['', required('Title is required')],
+      description: ['', required('Description is required')],
     });
   }
 
