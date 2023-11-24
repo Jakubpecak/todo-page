@@ -5,6 +5,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { Location } from '@angular/common';
 import { required } from 'src/app/core/validators/required';
 import { matchPassword } from 'src/app/core/validators/match';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,8 +17,9 @@ export class RegisterComponent implements OnInit {
   newUser: User | null = null;
   isValid: boolean = false;
   password: string = '';
+  isLoading: boolean = false;
   
-  constructor(private fb: FormBuilder, private userService: UserService, private location: Location) {}
+  constructor(private fb: FormBuilder, private userService: UserService, private location: Location, private router: Router) {}
 
   ngOnInit(): void {
     this.setForm();
@@ -42,6 +44,7 @@ export class RegisterComponent implements OnInit {
 
   registerUser() {
     if (this.isValid) {
+      this.isLoading = true;
       const formData = this.form.value;
 
       this.newUser = {
@@ -67,6 +70,10 @@ export class RegisterComponent implements OnInit {
       this.userService.createUser(this.newUser).subscribe(() => {
         this.resetForm();
         this.isValid = false;
+        this.isLoading = false;
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1000);
       });
     }
   }

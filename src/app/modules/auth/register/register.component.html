@@ -30,7 +30,10 @@
             ></app-input>
         </app-error>
         <div class="register__buttons">
-            <button type="submit" class="add" [ngClass]="{'disabled' : !isValid}">Create</button>
+            <button type="submit" class="add" [ngClass]="{'disabled' : !isValid}" *ngIf="!isLoading">Create</button>
+            <button type="submit" class="add" *ngIf="isLoading" [disabled]="true">
+                <i class="fa fa-spinner fa-spin"></i>
+            </button>
             <button (click)="back()">Back</button>
         </div>
     </form>
