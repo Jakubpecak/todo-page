@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   login(credentials: Credentials) {
-    this.http.post<Session>(this.apiUrl + 'login', credentials).subscribe({
+    this.http.post<Session>('http://localhost:4200/login', credentials).subscribe({
       next: (session: Session) => {
         this.session.next(session);
         this.storeSession(session);
