@@ -30,7 +30,7 @@
                     <a [routerLink]="'/todo/' + todo.id"><li>{{ todo.title }} -<span> {{ todo.createdAt | date }}</span></li></a>
                     <div class="todos__list__buttons">
                         <button class="edit" (click)="editTodo(index)">Edit</button>
-                        <button class="delete" (click)="deleteTodo(todo.id)">delete</button>
+                        <button class="delete" (click)="deleteTodo(todo.id)">Delete</button>
                     </div>
                 </div>
             </ul>

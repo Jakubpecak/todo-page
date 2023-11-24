@@ -22,6 +22,8 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ErrorComponent } from './components/error/error.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { ErrorComponent } from './components/error/error.component';
     TextareaComponent,
     AccordionComponent,
     PageNotFoundComponent,
-    ErrorComponent
+    ErrorComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +52,8 @@ import { ErrorComponent } from './components/error/error.component';
     FormsModule,
     MatOptionModule,
     MatSelectModule,
-    CdkAccordionModule
+    CdkAccordionModule,
+    MatDialogModule
   ],
   exports: [
     NavigationComponent, 

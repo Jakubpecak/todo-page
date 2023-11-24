@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Todo } from '../models/todo';
 import { BehaviorSubject, debounceTime, map, switchMap, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 interface Params {
   query: string;
@@ -15,7 +16,7 @@ interface Params {
   providedIn: 'root'
 })
 export class TodosService {
-  private url = 'http://localhost:3000/todos';
+  private apiUrl = environment.apiUrl + 'todos';
 
   params = new BehaviorSubject<Params>({
     query: '',
@@ -33,19 +34,19 @@ export class TodosService {
   constructor(private http: HttpClient) { }
 
   createTodo(todo: Todo) {
-    return this.http.post<Todo>(this.url, todo).pipe(
+    return this.http.post<Todo>(this.apiUrl, todo).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
   }
 
   editTodo(id: number | undefined, newTitle: Todo) {
-    return this.http.patch(this.url + '/' + id, newTitle).pipe(
+    return this.http.patch(this.apiUrl + '/' + id, newTitle).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
   }
 
   deleteTodo(id: number) {
-    return this.http.delete(this.url + '/' + id).pipe(
+    return this.http.delete(this.apiUrl + '/' + id).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
   }
@@ -97,7 +98,7 @@ export class TodosService {
     return this.params.pipe(
       debounceTime(300),
       switchMap((params) => {
-        return this.http.get<Todo[]>(this.url, {
+        return this.http.get<Todo[]>(this.apiUrl, {
           params: {
             q: params.query,
             _limit: params.perPage,
@@ -117,7 +118,7 @@ export class TodosService {
   
 
   getTodo(id: number) {
-    return this.http.get<Todo>(this.url + '/' + id);
+    return this.http.get<Todo>(this.apiUrl + '/' + id);
   }
 
 }

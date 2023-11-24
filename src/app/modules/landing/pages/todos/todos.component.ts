@@ -4,6 +4,8 @@ import { PageEvent } from '@angular/material/paginator';
 import { Todo } from 'src/app/core/models/todo';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { TodosService } from 'src/app/core/services/todos.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-todos',
@@ -18,8 +20,10 @@ export class TodosComponent implements OnInit, OnDestroy{
   subscriptions = new Subscription();
   isAddTodo: boolean =  false;
   isEditTodo: boolean =  false;
+  todoId: number = 0;
+  isAgree: boolean =  false;
 
-  constructor(protected todosService: TodosService, private auth: AuthService){}
+  constructor(protected todosService: TodosService, private auth: AuthService, public dialog: MatDialog){}
 
   ngOnInit(): void {
     this.getTodos();
@@ -32,7 +36,14 @@ export class TodosComponent implements OnInit, OnDestroy{
   }
 
   deleteTodo(todoId: any) {
-    this.todosService.deleteTodo(todoId).subscribe();
+    this.todoId = todoId;
+    if (this.isAgree) {
+      this.subscriptions.add(this.todosService.deleteTodo(todoId).subscribe(() => {
+        this.isAgree = false;
+      }));
+    } else {
+      this.openDialog();
+    }
   }
 
   getTodos() {
@@ -58,4 +69,24 @@ export class TodosComponent implements OnInit, OnDestroy{
     this.subscriptions.unsubscribe();
   }
 
+  openDialog(): void {
+    const title = 'Delete Todo';
+    const description = 'Are you sure you want to proceed with this action?';
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: {
+        title,
+        description,
+      },
+      disableClose: true
+    });
+
+    this.subscriptions.add(dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.isAgree = true;
+        this.deleteTodo(this.todoId);
+      } else {
+          this.isAgree = false;
+      }
+    }));
+  }
 }

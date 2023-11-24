@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, tap } from 'rxjs';
@@ -21,6 +22,7 @@ interface Session {
 
 export class AuthService {
   private session = new BehaviorSubject<Session | null>(this.getStoredSession());
+  private apiUrl: string = environment.apiUrl;
   isAuthenticated = false;
 
   state = this.session.pipe(
@@ -49,7 +51,7 @@ export class AuthService {
   }
 
   login(credentials: Credentials) {
-    this.http.post<Session>('http://localhost:3000/login', credentials).subscribe({
+    this.http.post<Session>(this.apiUrl + 'login', credentials).subscribe({
       next: (session: Session) => {
         this.session.next(session);
         this.storeSession(session);
