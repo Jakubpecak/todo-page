@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiUrl: 'https://json-kvhw.onrender.com/'
+    apiUrl: 'https://json-server-qijc.onrender.com/'
 };
