@@ -1,10 +1,9 @@
 :host {
-    .login__buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        &__button {
-            width: 100%;
-        }
+    ::ng-deep .custom-snackbar-background {
+    background-color: blue; /* Tutaj można zmienić kolor tła */
+    }
+
+    ::ng-deep .custom-snackbar-text-color {
+    color: white; /* Tutaj można zmienić kolor tekstu */
     }
 }

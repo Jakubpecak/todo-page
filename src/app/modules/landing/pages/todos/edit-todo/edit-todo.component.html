@@ -16,6 +16,10 @@
         [type]="'textarea'"
       ></app-textarea>
     </app-error>
-    <button type="submit" [ngClass]="{'disabled' : !isValid}">Edit todo</button>
+    <app-buttons 
+      [textButton]="'Edit todo'"
+      [isValid]="isValid" 
+      [isLoading]="isLoading"
+    ></app-buttons>
 </form>
 <button class="edit__button delete" (click)="onHideEditTodo()">Cancel</button>

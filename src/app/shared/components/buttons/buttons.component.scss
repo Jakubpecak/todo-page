@@ -1,0 +1,10 @@
+:host {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        &__button {
+            width: 100%;
+        }
+    }
+}

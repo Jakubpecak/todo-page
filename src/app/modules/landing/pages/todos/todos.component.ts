@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { TodosService } from 'src/app/core/services/todos.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
+import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 
 @Component({
   selector: 'app-todos',
@@ -23,7 +24,7 @@ export class TodosComponent implements OnInit, OnDestroy{
   todoId: number = 0;
   isAgree: boolean =  false;
 
-  constructor(protected todosService: TodosService, private auth: AuthService, public dialog: MatDialog){}
+  constructor(protected todosService: TodosService, private auth: AuthService, public dialog: MatDialog, private snackBar: SnackBarService){}
 
   ngOnInit(): void {
     this.getTodos();
@@ -40,6 +41,7 @@ export class TodosComponent implements OnInit, OnDestroy{
     if (this.isAgree) {
       this.subscriptions.add(this.todosService.deleteTodo(todoId).subscribe(() => {
         this.isAgree = false;
+        this.snackBar.openSnackBar('Todo deleted', 2000, true);
       }));
     } else {
       this.openDialog();

@@ -24,6 +24,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ErrorComponent } from './components/error/error.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ButtonsComponent } from './components/buttons/buttons.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     AccordionComponent,
     PageNotFoundComponent,
     ErrorComponent,
-    DialogComponent
+    DialogComponent,
+    ButtonsComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +56,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatOptionModule,
     MatSelectModule,
     CdkAccordionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   exports: [
     NavigationComponent, 
@@ -72,7 +76,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     TextareaComponent,
     CdkAccordionModule,
     AccordionComponent,
-    ErrorComponent
+    ErrorComponent,
+    ButtonsComponent
   ]
 })
 export class SharedModule { }

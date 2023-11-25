@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Todo } from 'src/app/core/models/todo';
+import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 import { TodosService } from 'src/app/core/services/todos.service';
 import { required } from 'src/app/core/validators/required';
 
@@ -15,8 +16,9 @@ export class EditTodoComponent implements OnInit {
   @Input() selectedIndex!: number | null;
   @Output() hideEditTodo = new EventEmitter<boolean>();
   isValid: boolean = false;
+  isLoading: boolean = false;
 
-  constructor(private fb: FormBuilder, private todosService: TodosService) {}
+  constructor(private fb: FormBuilder, private todosService: TodosService, private snackBar: SnackBarService) {}
 
   ngOnInit(): void {
     this.setForm();
@@ -35,12 +37,16 @@ export class EditTodoComponent implements OnInit {
 
   onSubmit() {
     if (this.isValid) {
+      this.isLoading = true;
       if (this.todoList && (this.selectedIndex === 0 || this.selectedIndex)) {
         const { title, description } = this.form.value;
         const newTitle = { title, description };
         this.todosService.editTodo(this.todoList[this.selectedIndex].id, newTitle).subscribe(() => {
           this.resetForm();
           this.isValid = false;
+          this.isLoading = false;
+          this.snackBar.openSnackBar('Todo edited', 2000, false);
+          this.onHideEditTodo();
         });
       }
     }

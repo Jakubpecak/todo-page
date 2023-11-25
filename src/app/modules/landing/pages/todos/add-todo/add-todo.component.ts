@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 import { TodosService } from 'src/app/core/services/todos.service';
 import { required } from 'src/app/core/validators/required';
 
@@ -13,8 +14,9 @@ export class AddTodoComponent implements OnInit {
   @Output() hideAddTodo = new EventEmitter<boolean>();
   form!: FormGroup;
   isValid: boolean = false;
+  isLoading: boolean = false;
 
-  constructor(private todosService: TodosService, private fb: FormBuilder) {}
+  constructor(private todosService: TodosService, private fb: FormBuilder, private snackBar: SnackBarService) {}
 
   ngOnInit(): void {
     this.setForm();
@@ -33,6 +35,7 @@ export class AddTodoComponent implements OnInit {
 
   onSubmit() {
     if (this.isValid) {
+      this.isLoading = true;
       const todo = {
         title: this.form.get('title')?.value,
         description: this.form.get('description')?.value,
@@ -43,6 +46,9 @@ export class AddTodoComponent implements OnInit {
       this.todosService.createTodo(todo).subscribe(() => {
         this.resetForm();
         this.isValid = false;
+        this.isLoading = false;
+        this.snackBar.openSnackBar('Todo added', 2000, false);
+        this.onHideAddTodo();
       });
     }
   }

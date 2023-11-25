@@ -17,14 +17,11 @@
                 [type]="'password'">
             </app-input>
         </app-error>
-        <div class="login__buttons">
-            <button type="submit" class="login__buttons__button add" [ngClass]="{'disabled' : !isValid}" *ngIf="!isLoading">
-                Submit
-            </button>
-            <button type="submit" class="login__buttons__button add" *ngIf="isLoading" [disabled]="true">
-                <i class="fa fa-spinner fa-spin"></i>
-            </button>
-            <button routerLink="/register" class="login__buttons__button">Register</button>
-        </div>
+        <app-buttons 
+            [textButton]="'Submit'"
+            [isValid]="isValid" 
+            [isLoading]="isLoading" 
+            [isExtraButton]="true"
+        ></app-buttons>
     </form>
 </div>

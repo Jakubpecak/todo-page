@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
+import { SnackBarService } from './snack-bar.service';
 
 interface Credentials {
   username: string;
@@ -33,7 +34,7 @@ export class AuthService {
     })
   );
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private snackBar: SnackBarService) {}
 
   getToken() {
     const session = this.session.getValue();
@@ -56,6 +57,7 @@ export class AuthService {
         this.session.next(session);
         this.storeSession(session);
         this.router.navigate(['/profile']);
+        this.snackBar.openSnackBar('Success login', 2000, false);
       },
       error: err => {
         if(err instanceof HttpErrorResponse) {
@@ -69,6 +71,7 @@ export class AuthService {
     localStorage.removeItem('session');
     this.router.navigate(['/login']);
     const session = this.session.getValue();
+    this.snackBar.openSnackBar('Success logout', 2000, false);
     if (session) {
       this.session.next({
         ...session,
@@ -86,5 +89,4 @@ export class AuthService {
     const storedSession = localStorage.getItem('session');
     return storedSession ? JSON.parse(storedSession) : null;
   }
-
 }

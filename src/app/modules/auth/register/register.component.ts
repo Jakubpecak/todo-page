@@ -6,6 +6,8 @@ import { Location } from '@angular/common';
 import { required } from 'src/app/core/validators/required';
 import { matchPassword } from 'src/app/core/validators/match';
 import { Router } from '@angular/router';
+import { SnackBarService } from 'src/app/core/services/snack-bar.service';
+import { setFormAsDirty } from 'src/app/core/pipes/formtest';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +21,13 @@ export class RegisterComponent implements OnInit {
   password: string = '';
   isLoading: boolean = false;
   
-  constructor(private fb: FormBuilder, private userService: UserService, private location: Location, private router: Router) {}
+  constructor(
+    private fb: FormBuilder, 
+    private userService: UserService, 
+    private location: Location, 
+    private router: Router,
+    private snackBar: SnackBarService
+    ) {}
 
   ngOnInit(): void {
     this.setForm();
@@ -68,21 +76,14 @@ export class RegisterComponent implements OnInit {
       };
 
       this.userService.createUser(this.newUser).subscribe(() => {
-        this.resetForm();
         this.isValid = false;
         this.isLoading = false;
-        setTimeout(() => {
-          this.router.navigate(['/login']);
-        }, 1000);
+        this.snackBar.openSnackBar('User created', 2000, false);
+        this.router.navigate(['/login']);
       });
+    } else {
+        setFormAsDirty(this.form);
     }
-  }
-
-  resetForm() {
-    this.form.reset();
-    Object.keys(this.form.controls).forEach(key => {
-      this.form.get(key)?.setErrors(null);
-    });
   }
 
   back() {

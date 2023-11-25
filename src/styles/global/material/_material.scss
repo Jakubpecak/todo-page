@@ -18,3 +18,9 @@
     background: #fff;
     border-radius: 5px;
 }
+.snackbar-background .mdc-snackbar__surface {
+    background-color: #12c412!important;
+}
+.snackbar-error-background .mdc-snackbar__surface {
+    background-color: red!important;
+}

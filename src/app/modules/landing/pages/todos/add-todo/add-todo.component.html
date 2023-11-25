@@ -16,6 +16,10 @@
         [type]="'textarea'"
       ></app-textarea>
     </app-error>
-    <button class="add" type="submit" [ngClass]="{'disabled' : !isValid}">Add todo</button>
+    <app-buttons 
+      [textButton]="'Add todo'"
+      [isValid]="isValid" 
+      [isLoading]="isLoading"
+    ></app-buttons>
 </form>
 <button class="add__button delete" (click)="onHideAddTodo()">Cancel</button>
