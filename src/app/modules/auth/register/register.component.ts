@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from 'src/app/core/models/user';
 import { UserService } from 'src/app/core/services/user.service';
 import { Location } from '@angular/common';
@@ -7,7 +7,7 @@ import { required } from 'src/app/core/validators/required';
 import { matchPassword } from 'src/app/core/validators/match';
 import { Router } from '@angular/router';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
-import { setFormAsDirty } from 'src/app/core/pipes/formtest';
+import { setFormAsDirty } from 'src/app/core/utils/form';
 
 @Component({
   selector: 'app-register',
@@ -68,6 +68,7 @@ export class RegisterComponent implements OnInit {
             lng: null
           }
         },
+        completeProfile: 20,
         phone: null,
         company: {
           name: null

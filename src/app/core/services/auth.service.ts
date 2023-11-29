@@ -67,11 +67,11 @@ export class AuthService {
     })
   }
 
-  logout(message?: string) {
+  logout(message?: string, isDeleted?: boolean) {
     localStorage.removeItem('session');
     this.router.navigate(['/login']);
     const session = this.session.getValue();
-    this.snackBar.openSnackBar('Success logout', 2000, false);
+    isDeleted ? this.snackBar.openSnackBar('Account deleted', 2000, true) : this.snackBar.openSnackBar('Success logout', 2000, false);
     if (session) {
       this.session.next({
         ...session,

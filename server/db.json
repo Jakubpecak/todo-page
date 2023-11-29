@@ -93,29 +93,6 @@
     },
     {
       "name": null,
-      "username": "kuba1234",
-      "email": "test@o2.pl",
-      "address": {
-        "street": null,
-        "city": null,
-        "country": null,
-        "geo": {
-          "lat": null,
-          "lng": null
-        }
-      },
-      "phone": null,
-      "company": {
-        "name": null
-      },
-      "roles": [
-        "USER"
-      ],
-      "createdAt": 1698845939942,
-      "id": 5
-    },
-    {
-      "name": null,
       "username": "kuba12345",
       "email": "test@o2.pl",
       "address": {
@@ -392,29 +369,6 @@
     },
     {
       "name": null,
-      "username": "test",
-      "email": "test@o2.plasds",
-      "address": {
-        "street": null,
-        "city": null,
-        "country": null,
-        "geo": {
-          "lat": null,
-          "lng": null
-        }
-      },
-      "phone": null,
-      "company": {
-        "name": null
-      },
-      "roles": [
-        "USER"
-      ],
-      "createdAt": 1699464603326,
-      "id": 18
-    },
-    {
-      "name": null,
       "username": "sasasa",
       "email": "test2o.@pl2",
       "address": {
@@ -681,20 +635,6 @@
       "id": 23
     },
     {
-      "title": "jakubin",
-      "completed": false,
-      "userId": 5,
-      "createdAt": 1698846680221,
-      "id": 24
-    },
-    {
-      "title": "kuba",
-      "completed": false,
-      "userId": 5,
-      "createdAt": 1698847323147,
-      "id": 25
-    },
-    {
       "title": "Julka123",
       "completed": false,
       "userId": 7,
@@ -867,11 +807,11 @@
       "id": 50
     },
     {
-      "title": "asa",
-      "description": "asa",
+      "title": "test",
+      "description": "test",
       "completed": false,
       "userId": 1,
-      "createdAt": 1700907325444,
+      "createdAt": 1701262287198,
       "id": 51
     }
   ]

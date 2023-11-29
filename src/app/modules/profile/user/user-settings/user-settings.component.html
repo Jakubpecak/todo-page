@@ -2,5 +2,7 @@
     [isOpen]="openAccordionIndex === 2"
     (toggleAccordion)="setOpenAccordion(2)"
     >
-    <div>test3</div>
+    <div *ngIf="user.id" class="settings__info">
+        <h3 (click)="deleteUser(user.id)"><i class="fa fa-trash"></i> Delete account</h3>
+    </div>
 </app-accordion>

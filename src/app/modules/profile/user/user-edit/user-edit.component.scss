@@ -1,0 +1,17 @@
+:host {
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .edit__profile {
+        &___progressbar {
+            
+        }
+        &__buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}

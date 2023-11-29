@@ -6,8 +6,7 @@ export function resetForm(form: any) {
 }
 
 export function setFormAsDirty(form: any) {
-    form.reset();
     Object.keys(form.controls).forEach(key => {
-      form.get(key)?.setErrors(null);
+      form.get(key)?.markAsDirty();
     });
 }

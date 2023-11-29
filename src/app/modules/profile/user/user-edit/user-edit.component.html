@@ -1,4 +1,67 @@
-<div class="container">
-    <h1>user-edit works!</h1>
-    <h2>Test</h2>
+<div class="container edit__profile">
+    <div class="row">
+        <h1>Edit profile:</h1>
+        <div class="edit__profile__progressbar">
+            <h1>Edit profile:</h1>  
+        </div>     
+    </div> 
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <app-error controlName="username">
+            <app-input
+                [label]="'Username'"
+                [control]="this.form.get('username')"
+                [type]="'text'">
+            </app-input>
+        </app-error>
+        <app-error controlName="address.country">
+            <app-input
+                [label]="'Country'"
+                [control]="this.form.get('address.country')"
+                [type]="'text'">
+            </app-input>
+        </app-error>
+        <app-error controlName="address.city">
+            <app-input
+                [label]="'City'"
+                [control]="this.form.get('address.city')"
+                [type]="'text'">
+            </app-input>
+        </app-error>
+        <app-error controlName="address.street">
+            <app-input
+                [label]="'Street'"
+                [control]="this.form.get('address.street')"
+                [type]="'text'">
+            </app-input>
+        </app-error>
+        <app-error controlName="company">
+            <app-input
+                [label]="'Company'"
+                [control]="this.form.get('company')"
+                [type]="'text'">
+            </app-input>
+        </app-error>
+        <app-error controlName="phone">
+            <app-input
+                [label]="'Phone'"
+                [control]="this.form.get('phone')"
+                [type]="'number'">
+            </app-input>
+        </app-error>
+        <app-error controlName="email">
+            <app-input
+                [label]="'Email'"
+                [control]="this.form.get('email')"
+                [type]="'email'">
+            </app-input>
+        </app-error>
+        <div class="edit__profile__buttons">
+            <app-buttons 
+                [textButton]="'Save'"
+                [isValid]="isValid" 
+                [isLoading]="isLoading"
+            ></app-buttons>
+            <button (click)="back()">Back</button>
+        </div>
+    </form>
 </div>

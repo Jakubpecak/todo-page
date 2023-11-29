@@ -4,6 +4,7 @@ import { Todo } from 'src/app/core/models/todo';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 import { TodosService } from 'src/app/core/services/todos.service';
 import { required } from 'src/app/core/validators/required';
+import { setFormAsDirty } from 'src/app/core/utils/form';
 
 @Component({
   selector: 'app-edit-todo',
@@ -49,6 +50,8 @@ export class EditTodoComponent implements OnInit {
           this.onHideEditTodo();
         });
       }
+    } else {
+      setFormAsDirty(this.form);
     }
   }
 

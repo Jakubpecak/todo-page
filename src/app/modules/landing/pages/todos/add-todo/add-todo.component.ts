@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 import { TodosService } from 'src/app/core/services/todos.service';
 import { required } from 'src/app/core/validators/required';
+import { setFormAsDirty } from 'src/app/core/utils/form';
 
 @Component({
   selector: 'app-add-todo',
@@ -50,6 +51,8 @@ export class AddTodoComponent implements OnInit {
         this.snackBar.openSnackBar('Todo added', 2000, false);
         this.onHideAddTodo();
       });
+    } else {
+      setFormAsDirty(this.form);
     }
   }
 

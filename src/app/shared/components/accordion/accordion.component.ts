@@ -7,20 +7,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./accordion.component.scss'],
   animations: [
     trigger('openClose', [
-      state('open', style({
-        height: '100px',
-        opacity: 1,
-      })),
-      state('closed', style({
-        height: '0',
-        opacity: 0,
-      })),
-      transition('open => closed', [
-        animate('0.2s ease-out'),
-      ]),
-      transition('closed => open', [
-        animate('0.2s ease-in'),
-      ]),
+      state(
+        'open',
+        style({
+          height: '*',
+          opacity: 1,
+        })
+      ),
+      state(
+        'closed',
+        style({
+          height: '0',
+          opacity: 0,
+        })
+      ),
+      transition('open <=> closed', [animate('0.3s ease-out')]),
     ]),
   ],
 })

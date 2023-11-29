@@ -28,14 +28,17 @@
             <app-user-basic-info 
                 [openAccordionIndex]="openAccordionIndex"
                 (sendIndexNumber)="setOpenAccordion($event)"
+                [user]="user"
             ></app-user-basic-info>
             <app-user-contact
                 [openAccordionIndex]="openAccordionIndex"
                 (sendIndexNumber)="setOpenAccordion($event)"
+                [user]="user"
             ></app-user-contact>
             <app-user-settings
                 [openAccordionIndex]="openAccordionIndex"
                 (sendIndexNumber)="setOpenAccordion($event)"
+                [user]="user"
             ></app-user-settings>
         </div>
 

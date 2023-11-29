@@ -7,7 +7,7 @@
       </span>
     </div>
     <div class="accordion-item__body" [@openClose]="isOpen ? 'open' : 'closed'">
-      <ng-content></ng-content>
+      <ng-content *ngIf="isOpen"></ng-content>
     </div>
   </div>
 </cdk-accordion>

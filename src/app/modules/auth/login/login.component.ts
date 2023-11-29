@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { minLength } from 'src/app/core/validators/min';
 import { required } from 'src/app/core/validators/required';
+import { setFormAsDirty } from 'src/app/core/utils/form';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +41,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (this.isValid) {
       this.isLoading = true;
       this.subscriptions.add(this.auth.login(this.form.value));
+    } else {
+      console.log('test')
+      setFormAsDirty(this.form);
     }
   }
 

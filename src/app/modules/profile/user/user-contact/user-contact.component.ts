@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from 'src/app/core/models/user';
 
 @Component({
   selector: 'app-user-contact',
@@ -7,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class UserContactComponent {
   @Input() openAccordionIndex: number | null = null;
+  @Input() user!: User;
   @Output() sendIndexNumber = new EventEmitter<number>();
 
   setOpenAccordion(index: number) {
