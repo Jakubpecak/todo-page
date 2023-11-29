@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { User } from 'src/app/core/models/user';
@@ -10,19 +11,24 @@ import { UserService } from 'src/app/core/services/user.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   user: User | null = null;
   isDisplayEditIcon: boolean = true;
   isDisplaySaveBtn: boolean = false;
   imageChangedEvent: any = '';
   croppedImage: any = '';
   openAccordionIndex: number | null = null;
+  userId!: number | undefined;
+  subscriptions = new Subscription();
 
   constructor(private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService) {}
 
   ngOnInit(): void {
-    this.user = this.auth.getCurrentUser();
+    this.userId = this.auth.getCurrentUser()?.id;
     this.setOpenAccordion(0);
+    this.subscriptions.add(this.userService.getUser(this.userId).subscribe((currentUser) => {
+      this.user = currentUser;
+    }));
   }
 
   fileChangeEvent(event: any): void {
@@ -51,6 +57,10 @@ export class UserComponent implements OnInit {
 
   setOpenAccordion(index: number) {
     this.openAccordionIndex = index === this.openAccordionIndex ? null : index;
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
 }

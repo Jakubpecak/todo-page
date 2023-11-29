@@ -96,7 +96,7 @@ export class TodosService {
 
   getTodos() {
     return this.params.pipe(
-      debounceTime(300),
+      debounceTime(0),
       switchMap((params) => {
         return this.http.get<Todo[]>(this.apiUrl, {
           params: {

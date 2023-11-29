@@ -3,7 +3,7 @@
     (toggleAccordion)="setOpenAccordion(0)"
     >
     <div *ngIf="user" class="basic__info">
-        <h3><i class="fa fa-star"></i> Username: {{ user.username }}</h3>
+        <h3><i class="fa fa-star"></i> Name: {{ user.name }}</h3>
         <h3><i class="fa fa-globe"></i> Country: {{ user.address?.country }}</h3>
         <h3><i class="fa fa-building"></i> City: {{ user.address?.city }}</h3>
         <h3><i class="fa fa-road"></i> Street: {{ user.address?.street }}</h3>

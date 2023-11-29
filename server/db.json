@@ -49,42 +49,41 @@
       "id": 3,
       "createdAt": 1698845627287,
       "name": null,
-      "username": "test123",
-      "email": "test123@o2.pl",
+      "username": "aaaa",
+      "email": "aaaaa",
       "address": {
-        "street": null,
-        "city": null,
-        "country": null,
-        "geo": {
-          "lat": null,
-          "lng": null
-        }
+        "country": "aaaa",
+        "city": "aaaa",
+        "street": "aaaa"
       },
-      "phone": null,
-      "company": {
-        "name": null
-      },
+      "phone": "2222",
+      "company": "aaaaa",
       "roles": [
         "USER"
-      ]
+      ],
+      "userData": {
+        "username": "test",
+        "address": {
+          "country": "test",
+          "city": "test",
+          "street": "test"
+        },
+        "company": "test",
+        "phone": "2222222",
+        "email": "test@o2.pl"
+      }
     },
     {
-      "name": null,
+      "name": "kkk",
       "username": "jakub",
-      "email": "jakub@o2.pl",
+      "email": "kkk",
       "address": {
-        "street": null,
-        "city": null,
-        "country": null,
-        "geo": {
-          "lat": null,
-          "lng": null
-        }
+        "country": "kk",
+        "city": "kkk",
+        "street": "kk"
       },
-      "phone": null,
-      "company": {
-        "name": null
-      },
+      "phone": "33",
+      "company": "kkk",
       "roles": [
         "USER"
       ],

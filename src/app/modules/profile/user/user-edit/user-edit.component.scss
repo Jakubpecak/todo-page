@@ -1,13 +1,10 @@
 :host {
     .row {
-        display: flex;
-        justify-content: space-between;
+        text-align: center;
+        padding-bottom: 20px;
     }
 
     .edit__profile {
-        &___progressbar {
-            
-        }
         &__buttons {
             display: flex;
             flex-direction: column;

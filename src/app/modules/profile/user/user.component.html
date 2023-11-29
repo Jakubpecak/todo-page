@@ -21,9 +21,6 @@
             <button *ngIf="isDisplaySaveBtn" (click)="saveImage(user.id, croppedImage)">Save</button>
         </div>
 
-        <app-user-progress-bar></app-user-progress-bar>
-
-
         <div class="user__info">
             <app-user-basic-info 
                 [openAccordionIndex]="openAccordionIndex"

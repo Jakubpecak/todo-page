@@ -1,15 +1,19 @@
 <div class="container edit__profile">
     <div class="row">
         <h1>Edit profile:</h1>
-        <div class="edit__profile__progressbar">
-            <h1>Edit profile:</h1>  
-        </div>     
+        <app-user-progress-bar
+        [completeProfile]="completeProfile"
+        [form]="form"
+        (validFieldsCount)="handleValidFieldsCount($event)"
+        (isValid)="isValid = $event"
+        >
+        </app-user-progress-bar>   
     </div> 
     <form [formGroup]="form" (ngSubmit)="save()">
-        <app-error controlName="username">
+        <app-error controlName="name">
             <app-input
-                [label]="'Username'"
-                [control]="this.form.get('username')"
+                [label]="'Name'"
+                [control]="this.form.get('name')"
                 [type]="'text'">
             </app-input>
         </app-error>

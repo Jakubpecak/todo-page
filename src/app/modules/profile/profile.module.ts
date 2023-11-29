@@ -11,7 +11,8 @@ import { HammerModule } from '@angular/platform-browser';
 import { UserBasicInfoComponent } from './user/user-basic-info/user-basic-info.component';
 import { UserContactComponent } from './user/user-contact/user-contact.component';
 import { UserSettingsComponent } from './user/user-settings/user-settings.component';
-import { UserProgressBarComponent } from './user/user-progress-bar/user-progress-bar.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { UserProgressBarComponent } from './user/user-edit/user-progress-bar/user-progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { UserProgressBarComponent } from './user/user-progress-bar/user-progress
     UserBasicInfoComponent,
     UserContactComponent,
     UserSettingsComponent,
-    UserProgressBarComponent
+    UserProgressBarComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +30,28 @@ import { UserProgressBarComponent } from './user/user-progress-bar/user-progress
     ProfileRoutingModule,
     ImageCropperModule,
     HammerModule,
+    NgCircleProgressModule.forRoot({
+      backgroundColor: "#FDB900",
+      backgroundPadding: 5,
+      radius: 40,
+      maxPercent: 200,
+      units: "'%'",
+      unitsFontWeight: "600",
+      unitsColor: "#483500",
+      outerStrokeWidth: 5,
+      outerStrokeColor: "#FFFFFF",
+      innerStrokeColor: "#FFFFFF",
+      titleColor: "#483500",
+      titleFontSize: "14",
+      titleFontWeight: "600",
+      subtitleColor: "#483500",
+      subtitleFontWeight: "500",
+      animationDuration: 1000,
+      showUnits: true,
+      showInnerStroke: false,
+      responsive: true,
+      showZeroOuterStroke: false,
+      lazy: true})
   ]
 })
 export class ProfileModule { }
