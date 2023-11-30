@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.isLoading = true;
       this.subscriptions.add(this.auth.login(this.form.value));
     } else {
-      console.log('test')
       setFormAsDirty(this.form);
     }
   }

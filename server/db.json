@@ -2,25 +2,25 @@
   "users": [
     {
       "id": 1,
-      "name": "dffdfd",
+      "name": "Kuba",
       "username": "User",
-      "email": "dsdsdsds",
+      "email": "test@o2.pl",
       "address": {
-        "country": "poland",
-        "region": "Podkarpackie",
-        "city": "Rzeszów",
+        "country": "Poland",
+        "region": "Kujawsko-Pomorskie",
+        "city": "Bydgoszcz",
         "street": null
       },
-      "birthDate": "2023-11-12T23:00:00.000Z",
-      "phone": "343434343",
+      "birthDate": "1993-11-04T23:00:00.000Z",
+      "phone": "54535345353",
       "company": {
         "name": "Romaguera-Crona"
       },
       "roles": [
         "USER"
       ],
-      "photo": "blob:http://localhost:4200/a0b1a2d2-4c07-465a-999b-747f5c76496b",
-      "gender": "Woman"
+      "photo": "blob:http://localhost:4200/0efa8dca-ba69-4b68-bf38-7dd0bf664d67",
+      "gender": "Man"
     },
     {
       "id": 2,
@@ -797,14 +797,6 @@
       "userId": 1,
       "createdAt": 1700907004510,
       "id": 50
-    },
-    {
-      "title": "test",
-      "description": "test",
-      "completed": false,
-      "userId": 1,
-      "createdAt": 1701262287198,
-      "id": 51
     }
   ],
   "poland": [
