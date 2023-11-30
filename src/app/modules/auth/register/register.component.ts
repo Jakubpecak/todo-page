@@ -68,6 +68,7 @@ export class RegisterComponent implements OnInit {
             lng: null
           }
         },
+        birthDate: null,
         completeProfile: 20,
         phone: null,
         company: {

@@ -24,11 +24,10 @@ export class UserProgressBarComponent implements OnDestroy {
 
   checkFieldsValid() {
     const fields = [
-        'username',
+        'name',
+        'birthDate',
+        'gender',
         'address.country',
-        'address.city',
-        'address.street',
-        'company',
         'phone',
         'email'
     ];
@@ -36,8 +35,8 @@ export class UserProgressBarComponent implements OnDestroy {
     if (this.form.valid) {
         this.completeProfile = 100;
     } else {
-        const profileCompletionSteps = [7, 6, 5, 4, 3, 2, 1];
-        const completionPercentages = [100, 85, 70, 55, 40, 25, 10];
+        const profileCompletionSteps = [6, 5, 4, 3, 2, 1];
+        const completionPercentages = [100, 85, 70, 50, 35, 15];
         this.completeProfile = profileCompletionSteps.includes(validCount)
         ? completionPercentages[profileCompletionSteps.indexOf(validCount)] : 0;
     }

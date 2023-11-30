@@ -12,49 +12,60 @@
     <form [formGroup]="form" (ngSubmit)="save()">
         <app-error controlName="name">
             <app-input
-                [label]="'Name'"
+                [label]="'Name *'"
                 [control]="this.form.get('name')"
                 [type]="'text'">
             </app-input>
         </app-error>
+        <app-error controlName="birthDate">
+            <app-data-picker
+                [label]="'Date of birth *'"
+                [control]="this.form.get('birthDate')"
+                [type]="'date'">
+            </app-data-picker>
+        </app-error>
+        <app-error controlName="gender">
+            <app-select
+                [label]="'Gender *'"
+                [control]="this.form.get('gender')"
+                [list]="genderList"
+                >
+            </app-select>
+        </app-error>
+        <div class="edit__profile__info"><i class="fa fa-question-circle"></i><h4>If you want extra fields like region or city write Poland</h4></div>
         <app-error controlName="address.country">
             <app-input
-                [label]="'Country'"
+                [label]="'Country *'"
                 [control]="this.form.get('address.country')"
                 [type]="'text'">
             </app-input>
         </app-error>
-        <app-error controlName="address.city">
-            <app-input
+        <app-error controlName="address.region" *ngIf="!hideRegionInput">
+            <app-select
+                [label]="'Region'"
+                [control]="this.form.get('address.region')"
+                [list]="regionList"
+                >
+            </app-select>
+        </app-error>
+        <app-error controlName="address.city" *ngIf="!hideCityInput">
+            <app-select
                 [label]="'City'"
                 [control]="this.form.get('address.city')"
-                [type]="'text'">
-            </app-input>
-        </app-error>
-        <app-error controlName="address.street">
-            <app-input
-                [label]="'Street'"
-                [control]="this.form.get('address.street')"
-                [type]="'text'">
-            </app-input>
-        </app-error>
-        <app-error controlName="company">
-            <app-input
-                [label]="'Company'"
-                [control]="this.form.get('company')"
-                [type]="'text'">
-            </app-input>
+                [list]="cityList"
+                >
+            </app-select>
         </app-error>
         <app-error controlName="phone">
             <app-input
-                [label]="'Phone'"
+                [label]="'Phone *'"
                 [control]="this.form.get('phone')"
                 [type]="'number'">
             </app-input>
         </app-error>
         <app-error controlName="email">
             <app-input
-                [label]="'Email'"
+                [label]="'Email *'"
                 [control]="this.form.get('email')"
                 [type]="'email'">
             </app-input>

@@ -10,5 +10,14 @@
             flex-direction: column;
             gap: 20px;
         }
+        &__info {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            i {
+                padding-bottom: 3px;
+            }
+        }
     }
 }

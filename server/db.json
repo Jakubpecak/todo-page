@@ -2,26 +2,25 @@
   "users": [
     {
       "id": 1,
-      "name": "KUba Pęcak",
+      "name": "dffdfd",
       "username": "User",
-      "email": "Sincere@april.biz",
+      "email": "dsdsdsds",
       "address": {
-        "street": "Kulas Light",
-        "city": "Gwenborough",
-        "country": "Poland",
-        "geo": {
-          "lat": "-37.3159",
-          "lng": "81.1496"
-        }
+        "country": "poland",
+        "region": "Podkarpackie",
+        "city": "Rzeszów",
+        "street": null
       },
-      "phone": "1-770-736-8031 x56442",
+      "birthDate": "2023-11-12T23:00:00.000Z",
+      "phone": "343434343",
       "company": {
         "name": "Romaguera-Crona"
       },
       "roles": [
         "USER"
       ],
-      "photo": "blob:http://localhost:4200/b01e783e-dd17-472d-8d35-a9ec0af37ce9"
+      "photo": "blob:http://localhost:4200/a0b1a2d2-4c07-465a-999b-747f5c76496b",
+      "gender": "Woman"
     },
     {
       "id": 2,
@@ -611,12 +610,6 @@
       "id": 19
     },
     {
-      "title": "test11",
-      "userId": 1,
-      "createdAt": 1698669845724,
-      "id": 20
-    },
-    {
       "title": "aaaaaa",
       "userId": 1,
       "createdAt": 1698673590326,
@@ -812,6 +805,168 @@
       "userId": 1,
       "createdAt": 1701262287198,
       "id": 51
+    }
+  ],
+  "poland": [
+    {
+      "region": "Dolnośląskie",
+      "city": [
+        "Wrocław",
+        "Legnica",
+        "Wałbrzych",
+        "Głogów",
+        "Jelenia Góra"
+      ]
+    },
+    {
+      "region": "Kujawsko-Pomorskie",
+      "city": [
+        "Bydgoszcz",
+        "Toruń",
+        "Włocławek",
+        "Grudziądz",
+        "Inowrocław"
+      ]
+    },
+    {
+      "region": "Lubelskie",
+      "city": [
+        "Lublin",
+        "Chełm",
+        "Zamość",
+        "Puławy",
+        "Biała Podlaska"
+      ]
+    },
+    {
+      "region": "Lubuskie",
+      "city": [
+        "Gorzów Wielkopolski",
+        "Zielona Góra",
+        "Nowa Sól",
+        "Świebodzin",
+        "Kostrzyn nad Odrą"
+      ]
+    },
+    {
+      "region": "Łódzkie",
+      "city": [
+        "Łódź",
+        "Piotrków Trybunalski",
+        "Pabianice",
+        "Zgierz",
+        "Tomaszów Mazowiecki"
+      ]
+    },
+    {
+      "region": "Małopolskie",
+      "city": [
+        "Kraków",
+        "Tarnów",
+        "Nowy Sącz",
+        "Oświęcim",
+        "Wieliczka"
+      ]
+    },
+    {
+      "region": "Mazowieckie",
+      "city": [
+        "Warszawa",
+        "Radom",
+        "Płock",
+        "Siedlce",
+        "Pruszków"
+      ]
+    },
+    {
+      "region": "Opolskie",
+      "city": [
+        "Opole",
+        "Nysa",
+        "Kędzierzyn-Koźle",
+        "Prudnik",
+        "Brzeg"
+      ]
+    },
+    {
+      "region": "Podkarpackie",
+      "city": [
+        "Rzeszów",
+        "Przemyśl",
+        "Tarnobrzeg",
+        "Mielec",
+        "Krosno"
+      ]
+    },
+    {
+      "region": "Podlaskie",
+      "city": [
+        "Białystok",
+        "Suwałki",
+        "Łomża",
+        "Augustów",
+        "Zambrów"
+      ]
+    },
+    {
+      "region": "Pomorskie",
+      "city": [
+        "Gdańsk",
+        "Gdynia",
+        "Sopot",
+        "Tczew",
+        "Wejherowo"
+      ]
+    },
+    {
+      "region": "Śląskie",
+      "city": [
+        "Katowice",
+        "Gliwice",
+        "Zabrze",
+        "Bytom",
+        "Ruda Śląska"
+      ]
+    },
+    {
+      "region": "Świętokrzyskie",
+      "city": [
+        "Kielce",
+        "Ostrowiec Świętokrzyski",
+        "Sandomierz",
+        "Skarżysko-Kamienna",
+        "Starachowice"
+      ]
+    },
+    {
+      "region": "Warmińsko-Mazurskie",
+      "city": [
+        "Olsztyn",
+        "Elbląg",
+        "Ostróda",
+        "Iława",
+        "Kętrzyn"
+      ]
+    },
+    {
+      "region": "Wielkopolskie",
+      "city": [
+        "Poznań",
+        "Kalisz",
+        "Konin",
+        "Gniezno",
+        "Leszno"
+      ]
+    },
+    {
+      "region": "Zachodniopomorskie",
+      "city": [
+        "Szczecin",
+        "Koszalin",
+        "Stargard Szczeciński",
+        "Świnoujście",
+        "Police"
+      ]
     }
   ]
 }

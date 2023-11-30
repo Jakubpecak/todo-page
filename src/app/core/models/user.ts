@@ -13,6 +13,8 @@ export interface User {
       catchPhrase?: string | null;
       bs?: string
     },
+    gender?: string | null;
+    birthDate?: string | null;
     completeProfile?: number | null;
     photo?: string;
     roles?: string[]

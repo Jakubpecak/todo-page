@@ -26,6 +26,10 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ButtonsComponent } from './components/buttons/buttons.component';
+import { DataPickerComponent } from './components/data-picker/data-picker.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { SelectComponent } from './components/select/select.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,9 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
     PageNotFoundComponent,
     ErrorComponent,
     DialogComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    DataPickerComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +63,9 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
     MatSelectModule,
     CdkAccordionModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     NavigationComponent, 
@@ -77,7 +85,9 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
     CdkAccordionModule,
     AccordionComponent,
     ErrorComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    DataPickerComponent,
+    SelectComponent
   ]
 })
 export class SharedModule { }

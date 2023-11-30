@@ -24,3 +24,18 @@
 .snackbar-error-background .mdc-snackbar__surface {
     background-color: red!important;
 }
+
+.mat-datepicker-popup {
+    width: 100%;
+    right: 0!important;
+    padding: 0 20px;
+
+    mat-datepicker-content {
+        width: 100%;
+    }
+
+    .mat-datepicker-content .mat-calendar {
+        width: 100%;
+        height: auto;
+    }
+}
