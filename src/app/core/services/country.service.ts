@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Poland } from '../models/poland';
+import { Country } from '../models/country';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class CountryService {
 
 
   getRegionList() {
-    return this.http.get<Poland>(this.apiUrl);
+    return this.http.get<Country[]>(this.apiUrl);
   }
 
 }

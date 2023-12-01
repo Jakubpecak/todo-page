@@ -43,7 +43,6 @@ export class UserEditComponent implements OnInit, OnDestroy {
     this.setFormValue();
     this.currentUser = this.auth.getCurrentUser();
 
-
     this.subscriptions.add(this.form.get('address.country')?.valueChanges.subscribe((country) => {
       const countryValue = country.toLowerCase();
       this.setRegionList(countryValue);
@@ -63,9 +62,9 @@ export class UserEditComponent implements OnInit, OnDestroy {
     if (countryValue === 'poland') {
       this.hideRegionInput = false;
       this.countryService.getRegionList().subscribe((data) => {
-        data.map((poland) => {
-          this.regionList.push(poland.region);
-        });
+        this.regionList = data
+        .filter(country => country.region)
+        .map(country => country.region as string);
       });
     } else {
       this.form.get('address.region')?.reset();
@@ -76,11 +75,8 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
   setCityList(regionValue: string) {
     this.countryService.getRegionList().subscribe((data) => {
-      data.map((poland) => {
-        if (poland.region === regionValue) {
-          this.cityList = poland.city;
-        }
-      });
+      const found = data.find(country => country.region === regionValue && country.city);
+      this.cityList = found && found.city ? found.city : [];
     });
   }
 
