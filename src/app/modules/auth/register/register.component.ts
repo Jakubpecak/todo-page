@@ -8,6 +8,10 @@ import { matchPassword } from 'src/app/core/validators/match';
 import { Router } from '@angular/router';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 import { setFormAsDirty } from 'src/app/core/utils/form';
+import { minLength } from 'src/app/core/validators/min';
+import { maxLength } from 'src/app/core/validators/max';
+import { password } from 'src/app/core/validators/password';
+import { email } from 'src/app/core/validators/email';
 
 @Component({
   selector: 'app-register',
@@ -43,10 +47,24 @@ export class RegisterComponent implements OnInit {
 
   setForm() {
     this.form = this.fb.group({
-      username: ['', [required('Username is required')]],
-      email: ['', [required('Email is required')]],
-      password: ['', [required('Password is required')]],
-      repeatPassword: ['', [required('Repeat password is required'), matchPassword(this.getCurrentPassword, 'Password not match')]]
+      username: ['', 
+      [required('Username is required'), 
+      minLength(3, 'Minimum length is 3 characters'), 
+      maxLength(15, 'Maximum length is 15 characters')]
+      ],
+      email: ['',
+      [required('Email is required'),
+      email('Email address is invalid')]
+      ],
+      password: ['',
+      [required('Password is required'), 
+      minLength(5, 'Minimum length is 5 characters'), 
+      maxLength(15, 'Maximum length is 15 characters'),
+      password('Password must contain at least one uppercase letter, one digit, and one special character')]
+      ],
+      repeatPassword: ['',
+      [required('Repeat password is required'), matchPassword(this.getCurrentPassword, 'Password not match')]
+      ]
     });
   }
 

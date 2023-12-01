@@ -4,6 +4,8 @@ import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 import { TodosService } from 'src/app/core/services/todos.service';
 import { required } from 'src/app/core/validators/required';
 import { setFormAsDirty } from 'src/app/core/utils/form';
+import { maxLength } from 'src/app/core/validators/max';
+import { minLength } from 'src/app/core/validators/min';
 
 @Component({
   selector: 'app-add-todo',
@@ -29,8 +31,16 @@ export class AddTodoComponent implements OnInit {
 
   setForm() {
     this.form = this.fb.group({
-      title: ['', required('Title is required')],
-      description: ['', required('Description is required')],
+      title: ['', 
+      [required('Title is required'),
+      minLength(5, 'Minimum length is 5 characters'), 
+      maxLength(30, 'Maximum length is 30 characters')]
+    ],
+      description: ['', 
+      [required('Description is required'),
+      minLength(20, 'Minimum length is 20 characters'), 
+      maxLength(150, 'Maximum length is 150 characters')]
+    ],
     });
   }
 

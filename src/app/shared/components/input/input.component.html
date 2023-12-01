@@ -1,9 +1,21 @@
 <mat-form-field class="input" appearance="fill">
  <mat-label>{{ label }}</mat-label>
- <input
-    matInput
-    [formControl]="control"
-    [type]="type"
-    [placeholder]="placeholder"
- >
+   <ng-container *ngIf="type !== 'password'">
+      <input
+      matInput
+      [formControl]="control"
+      [type]="type"
+      [placeholder]="placeholder"
+      >
+   </ng-container>
+
+   <ng-container *ngIf="type === 'password'">
+      <input 
+      matInput 
+      placeholder="Password" 
+      [type]="hide ? 'password' : 'text'" 
+      [formControl]="control"
+      >
+      <mat-icon matSuffix (click)="hide = !hide" class="icon">{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+   </ng-container>
 </mat-form-field>

@@ -6,6 +6,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { minLength } from 'src/app/core/validators/min';
 import { required } from 'src/app/core/validators/required';
 import { setFormAsDirty } from 'src/app/core/utils/form';
+import { maxLength } from 'src/app/core/validators/max';
+import { password } from 'src/app/core/validators/password';
 
 @Component({
   selector: 'app-login',
@@ -32,8 +34,17 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   setForm() {
     this.form = this.fb.group({
-      username: ['', [required('Username is required'), minLength('Min. length 3')]],
-      password: ['', required('Password is required')],
+      username: ['', 
+      [required('Username is required'), 
+      minLength(3, 'Minimum length is 3 characters'), 
+      maxLength(15, 'Maximum length is 15 characters')]
+    ],
+      password: ['', 
+      [required('Password is required'), 
+      minLength(5, 'Minimum length is 5 characters'), 
+      maxLength(15, 'Maximum length is 15 characters'),
+      password('Password must contain at least one uppercase letter, one digit, and one special character')]
+    ],
     });
   }
 

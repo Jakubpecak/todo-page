@@ -571,6 +571,31 @@
       ],
       "createdAt": 1700908245165,
       "id": 27
+    },
+    {
+      "name": null,
+      "username": "test",
+      "email": "asa@o2.pl",
+      "address": {
+        "street": null,
+        "city": null,
+        "country": null,
+        "geo": {
+          "lat": null,
+          "lng": null
+        }
+      },
+      "birthDate": null,
+      "completeProfile": 20,
+      "phone": null,
+      "company": {
+        "name": null
+      },
+      "roles": [
+        "USER"
+      ],
+      "createdAt": 1701443500162,
+      "id": 28
     }
   ],
   "posts": [

@@ -10,6 +10,8 @@
         border: 1px solid #ffcccc;
         color: #d8000c;
         position: relative;
+        display: flex;
+        align-items: center;
         @include fade-in(0.3s);
       
         &::before {

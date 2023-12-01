@@ -10,6 +10,9 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
 import { CountryService } from 'src/app/core/services/country.service';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
+import { minLength } from 'src/app/core/validators/min';
+import { maxLength } from 'src/app/core/validators/max';
+import { email } from 'src/app/core/validators/email';
 
 @Component({
   selector: 'app-user-edit',
@@ -82,17 +85,36 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
   setFormValue() {
     this.form = this.fb.group({
-      name: [null, [required('Name is required')]],
+      name: [null, 
+        [required('Name is required'), 
+        minLength(3, 'Minimum length is 3 characters'), 
+        maxLength(15, 'Maximum length is 15 characters')]
+        ],
       gender: [null, [required('Gender is required')]],
       address: this.fb.group({
-        country: [null, [required('Country is required')]],
+        country: [null, [
+          required('Country is required'), 
+          minLength(3, 'Minimum length is 3 characters'),
+          maxLength(15, 'Maximum length is 15 characters')]
+        ],
         region: [null],
         city: [null],
         street: [null]
       }),
-      birthDate: [null, [required('Date of birth is required')]],
-      phone: [null, [required('Phone is required')]],
-      email: [null, [required('Email is required')]]
+      birthDate: [null, [
+        required('Date of birth is required'), 
+        minLength(3, 'Minimum length is 3 characters')]
+      ],
+      phone: [null, 
+        [required('Phone is required'), 
+        minLength(3, 'Minimum length is 3 numbers'), 
+        maxLength(15, 'Maximum length is 15 numbers')]
+      ],
+      email: [null, [
+        required('Email is required'), 
+        minLength(3, 'Minimum length is 3 characters'),
+        email('Email address is invalid')]
+      ]
     });
   }
 
