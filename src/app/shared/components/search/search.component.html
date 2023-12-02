@@ -1,9 +1,9 @@
-<mat-form-field class="search">
+<mat-form-field class="search" [formGroup]="form">
     <mat-label>{{ label }}</mat-label>
     <input 
         matInput 
         #input 
-        (keyup)="search(input.value)"
+        formControlName="search"
         [placeholder]="placeholder"
     >
 </mat-form-field>

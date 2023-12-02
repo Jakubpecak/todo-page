@@ -17,6 +17,7 @@ interface Params {
 })
 export class TodosService {
   private apiUrl = environment.apiUrl + 'todos';
+  private apiUrlHistory = environment.apiUrl + 'history';
 
   params = new BehaviorSubject<Params>({
     query: '',
@@ -116,9 +117,16 @@ export class TodosService {
     );
   }
   
-
   getTodo(id: number) {
     return this.http.get<Todo>(this.apiUrl + '/' + id);
+  }
+
+  getHistoryTodos() {
+    return this.http.get<Todo[]>(this.apiUrlHistory);
+  }
+
+  addHistoryTodo(todo: Todo) {
+    return this.http.post<Todo>(this.apiUrlHistory, todo).subscribe();
   }
 
 }

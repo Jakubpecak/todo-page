@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Todo } from 'src/app/core/models/todo';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
@@ -7,28 +7,30 @@ import { required } from 'src/app/core/validators/required';
 import { setFormAsDirty } from 'src/app/core/utils/form';
 import { minLength } from 'src/app/core/validators/min';
 import { maxLength } from 'src/app/core/validators/max';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-todo',
   templateUrl: './edit-todo.component.html',
   styleUrls: ['./edit-todo.component.scss']
 })
-export class EditTodoComponent implements OnInit {
+export class EditTodoComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   @Input() todoList: Todo[] | null | undefined = [];
   @Input() selectedIndex!: number | null;
   @Output() hideEditTodo = new EventEmitter<boolean>();
   isValid: boolean = false;
   isLoading: boolean = false;
+  subscriptions = new Subscription();
 
   constructor(private fb: FormBuilder, private todosService: TodosService, private snackBar: SnackBarService) {}
 
   ngOnInit(): void {
     this.setForm();
 
-    this.form.valueChanges.subscribe(() => {
+    this.subscriptions.add(this.form.valueChanges.subscribe(() => {
       this.isValid = this.form.valid;
-    });
+    }));
   }
 
   setForm() {
@@ -52,13 +54,13 @@ export class EditTodoComponent implements OnInit {
       if (this.todoList && (this.selectedIndex === 0 || this.selectedIndex)) {
         const { title, description } = this.form.value;
         const newTitle = { title, description };
-        this.todosService.editTodo(this.todoList[this.selectedIndex].id, newTitle).subscribe(() => {
+        this.subscriptions.add(this.todosService.editTodo(this.todoList[this.selectedIndex].id, newTitle).subscribe(() => {
           this.resetForm();
           this.isValid = false;
           this.isLoading = false;
           this.snackBar.openSnackBar('Todo edited', 2000, false);
           this.onHideEditTodo();
-        });
+        }));
       }
     } else {
       setFormAsDirty(this.form);
@@ -74,6 +76,10 @@ export class EditTodoComponent implements OnInit {
 
   onHideEditTodo() {
     this.hideEditTodo.emit(false);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
 }

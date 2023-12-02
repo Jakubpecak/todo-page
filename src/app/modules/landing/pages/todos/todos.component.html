@@ -22,17 +22,20 @@
                     [label]="'Sort'"
                 ></app-filters-todo>
             </div>
-            <div class="todos__button">
+            <div class="todos__buttons">
+                <app-history-todo></app-history-todo>
                 <button class="add" (click)="isAddTodo = true">Add Todo</button>
             </div>
-            <ul *ngFor="let todo of todoList; let index = index">
-                <div class="todos__list">
-                    <a [routerLink]="'/todo/' + todo.id"><li>{{ todo.title }} -<span> {{ todo.createdAt | date }}</span></li></a>
-                    <div class="todos__list__buttons">
-                        <button class="edit" (click)="editTodo(index)">Edit</button>
-                        <button class="delete" (click)="deleteTodo(todo.id)">Delete</button>
-                    </div>
-                </div>
+            <ul>
+                <li *ngFor="let todo of todoList; let index = index" class="todos__list">
+                  <a [routerLink]="'/todo/' + todo.id">
+                    {{ todo.title }} - <span>{{ todo.createdAt | date: 'dd.MM.yyyy' }}</span>
+                  </a>
+                  <div class="todos__list__buttons">
+                    <button class="edit" (click)="editTodo(index)">Edit</button>
+                    <button class="delete" (click)="deleteTodo(todo.id)">Delete</button>
+                  </div>
+                </li>
             </ul>
         </div>
         <mat-paginator

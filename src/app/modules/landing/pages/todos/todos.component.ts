@@ -23,6 +23,7 @@ export class TodosComponent implements OnInit, OnDestroy{
   isEditTodo: boolean =  false;
   todoId: number = 0;
   isAgree: boolean =  false;
+  currentTodo!: Todo;
 
   constructor(protected todosService: TodosService, private auth: AuthService, public dialog: MatDialog, private snackBar: SnackBarService){}
 
@@ -38,9 +39,15 @@ export class TodosComponent implements OnInit, OnDestroy{
 
   deleteTodo(todoId: any) {
     this.todoId = todoId;
+    if (!this.isAgree) {
+      this.todosService.getTodo(this.todoId).subscribe((todo) => {
+        this.currentTodo = todo;
+      });
+    }
     if (this.isAgree) {
       this.subscriptions.add(this.todosService.deleteTodo(todoId).subscribe(() => {
         this.isAgree = false;
+        this.todosService.addHistoryTodo(this.currentTodo);
         this.snackBar.openSnackBar('Todo deleted', 2000, true);
       }));
     } else {
@@ -67,10 +74,6 @@ export class TodosComponent implements OnInit, OnDestroy{
     this.isEditTodo = value;
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
-  }
-
   openDialog(): void {
     const title = 'Delete Todo';
     const description = 'Are you sure you want to proceed with this action?';
@@ -90,5 +93,9 @@ export class TodosComponent implements OnInit, OnDestroy{
           this.isAgree = false;
       }
     }));
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }

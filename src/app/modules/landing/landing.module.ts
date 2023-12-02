@@ -9,6 +9,7 @@ import { TodoComponent } from './pages/todos/todo/todo.component';
 import { AddTodoComponent } from './pages/todos/add-todo/add-todo.component';
 import { FiltersTodoComponent } from './pages/todos/filters-todo/filters-todo.component';
 import { EditTodoComponent } from './pages/todos/edit-todo/edit-todo.component';
+import { HistoryTodoComponent } from './pages/todos/history-todo/history-todo.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { EditTodoComponent } from './pages/todos/edit-todo/edit-todo.component';
     TodoComponent,
     AddTodoComponent,
     FiltersTodoComponent,
-    EditTodoComponent
+    EditTodoComponent,
+    HistoryTodoComponent
   ],
   imports: [
     CommonModule,

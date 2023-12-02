@@ -11,5 +11,4 @@ export class InputComponent {
   @Input() type!: string;
   @Input() placeholder!: string;
   @Input() hide!: boolean;
-
 }
