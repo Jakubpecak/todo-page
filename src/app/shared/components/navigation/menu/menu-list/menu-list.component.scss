@@ -1,0 +1,15 @@
+@import '/src/styles/shared/media-queries';
+
+:host {
+    li {
+        margin-bottom: 20px;
+        text-align: center;
+        @include md {
+            margin-bottom: 0;
+        }
+        a {
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+    }
+}

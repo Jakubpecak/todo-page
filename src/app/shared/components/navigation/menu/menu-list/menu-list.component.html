@@ -1,0 +1,13 @@
+<ng-container *ngIf="isAuthenticated">
+    <li *ngFor="let menuItem of authorizedMenuItems">
+      <a [routerLink]="menuItem.routerLink" (click)="this.closeMenuEmitter.emit()">{{ menuItem.label }}</a>
+    </li>
+    <li>
+      <a (click)="this.userLoggedOut.emit()">Logout</a>
+    </li>
+  </ng-container>
+  <ng-container *ngIf="!isAuthenticated">
+    <li *ngFor="let menuItem of notAuthorizedMenuItems">
+      <a [routerLink]="menuItem.routerLink" (click)="this.closeMenuEmitter.emit()">{{ menuItem.label }}</a>
+    </li>
+</ng-container>

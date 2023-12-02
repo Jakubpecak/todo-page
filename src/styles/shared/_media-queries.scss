@@ -1,6 +1,5 @@
 @use '/src/styles/shared/variables' as var;
 
-
 @mixin sm {
   @media (min-width: var.$breakpoint-sm) {
     @content;

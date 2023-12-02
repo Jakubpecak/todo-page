@@ -1,20 +1,34 @@
 <div class="nav">
     <div class="nav__logo"><a routerLink="/"><i class="fa fa-home"></i></a></div>
-    <div class="nav__menu">
-        <div class="nav__menu__login" *ngIf="!isAuthenticated"><a routerLink="/login">Login</a></div>
-        <div class="nav__menu__login" *ngIf="isAuthenticated">
-            <a routerLink="/profile">
-                <i class="fa fa-user-circle"></i>
-            </a>
+    <ng-container *ngIf="!isTablet">
+        <div class="nav__menu">
+            <div class="nav__menu__login" *ngIf="!isAuthenticated"><a routerLink="/login">Login</a></div>
+            <div class="nav__menu__login" *ngIf="isAuthenticated">
+                <a routerLink="/profile">
+                    <i class="fa fa-user-circle"></i>
+                </a>
+            </div>
+            <button class="nav__menu__btn" mat-icon-button (click)="toggleMenu()">
+                <mat-icon>more_vert</mat-icon>
+            </button>
         </div>
-        <button class="nav__menu__btn" mat-icon-button (click)="toggleMenu()">
-            <mat-icon>more_vert</mat-icon>
-        </button>
-    </div>
-    <app-menu
-    [showMenu]="showMenu"
-    (closeMenuEmitter)="toggleMenu()"
-    (userLoggedOut)="logout()"
-    [isAuthenticated]="isAuthenticated"
-    ></app-menu>
+        <app-menu
+        [showMenu]="showMenu"
+        (closeMenuEmitter)="toggleMenu()"
+        (userLoggedOut)="logout()"
+        [isAuthenticated]="isAuthenticated"
+        [authorizedMenuItems]="authorizedMenuItems"
+        [notAuthorizedMenuItems]="notAuthorizedMenuItems"
+        ></app-menu>
+    </ng-container>
+    <ng-container *ngIf="isTablet">
+        <ul class="nav__list">
+            <app-menu-list
+            [isAuthenticated]="isAuthenticated"
+            [authorizedMenuItems]="authorizedMenuItems"
+            [notAuthorizedMenuItems]="notAuthorizedMenuItems"
+            (userLoggedOut)="logout()"
+            ></app-menu-list>
+        </ul>
+    </ng-container>
 </div>
