@@ -1,28 +1,72 @@
+@import '/src/styles/shared/media-queries';
+
 :host {
     .dialog {
         padding: 10px 20px;
         background: beige;
+          @include lg {
+            padding: 30px;
+        }
         h1 {
             text-align: center;
             padding: 0;
             font-family: "poppins", sans-serif;
             color: #f44336;
             font-weight: 600;
+            font-size: 2.3em;
+            @include md {
+                font-size: 2.5em;
+            }
+              @include lg {
+                font-size: 2.7em;
+            }
+              @include xl {
+                font-size: 2.9em;
+            }
         }
         &__content {
             padding: 10px 0;
             text-align: center;
             font-family: "poppins", sans-serif;
             color: #000;
+            @include lg {
+                padding: 25px 0;
+            }
+            h3 {
+                font-size: 16px;
+                @include md {
+                    font-size: 17px;
+                }
+                  @include lg {
+                    font-size: 18px;
+                }
+                  @include xl {
+                    font-size: 20px;
+                } 
+            }
         }
         &__buttons {
             justify-content: center;
             gap: 10px;
+            button {
+                font-size: 14px;
+                @include md {
+                    font-size: 17px;
+                }
+                  @include lg {
+                    font-size: 18px;
+                }
+                  @include xl {
+                    font-size: 20px;
+                } 
+            }
         }
     }
     .dialog__history {
         width: auto;
-        height: auto;
+        height: 450px;
+        max-width: 600px;
+        min-width: 300px;
         background: beige;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -30,6 +74,17 @@
             text-align: center;
             padding: 20px 20px 0 20px;
             color: gray;
+            font-size: 2.3em;
+            font-family: "poppins", sans-serif;
+            @include md {
+                font-size: 2.5em;
+            }
+              @include lg {
+                font-size: 2.7em;
+            }
+              @include xl {
+                font-size: 2.9em;
+            }
         }
         &__list {
             display: flex;
@@ -41,6 +96,21 @@
             font-size: 16px;
             gap: 10px;
             padding: 20px;
+            li {
+                font-size: 16px;
+                span {
+                    font-weight: 600;
+                }
+                @include md {
+                    font-size: 17px;
+                }
+                  @include lg {
+                    font-size: 18px;
+                }
+                  @include xl {
+                    font-size: 20px;
+                } 
+            }
         }
     }
 }

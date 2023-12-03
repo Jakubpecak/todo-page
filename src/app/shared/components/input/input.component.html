@@ -13,9 +13,9 @@
       <input 
       matInput 
       placeholder="Password" 
-      [type]="hide ? 'password' : 'text'" 
+      [type]="hide ? 'text' : 'password'" 
       [formControl]="control"
       >
-      <mat-icon matSuffix (click)="hide = !hide" class="icon">{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-icon matSuffix (click)="hide = !hide" class="icon">{{ hide ? 'visibility' : 'visibility_off'}}</mat-icon>
    </ng-container>
 </mat-form-field>

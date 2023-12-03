@@ -5,10 +5,14 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
   providedIn: 'root'
 })
 export class SnackBarService {
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  isTablet!: boolean;
+  horizontalPosition!: MatSnackBarHorizontalPosition;
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) {
+    this.isTablet = window.innerWidth > 767;
+    this.horizontalPosition = this.isTablet ? 'start' : 'center';
+  }
 
   openSnackBar(text: string, time: number, error: boolean) {
     this.snackBar.open(text, '', {

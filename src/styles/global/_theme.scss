@@ -48,6 +48,7 @@ legend {
 
 .container {
     padding: 50px 20px;
+    min-height: calc(100vh - 160px);
     @include md {
         padding: 50px 30px;
         margin: 0 auto;

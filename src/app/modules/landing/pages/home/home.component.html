@@ -2,8 +2,20 @@
     <h1>Welcome to Todo Website!</h1>
     <div class="home">
         <img src="/assets/images/todocat_optimized.png" alt="to-do cat">
-        <h2>This page has been specially designed for you. Share it effortlessly and manage your tasks with ease. 
-            Begin by adding your first task and embark on a more organized journey!
-        </h2>
+        <div>
+            <h2>This page has been specially designed for you. Share it effortlessly and manage your tasks with ease. 
+                Begin by adding your first task and embark on a more organized journey!
+            </h2>
+            <ng-container *ngIf="isLaptop">
+                <h3>
+                    Here are some additional features at your disposal to help you make the most of this task management tool:
+                </h3>
+                <ul>
+                    <li><span>Add tasks:</span> Easily add new tasks to your list by clicking the "Add Task" button. You can give each task a title, description, and due date.</li>
+                    <li><span>Remove tasks:</span> If you've completed a task or no longer need it, you can delete it from your list with a simple click.</li>
+                    <li><span>Edit tasks:</span> Need to make changes to a task? No problem! You can edit the task title, description, or due date to keep your list up to date.</li>
+                </ul>
+            </ng-container>
+        </div>
     </div>
 </div>

@@ -16,7 +16,4 @@ export class AppComponent implements OnInit {
       this.isAuthenticated = isAuthenticated;
     });
   }
-
-
-  
 }

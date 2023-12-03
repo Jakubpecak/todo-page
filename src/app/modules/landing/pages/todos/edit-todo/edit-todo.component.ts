@@ -4,7 +4,7 @@ import { Todo } from 'src/app/core/models/todo';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 import { TodosService } from 'src/app/core/services/todos.service';
 import { required } from 'src/app/core/validators/required';
-import { setFormAsDirty } from 'src/app/core/utils/form';
+import { setFormAsDirty, resetForm } from 'src/app/core/utils/form';
 import { minLength } from 'src/app/core/validators/min';
 import { maxLength } from 'src/app/core/validators/max';
 import { Subscription } from 'rxjs';
@@ -55,23 +55,16 @@ export class EditTodoComponent implements OnInit, OnDestroy {
         const { title, description } = this.form.value;
         const newTitle = { title, description };
         this.subscriptions.add(this.todosService.editTodo(this.todoList[this.selectedIndex].id, newTitle).subscribe(() => {
-          this.resetForm();
+          resetForm(this.form);
           this.isValid = false;
           this.isLoading = false;
-          this.snackBar.openSnackBar('Todo edited', 2000, false);
+          this.snackBar.openSnackBar('Todo updated', 2000, false);
           this.onHideEditTodo();
         }));
       }
     } else {
       setFormAsDirty(this.form);
     }
-  }
-
-  resetForm() {
-    this.form.reset();
-    Object.keys(this.form.controls).forEach(key => {
-      this.form.get(key)?.setErrors(null);
-    });
   }
 
   onHideEditTodo() {

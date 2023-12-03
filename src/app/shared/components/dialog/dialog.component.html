@@ -1,7 +1,7 @@
 <div class="dialog" *ngIf="!isHistory">
   <h1 mat-dialog-title>{{ title }}</h1>
   <div mat-dialog-content class="dialog__content">
-    {{ description }}
+    <h3>{{ description }}</h3>
   </div>
   <div mat-dialog-actions class="dialog__buttons">
     <button mat-raised-button color="warn" [mat-dialog-close]="true">Yes</button>
@@ -12,6 +12,6 @@
 <div class="dialog__history" *ngIf="isHistory">
   <h1 mat-dialog-title>{{ title }}</h1>
   <ul mat-dialog-actions class="dialog__history__list">
-    <li *ngFor="let item of historyList">{{ item.title }} - {{ item.createdAt | date: 'dd.MM.yyyy' }}</li>
+    <li *ngFor="let item of historyList"><span>{{ item.title }}</span> - {{ item.createdAt | date: 'dd.MM.yyyy' }}</li>
   </ul>
 </div>

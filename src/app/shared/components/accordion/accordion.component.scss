@@ -1,3 +1,5 @@
+@import '/src/styles/shared/media-queries';
+
 :host {
     .accordion {
       display: block;
@@ -13,6 +15,18 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          cursor: pointer;
+          span {
+            @include md {
+              font-size: 12px;
+            }
+            @include lg {
+              font-size: 14px;
+            }
+            @include xl {
+              font-size: 16px;
+            }
+          }
         }
 
         &__body {

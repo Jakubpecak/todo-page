@@ -43,6 +43,9 @@
             app-menu-list {
                 display: flex;
                 gap: 20px;
+                @include lg {
+                    gap: 50px;   
+                }
             }
         }
     }

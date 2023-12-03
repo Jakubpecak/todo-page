@@ -3,7 +3,7 @@
       <a [routerLink]="menuItem.routerLink" (click)="this.closeMenuEmitter.emit()">{{ menuItem.label }}</a>
     </li>
     <li>
-      <a (click)="this.userLoggedOut.emit()">Logout</a>
+      <a (click)="this.userLoggedOut.emit()" [ngStyle]="{'cursor' : 'pointer'}">Logout</a>
     </li>
   </ng-container>
   <ng-container *ngIf="!isAuthenticated">

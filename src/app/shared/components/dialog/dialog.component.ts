@@ -31,7 +31,7 @@ export class DialogComponent implements OnInit, OnDestroy {
 
     if (this.isHistory) {
       this.subscriptions.add(this.todosService.getHistoryTodos().subscribe((todos) => {
-        this.historyList = todos;
+        this.historyList = todos.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
       }));
     }
   }
