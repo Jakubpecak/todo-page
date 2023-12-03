@@ -11,4 +11,6 @@ export class MenuListComponent {
   @Input() notAuthorizedMenuItems: any;
   @Output() closeMenuEmitter = new EventEmitter<boolean>();
   @Output() userLoggedOut = new EventEmitter<boolean>();
+
+  
 }
