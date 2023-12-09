@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -8,12 +8,20 @@ import { Subscription } from 'rxjs';
   templateUrl: './user-progress-bar.component.html',
   styleUrls: ['./user-progress-bar.component.scss']
 })
-export class UserProgressBarComponent implements OnDestroy {
+export class UserProgressBarComponent implements OnDestroy, OnChanges {
   @Input() completeProfile!: number;
   @Input() form!: FormGroup;
   @Output() validFieldsCount = new EventEmitter<number>();
   @Output() isValid = new EventEmitter<boolean>();
   subscriptions = new Subscription();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const change = changes['completeProfile'];
+    if (change) {
+      this.completeProfile = change.currentValue;
+      console.log('change', this.completeProfile);
+    }
+  }
 
   ngOnInit(): void {
     this.subscriptions.add(this.form.valueChanges.subscribe(() => {
