@@ -29,7 +29,8 @@
             <ul>
                 <li *ngFor="let todo of todoList; let index = index" class="todos__list">
                   <a [routerLink]="'/todo/' + todo.id">
-                    {{ todo.title }} - <span>{{ todo.createdAt | date: 'dd.MM.yyyy' }}</span>
+                    {{ todo.title }}
+                    <span>{{ todo.createdAt | date: 'dd.MM.yyyy' }}</span>
                   </a>
                   <div class="todos__list__buttons">
                     <button class="edit" (click)="editTodo(index)">Edit</button>

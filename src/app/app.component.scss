@@ -1,7 +1,10 @@
+@import '/src/styles/global/theme';
+
 :host {
-    .lol {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 1000% 1000%!important;
+    background-repeat: no-repeat;
+    animation: gradient 15s ease infinite;
+    display: block;
+    min-height: calc(100vh);
 }
