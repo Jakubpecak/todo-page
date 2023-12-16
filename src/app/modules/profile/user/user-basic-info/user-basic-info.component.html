@@ -5,7 +5,7 @@
     <div *ngIf="user" class="basic__info">
         <h3><i class="fa fa-star"></i> Name: {{ user.name }}</h3>
         <h3><i class="fa fa-venus-mars"></i> Gender: {{ user.gender }}</h3>
-        <h3><i class="fa fa-birthday-cake"></i> Date of birth: {{ user.birthDate | date: 'dd-MM-yyyy' }}r.</h3>
+        <h3><i class="fa fa-birthday-cake"></i> Date of birth: {{ user.birthDate | date: 'dd-MM-yyyy' }}</h3>
         <h3><i class="fa fa-globe"></i> Country: {{ user.address?.country }}</h3>
         <h3><i class="fa fa-map"></i> Region: {{ user.address?.region }}</h3>
         <h3><i class="fa fa-map-marker"></i> City: {{ user.address?.city }}</h3>

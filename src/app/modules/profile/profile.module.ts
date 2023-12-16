@@ -13,6 +13,7 @@ import { UserContactComponent } from './user/user-contact/user-contact.component
 import { UserSettingsComponent } from './user/user-settings/user-settings.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { UserProgressBarComponent } from './user/user-edit/user-progress-bar/user-progress-bar.component';
+import { ProfileResolve } from 'src/app/core/guards/profile-resolve';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,9 @@ import { UserProgressBarComponent } from './user/user-edit/user-progress-bar/use
       responsive: true,
       showZeroOuterStroke: false,
       lazy: true})
+  ],
+  providers: [
+    ProfileResolve
   ]
 })
 export class ProfileModule { }

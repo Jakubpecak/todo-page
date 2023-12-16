@@ -8,6 +8,6 @@
   </ng-container>
   <ng-container *ngIf="!isAuthenticated">
     <li *ngFor="let menuItem of notAuthorizedMenuItems">
-      <a [routerLink]="menuItem.routerLink" (click)="this.closeMenuEmitter.emit()">{{ menuItem.label }}</a>
+      <a [routerLink]="menuItem.routerLink" [routerLinkActive]="'active'" (click)="this.closeMenuEmitter.emit()">{{ menuItem.label }}</a>
     </li>
 </ng-container>

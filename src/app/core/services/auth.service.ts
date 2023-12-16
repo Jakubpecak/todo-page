@@ -11,7 +11,7 @@ interface Credentials {
   password: string;
 }
 
-interface Session {
+export interface Session {
   token: string | null;
   user: User | null;
   message?: string;
@@ -22,8 +22,8 @@ interface Session {
 })
 
 export class AuthService {
-  private session = new BehaviorSubject<Session | null>(this.getStoredSession());
   private apiUrl: string = environment.apiUrl;
+  private session = new BehaviorSubject<Session | null>(this.getStoredSession());
   isAuthenticated = false;
 
   state = this.session.pipe(
@@ -49,6 +49,18 @@ export class AuthService {
   getMessage() {
     const session = this.session.getValue();
     return session && session.message;
+  }
+
+  updateCurrentUser(newData: User) {
+    const session = this.session.getValue();
+    if (session) {
+      const update = {
+        ...session,
+        user: newData
+      };
+      this.session.next(update);
+      this.storeSession(update);
+    } 
   }
 
   login(credentials: Credentials) {

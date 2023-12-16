@@ -4,10 +4,11 @@ import { ProfileComponent } from './profile.component';
 import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { AuthorizedGuard } from 'src/app/core/guards/authorized.guard';
+import { ProfileResolve } from 'src/app/core/guards/profile-resolve';
 
 const routes: Routes = [
   {
-    path: '', component: ProfileComponent, canActivate: [AuthorizedGuard],
+    path: '', component: ProfileComponent, canActivate: [AuthorizedGuard], resolve: { 'profile': ProfileResolve },
     children: [
       {
         path: '', component: UserComponent,

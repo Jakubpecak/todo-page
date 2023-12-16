@@ -120,7 +120,8 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
   save() {
     if (this.isValid) {
-      this.subscriptions.add(this.userService.updateUser(this.currentUser?.id, this.form.value).subscribe(() => {
+      this.subscriptions.add(this.userService.updateUser(this.currentUser?.id, this.form.value).subscribe((newData) => {
+        this.auth.updateCurrentUser(newData);
         this.snackBar.openSnackBar('Profile updated', 2000, false);
         this.router.navigate(['/profile']);
       }));

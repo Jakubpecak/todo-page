@@ -3,8 +3,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { User } from 'src/app/core/models/user';
-import { AuthService } from 'src/app/core/services/auth.service';
 import { UserService } from 'src/app/core/services/user.service';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-user',
@@ -18,17 +19,17 @@ export class UserComponent implements OnInit, OnDestroy {
   imageChangedEvent: any = '';
   croppedImage: any = '';
   openAccordionIndex: number | null = null;
-  userId!: number | undefined;
   subscriptions = new Subscription();
 
-  constructor(private auth: AuthService, private sanitizer: DomSanitizer, private userService: UserService) {}
+  constructor(
+    private sanitizer: DomSanitizer, 
+    private userService: UserService, 
+    private auth: AuthService
+    ) {}
 
   ngOnInit(): void {
-    this.userId = this.auth.getCurrentUser()?.id;
     this.setOpenAccordion(0);
-    this.subscriptions.add(this.userService.getUser(this.userId).subscribe((currentUser) => {
-      this.user = currentUser;
-    }));
+    this.user = this.auth.getCurrentUser();
   }
 
   fileChangeEvent(event: any): void {
