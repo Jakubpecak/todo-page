@@ -11,13 +11,16 @@ const routes: Routes = [
     path: '', component: LandingComponent,
     children: [
       {
-        path: '', component: HomeComponent
+        path: 'home', component: HomeComponent
       },
       {
         path: 'todos', component: TodosComponent, canActivate: [AuthorizedGuard]
       },
       {
         path: 'todo/:id', component: TodoComponent
+      },
+      {
+        path: '', redirectTo: 'home', pathMatch: 'full'
       }
     ]
   }

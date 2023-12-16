@@ -3,11 +3,22 @@
     (toggleAccordion)="setOpenAccordion(0)"
     >
     <div *ngIf="user" class="basic__info">
-        <h3><i class="fa fa-star"></i> Name: {{ user.name }}</h3>
-        <h3><i class="fa fa-venus-mars"></i> Gender: {{ user.gender }}</h3>
-        <h3><i class="fa fa-birthday-cake"></i> Date of birth: {{ user.birthDate | date: 'dd-MM-yyyy' }}</h3>
-        <h3><i class="fa fa-globe"></i> Country: {{ user.address?.country }}</h3>
-        <h3><i class="fa fa-map"></i> Region: {{ user.address?.region }}</h3>
-        <h3><i class="fa fa-map-marker"></i> City: {{ user.address?.city }}</h3>
+        <h3 *ngIf="user.name"><i class="fa fa-star"></i> Name: {{ user.name }}</h3>
+        <h3 *ngIf="!user.name"><i class="fa fa-star"></i> Name: -</h3>
+
+        <h3 *ngIf="user.gender"><i class="fa fa-venus-mars"></i> Gender: {{ user.gender }}</h3>
+        <h3 *ngIf="!user.gender"><i class="fa fa-venus-mars"></i> Gender: -</h3>
+
+        <h3 *ngIf="user.birthDate"><i class="fa fa-birthday-cake"></i> Date of birth: {{ user.birthDate | date: 'dd-MM-yyyy' }}</h3>
+        <h3 *ngIf="!user.birthDate"><i class="fa fa-birthday-cake"></i> Date of birth: -</h3>
+
+        <h3 *ngIf="user.address?.country"><i class="fa fa-globe"></i> Country: {{ user.address?.country }}</h3>
+        <h3 *ngIf="!user.address?.country"><i class="fa fa-globe"></i> Country: -</h3>
+
+        <h3 *ngIf="user.address?.region"><i class="fa fa-map"></i> Region: {{ user.address?.region }}</h3>
+        <h3 *ngIf="!user.address?.region"><i class="fa fa-map"></i> Region: -</h3>
+
+        <h3 *ngIf="user.address?.city"><i class="fa fa-map-marker"></i> City: {{ user.address?.city }}</h3>
+        <h3 *ngIf="!user.address?.city"><i class="fa fa-map-marker"></i> City: -</h3>
     </div>
 </app-accordion>

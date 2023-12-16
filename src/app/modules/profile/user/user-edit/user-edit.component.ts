@@ -44,7 +44,6 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.setFormValue();
-    this.currentUser = this.auth.getCurrentUser();
 
     this.subscriptions.add(this.form.get('address.country')?.valueChanges.subscribe((country) => {
       const countryValue = country.toLowerCase();
@@ -84,33 +83,34 @@ export class UserEditComponent implements OnInit, OnDestroy {
   }
 
   setFormValue() {
+    this.currentUser = this.auth.getCurrentUser();
     this.form = this.fb.group({
-      name: [null, 
+      name: [this.currentUser?.name, 
         [required('Name is required'), 
         minLength(3, 'Minimum length is 3 characters'), 
         maxLength(15, 'Maximum length is 15 characters')]
         ],
-      gender: [null, [required('Gender is required')]],
+      gender: [this.currentUser?.gender, [required('Gender is required')]],
       address: this.fb.group({
-        country: [null, [
+        country: [this.currentUser?.address?.country, [
           required('Country is required'), 
           minLength(3, 'Minimum length is 3 characters'),
           maxLength(15, 'Maximum length is 15 characters')]
         ],
-        region: [null],
-        city: [null],
-        street: [null]
+        region: [this.currentUser?.address?.region],
+        city: [this.currentUser?.address?.city],
+        street: [this.currentUser?.address?.street]
       }),
-      birthDate: [null, [
+      birthDate: [this.currentUser?.birthDate, [
         required('Date of birth is required'), 
         minLength(3, 'Minimum length is 3 characters')]
       ],
-      phone: [null, 
+      phone: [this.currentUser?.phone, 
         [required('Phone is required'), 
         minLength(3, 'Minimum length is 3 numbers'), 
         maxLength(15, 'Maximum length is 15 numbers')]
       ],
-      email: [null, [
+      email: [this.currentUser?.email, [
         required('Email is required'), 
         minLength(3, 'Minimum length is 3 characters'),
         email('Email address is invalid')]

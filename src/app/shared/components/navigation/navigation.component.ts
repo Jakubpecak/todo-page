@@ -13,13 +13,13 @@ export class NavigationComponent implements OnInit {
   isTablet!: boolean;
 
   authorizedMenuItems = [
-    { label: 'Home', routerLink: '/' },
+    { label: 'Home', routerLink: '/home' },
     { label: 'Profile', routerLink: '/profile' },
     { label: 'Todos', routerLink: '/todos' }
   ];
 
   notAuthorizedMenuItems = [
-    { label: 'Home', routerLink: '/' },
+    { label: 'Home', routerLink: '/home' },
     { label: 'Login', routerLink: '/login' },
     { label: 'Register', routerLink: '/register' },
   ];

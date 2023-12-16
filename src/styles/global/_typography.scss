@@ -99,6 +99,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: var.$link;
+a.active {
+  text-shadow: 4px 4px 6px rgba(13, 16, 45, 0.8);
 }
