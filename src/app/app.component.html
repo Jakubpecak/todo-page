@@ -1,3 +1,8 @@
-<app-navigation [isAuthenticated]="isAuthenticated"></app-navigation>
+<app-navigation 
+    [isAuthenticated]="isAuthenticated"
+    [darkMode]="darkMode"
+    (toggleDarkModeEmit)="toggleDarkMode($event)"
+>
+</app-navigation>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

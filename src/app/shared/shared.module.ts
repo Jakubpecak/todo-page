@@ -32,6 +32,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { SelectComponent } from './components/select/select.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MenuListComponent } from './components/navigation/menu/menu-list/menu-list.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { MenuListComponent } from './components/navigation/menu/menu-list/menu-l
     MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    LayoutModule
+    LayoutModule,
+    MatSlideToggleModule
   ],
   exports: [
     NavigationComponent, 

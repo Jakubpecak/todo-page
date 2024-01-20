@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -8,9 +8,11 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 
 export class NavigationComponent implements OnInit {
-  @Input() isAuthenticated: boolean = false;
   showMenu = false;
   isTablet!: boolean;
+  @Input() darkMode!: boolean;
+  @Input() isAuthenticated: boolean = false;
+  @Output() toggleDarkModeEmit = new EventEmitter<boolean>();
 
   authorizedMenuItems = [
     { label: 'Home', routerLink: '/home' },
@@ -36,6 +38,10 @@ export class NavigationComponent implements OnInit {
 
   logout() {
     this.auth.logout();
+  }
+
+  toggleDarkMode() {
+    this.toggleDarkModeEmit.emit(this.darkMode);
   }
 
 

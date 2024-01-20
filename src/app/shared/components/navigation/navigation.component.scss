@@ -40,6 +40,12 @@
             }
         }
         &__list {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            @include lg {
+                gap: 50px;   
+            }
             app-menu-list {
                 display: flex;
                 gap: 20px;
@@ -47,6 +53,14 @@
                     gap: 50px;   
                 }
             }
+        }
+        .sun {
+            color: #CEF11A;
+            margin-top: 5px;
+        }
+        .moon {
+            color: #8375CD;
+            margin-top: 5px;
         }
     }
 }

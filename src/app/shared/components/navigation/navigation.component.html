@@ -29,6 +29,11 @@
             [notAuthorizedMenuItems]="notAuthorizedMenuItems"
             (userLoggedOut)="logout()"
             ></app-menu-list>
+            <mat-slide-toggle [(ngModel)]="darkMode" (change)="toggleDarkMode()">
+                <mat-icon class="sun" *ngIf="!darkMode">wb_sunny</mat-icon>
+                <mat-icon class="moon" *ngIf="darkMode">nights_stay</mat-icon>
+            </mat-slide-toggle>
         </ul>
+        
     </ng-container>
 </div>

@@ -1,1 +1,31 @@
 @use 'styles/global/index' as *;
+
+:root {
+    --background-color-light: #ffffff;
+    --background-color-dark: #000000;
+    --text-color-light: #000000;
+    --text-color-dark: #ffffff;
+  }
+  
+  body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 1000% 1000%;
+    background-repeat: no-repeat;
+    animation: gradient 15s ease infinite;
+    display: block;
+    min-height: calc(100vh);
+    transition: all 0.5s;
+  }
+  
+  body.dark-mode {
+    background: var(--background-color-dark);
+    color: var(--text-color-dark);
+    background-size: 1000% 1000%;
+    background-repeat: no-repeat;
+    animation: none;
+    display: block;
+    min-height: calc(100vh);
+    transition: all 0.5s;
+  }
+
+  
