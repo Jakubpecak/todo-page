@@ -2,11 +2,17 @@
     <div class="nav__logo"><a routerLink="/home"><i class="fa fa-home"></i></a></div>
     <ng-container *ngIf="!isTablet">
         <div class="nav__menu">
-            <div class="nav__menu__login" *ngIf="!isAuthenticated"><a routerLink="/login">Login</a></div>
+            <div class="nav__menu__login" *ngIf="!isAuthenticated">
+                <mat-slide-toggle [(ngModel)]="darkMode" (change)="toggleDarkMode()">
+                    <mat-icon class="sun" *ngIf="!darkMode">wb_sunny</mat-icon>
+                    <mat-icon class="moon" *ngIf="darkMode">nights_stay</mat-icon>
+                </mat-slide-toggle>
+            </div>
             <div class="nav__menu__login" *ngIf="isAuthenticated">
-                <a routerLink="/profile">
-                    <i class="fa fa-user-circle"></i>
-                </a>
+                <mat-slide-toggle [(ngModel)]="darkMode" (change)="toggleDarkMode()">
+                    <mat-icon class="sun" *ngIf="!darkMode">wb_sunny</mat-icon>
+                    <mat-icon class="moon" *ngIf="darkMode">nights_stay</mat-icon>
+                </mat-slide-toggle>
             </div>
             <button class="nav__menu__btn" mat-icon-button (click)="toggleMenu()">
                 <mat-icon>more_vert</mat-icon>
@@ -34,6 +40,5 @@
                 <mat-icon class="moon" *ngIf="darkMode">nights_stay</mat-icon>
             </mat-slide-toggle>
         </ul>
-        
     </ng-container>
 </div>

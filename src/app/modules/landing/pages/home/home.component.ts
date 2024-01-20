@@ -9,14 +9,14 @@ import { BREAKPOINTS } from 'src/app/core/utils/break-points';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  isLaptop!: boolean;
+  isTablet!: boolean;
   subscriptions = new Subscription();
 
   constructor(private responsive: ResponsiveService) {}
 
   ngOnInit(): void {
-    this.subscriptions.add(this.responsive.setIsDeviceBasedOnBreakpoint(BREAKPOINTS.isLaptop).subscribe((isLaptop) => {
-      this.isLaptop = isLaptop;
+    this.subscriptions.add(this.responsive.setIsDeviceBasedOnBreakpoint(BREAKPOINTS.isTablet).subscribe((isTablet) => {
+      this.isTablet = isTablet;
     }));
   }
 

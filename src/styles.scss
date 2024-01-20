@@ -1,9 +1,7 @@
 @use 'styles/global/index' as *;
 
 :root {
-    --background-color-light: #ffffff;
     --background-color-dark: #000000;
-    --text-color-light: #000000;
     --text-color-dark: #ffffff;
   }
   
@@ -28,4 +26,8 @@
     transition: all 0.5s;
   }
 
+  body.dark-mode .mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
+    fill: #fff;
+    opacity: 0.38;
+  }
   

@@ -21,13 +21,19 @@
         }
 
         .home {
-            @include md {
+            @include lg {
                 display: flex;
                 flex-direction: row-reverse;
                 gap: 20px;
             }
             @include xl {
                 gap: 50px;
+            }
+            .home__login {
+                padding-top: 20px;
+                @include xl {
+                    padding-top: 50px;
+                }
             }
             h2 {
                 padding-top: 20px;
@@ -63,7 +69,7 @@
             img {
                 width: 90%;
                 border-radius: 10px;
-                @include md {
+                @include lg {
                     width: 45%;
                 }
                 @include lg {
