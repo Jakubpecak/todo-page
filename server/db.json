@@ -21,6 +21,28 @@
       ],
       "photo": "blob:http://localhost:4200/e8eb66da-be02-41f6-b750-56622322b674",
       "gender": "Man"
+    },
+    {
+      "id": 2,
+      "name": "test",
+      "username": "User2",
+      "email": "test@o2.pl",
+      "address": {
+        "country": "poland",
+        "region": "Kujawsko-Pomorskie",
+        "city": "Toruń",
+        "street": null
+      },
+      "birthDate": "2023-12-06T23:00:00.000Z",
+      "phone": "34423423",
+      "company": {
+        "name": "Romaguera-Crona"
+      },
+      "roles": [
+        "USER"
+      ],
+      "photo": "blob:http://localhost:4200/e8eb66da-be02-41f6-b750-56622322b674",
+      "gender": "Man"
     }
   ],
   "posts": [

@@ -10,6 +10,7 @@ import { AddTodoComponent } from './pages/todos/add-todo/add-todo.component';
 import { FiltersTodoComponent } from './pages/todos/filters-todo/filters-todo.component';
 import { EditTodoComponent } from './pages/todos/edit-todo/edit-todo.component';
 import { HistoryTodoComponent } from './pages/todos/history-todo/history-todo.component';
+import { TodosResolve } from 'src/app/core/guards/todos-resolve';
 
 
 @NgModule({
@@ -26,6 +27,9 @@ import { HistoryTodoComponent } from './pages/todos/history-todo/history-todo.co
     CommonModule,
     SharedModule,
     LandingRoutingModule
+  ],
+  providers: [
+    TodosResolve
   ]
 })
 export class LandingModule { }

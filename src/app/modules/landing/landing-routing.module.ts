@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TodosComponent } from './pages/todos/todos.component';
 import { TodoComponent } from './pages/todos/todo/todo.component';
 import { AuthorizedGuard } from 'src/app/core/guards/authorized.guard';
+import { TodosResolve } from 'src/app/core/guards/todos-resolve';
 
 const routes: Routes = [
   {
