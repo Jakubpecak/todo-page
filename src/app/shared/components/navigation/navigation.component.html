@@ -25,6 +25,7 @@
         [isAuthenticated]="isAuthenticated"
         [authorizedMenuItems]="authorizedMenuItems"
         [notAuthorizedMenuItems]="notAuthorizedMenuItems"
+        (languageChanged)="changeLanguage($event)"
         ></app-menu>
     </ng-container>
     <ng-container *ngIf="isTablet">
@@ -34,6 +35,7 @@
             [authorizedMenuItems]="authorizedMenuItems"
             [notAuthorizedMenuItems]="notAuthorizedMenuItems"
             (userLoggedOut)="logout()"
+            (languageChanged)="changeLanguage($event)"
             ></app-menu-list>
             <mat-slide-toggle [(ngModel)]="darkMode" (change)="toggleDarkMode()">
                 <mat-icon class="sun" *ngIf="!darkMode">wb_sunny</mat-icon>

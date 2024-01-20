@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorProvider } from './core/interceptors/auth.interceptor';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,9 +21,10 @@ import { AuthInterceptorProvider } from './core/interceptors/auth.interceptor';
     HttpClientModule,
     SharedModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from './core/services/auth.service';
 import { DarkModeService } from './core/services/dark-mode.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,13 @@ export class AppComponent implements OnInit {
   constructor(
     private auth: AuthService, 
     private darkModeService: DarkModeService, 
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private translate: TranslateService
     ) {}
 
   ngOnInit(): void {
+
+
     this.auth.state.subscribe((isAuthenticated) => {
       this.isAuthenticated = isAuthenticated;
     });
@@ -25,7 +29,16 @@ export class AppComponent implements OnInit {
     this.darkMode = this.darkModeService.getDarkMode();
     if (this.darkMode) {
       this.renderer.addClass(document.body, 'dark-mode');
-    }
+    };
+  }
+
+  setDefaultLanguage() {
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
   }
 
   toggleDarkMode() {

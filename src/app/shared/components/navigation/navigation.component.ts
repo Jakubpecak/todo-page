@@ -12,7 +12,8 @@ export class NavigationComponent implements OnInit {
   isTablet!: boolean;
   @Input() darkMode!: boolean;
   @Input() isAuthenticated: boolean = false;
-  @Output() toggleDarkModeEmit = new EventEmitter<boolean>();
+  @Output() darkModeToggled = new EventEmitter<boolean>();
+  @Output() languageChanged = new EventEmitter<string>();
 
   authorizedMenuItems = [
     { label: 'Home', routerLink: '/home' },
@@ -41,7 +42,11 @@ export class NavigationComponent implements OnInit {
   }
 
   toggleDarkMode() {
-    this.toggleDarkModeEmit.emit(this.darkMode);
+    this.darkModeToggled.emit(this.darkMode);
+  }
+
+  changeLanguage(language: string) {
+    this.languageChanged.emit(language);
   }
 
 

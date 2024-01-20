@@ -7,9 +7,19 @@
         @include md {
             margin-bottom: 0;
         }
-        a {
+        a, .language {
             font-size: 20px;
             text-transform: uppercase;
+        }
+    }
+    .languages {
+        display: flex;
+        justify-content: center;
+        .language {
+            font-size: 20px;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 6px rgba(13, 16, 45, 0.8);
+            cursor: pointer;
         }
     }
 }

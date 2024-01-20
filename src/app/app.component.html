@@ -1,7 +1,8 @@
 <app-navigation 
     [isAuthenticated]="isAuthenticated"
     [darkMode]="darkMode"
-    (toggleDarkModeEmit)="toggleDarkMode()"
+    (darkModeToggled)="toggleDarkMode()"
+    (languageChanged)="changeLanguage($event)"
 >
 </app-navigation>
 <router-outlet></router-outlet>

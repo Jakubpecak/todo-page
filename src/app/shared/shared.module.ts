@@ -34,6 +34,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MenuListComponent } from './components/navigation/menu/menu-list/menu-list.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     FooterComponent,
@@ -71,7 +79,14 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatDatepickerModule,
     MatNativeDateModule,
     LayoutModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     NavigationComponent, 

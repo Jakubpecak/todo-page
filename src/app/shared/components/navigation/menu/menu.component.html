@@ -9,6 +9,7 @@
       [notAuthorizedMenuItems]="notAuthorizedMenuItems"
       (closeMenuEmitter)="closeMenu()"
       (userLoggedOut)="logout()"
+      (languageChanged)="changeLanguage($event)"
       ></app-menu-list>
     </ul>
 </div>

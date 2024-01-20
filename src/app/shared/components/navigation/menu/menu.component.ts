@@ -12,6 +12,7 @@ export class MenuComponent {
   @Input() notAuthorizedMenuItems: any;
   @Output() closeMenuEmitter = new EventEmitter<boolean>();
   @Output() userLoggedOut = new EventEmitter<boolean>();
+  @Output() languageChanged = new EventEmitter<string>();
 
   closeMenu() {
     this.closeMenuEmitter.emit();
@@ -20,5 +21,9 @@ export class MenuComponent {
   logout() {
     this.closeMenuEmitter.emit();
     this.userLoggedOut.emit();
+  }
+
+  changeLanguage(language: string) {
+    this.languageChanged.emit(language);
   }
 }

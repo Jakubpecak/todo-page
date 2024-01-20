@@ -5,9 +5,17 @@
     <li>
       <a (click)="this.userLoggedOut.emit()" [ngStyle]="{'cursor' : 'pointer'}">Logout</a>
     </li>
-  </ng-container>
-  <ng-container *ngIf="!isAuthenticated">
+    <div class="languages">
+      <span class="language" (click)="changeLanguage('en'); isDefaultLang = false" *ngIf="isDefaultLang">EN</span>
+      <span class="language" (click)="changeLanguage('pl'); isDefaultLang = true" *ngIf="!isDefaultLang">PL</span>
+    </div>
+</ng-container>
+<ng-container *ngIf="!isAuthenticated">
     <li *ngFor="let menuItem of notAuthorizedMenuItems">
       <a [routerLink]="menuItem.routerLink" [routerLinkActive]="'active'" (click)="this.closeMenuEmitter.emit()">{{ menuItem.label }}</a>
     </li>
+    <div class="languages">
+      <span class="language" (click)="changeLanguage('en'); isDefaultLang = false" *ngIf="isDefaultLang">EN</span>
+      <span class="language" (click)="changeLanguage('pl'); isDefaultLang = true" *ngIf="!isDefaultLang">PL</span>
+    </div>
 </ng-container>
