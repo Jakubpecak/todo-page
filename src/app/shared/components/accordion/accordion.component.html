@@ -1,7 +1,7 @@
 <cdk-accordion class="accordion">
   <div class="accordion__item">
     <div class="accordion__item__header" (click)="onToggle()">
-      <h2>{{ title }}</h2>
+      <h2>{{ title | translate }}</h2>
       <span class="accordion__item__header accordion__item__header--status">
         {{ isOpen ? 'Close' : 'Open' }}
       </span>

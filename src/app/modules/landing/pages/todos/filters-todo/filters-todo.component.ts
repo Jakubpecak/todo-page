@@ -13,10 +13,10 @@ export class FiltersTodoComponent {
   constructor(private todosService: TodosService) {}
 
   filters = [
-    {value: 'asc', label: 'Ascending'},
-    {value: 'desc', label: 'Descending'},
-    {value: 'title', label: 'Title'},
-    {value: 'createdAt', label: 'Date'}
+    {value: 'asc', label: 'sort.ascending'},
+    {value: 'desc', label: 'sort.descending'},
+    {value: 'title', label: 'sort.title'},
+    {value: 'createdAt', label: 'sort.date'}
   ];
   
   setSort(key: string) {

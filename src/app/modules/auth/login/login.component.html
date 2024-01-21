@@ -1,10 +1,10 @@
 
 <div class="container login">
     <form [formGroup]="form" (ngSubmit)="login()">
-        <h1>Login:</h1>
+        <h1>{{ 'login.title' | translate }}:</h1>
         <app-error controlName="username">
             <app-input
-                [label]="'Username'"
+                [label]="'form.username'"
                 [control]="this.form.get('username')"
                 [type]="'text'"
                 >
@@ -12,14 +12,14 @@
         </app-error>
         <app-error controlName="password">
             <app-input
-                [label]="'Password'"
+                [label]="'form.password'"
                 [control]="this.form.get('password')"
                 [type]="'password'"    
                 >
             </app-input>
         </app-error>
         <app-buttons 
-            [textButton]="'Submit'"
+            [textButton]="'buttons.submit'"
             [isValid]="isValid" 
             [isLoading]="isLoading" 
             [isExtraButton]="true"

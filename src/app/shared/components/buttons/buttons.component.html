@@ -1,9 +1,9 @@
 <div class="buttons">
     <button type="submit" class="buttons__button add" [ngClass]="{'disabled' : !isValid}" *ngIf="!isLoading">
-        {{ textButton }}
+        {{ textButton | translate }}
     </button>
     <button type="submit" class="buttons__button add" *ngIf="isLoading" [disabled]="true">
         <i class="fa fa-spinner fa-spin"></i>
     </button>
-    <button routerLink="/register" class="buttons__button" *ngIf="isExtraButton">Register</button>
+    <button routerLink="/register" class="buttons__button" *ngIf="isExtraButton">{{ 'buttons.register' | translate }}</button>
 </div>

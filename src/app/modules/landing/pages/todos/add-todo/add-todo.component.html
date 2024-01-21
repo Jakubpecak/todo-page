@@ -1,25 +1,25 @@
 <form class="add__form" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h1>Add todo:</h1>
+    <h1>{{ 'todos.add-todo' | translate }}:</h1>
     <app-error controlName="title">
       <app-input
-        [label]="'Todo title'"
+        [label]="'todos.todo-title'"
         [control]="this.form.get('title')"
         [type]="'text'"
-        [placeholder]="'Ex. Go shopping'"
+        [placeholder]="'placeholder.shopping'"
       ></app-input>
     </app-error>
     <app-error controlName="description">
       <app-textarea
-        [label]="'Todo description'"
+        [label]="'todos.todo-description'"
         [control]="this.form.get('description')"
-        [placeholder]="'Ex. Date or time...'"
+        [placeholder]="'placeholder.date-time'"
         [type]="'textarea'"
       ></app-textarea>
     </app-error>
     <app-buttons 
-      [textButton]="'Add todo'"
+      [textButton]="'buttons.add-todo'"
       [isValid]="isValid" 
       [isLoading]="isLoading"
     ></app-buttons>
 </form>
-<button class="add__button delete" (click)="onHideAddTodo()">Cancel</button>
+<button class="add__button delete" (click)="onHideAddTodo()">{{ 'buttons.cancel' | translate }}</button>

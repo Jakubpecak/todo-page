@@ -12,7 +12,7 @@ export class HistoryTodoComponent {
   constructor(private dialog: MatDialog) {}
 
   openHistory() {
-    const title = 'History Todo';
+    const title = 'dialog.history-todo';
     const description = '';
     const dialogRef = this.dialog.open(DialogComponent, {
       data: {

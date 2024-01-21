@@ -12,37 +12,37 @@
     <form [formGroup]="form" (ngSubmit)="save()">
         <app-error controlName="name">
             <app-input
-                [label]="'Name *'"
+                [label]="'form.name'"
                 [control]="this.form.get('name')"
                 [type]="'text'">
             </app-input>
         </app-error>
         <app-error controlName="birthDate">
             <app-data-picker
-                [label]="'Date of birth *'"
+                [label]="'form.date-of-birth'"
                 [control]="this.form.get('birthDate')"
                 [type]="'date'">
             </app-data-picker>
         </app-error>
         <app-error controlName="gender">
             <app-select
-                [label]="'Gender *'"
+                [label]="'form.gender'"
                 [control]="this.form.get('gender')"
                 [list]="genderList"
                 >
             </app-select>
         </app-error>
-        <div class="edit__profile__info"><i class="fa fa-question-circle"></i><h4>If you want extra fields like region or city write Poland</h4></div>
+        <div class="edit__profile__info"><i class="fa fa-question-circle"></i><h4>{{ 'form.extra-text' | translate }}</h4></div>
         <app-error controlName="address.country">
             <app-input
-                [label]="'Country *'"
+                [label]="'form.country'"
                 [control]="this.form.get('address.country')"
                 [type]="'text'">
             </app-input>
         </app-error>
         <app-error controlName="address.region" *ngIf="!hideRegionInput">
             <app-select
-                [label]="'Region'"
+                [label]="'form.region'"
                 [control]="this.form.get('address.region')"
                 [list]="regionList"
                 >
@@ -50,7 +50,7 @@
         </app-error>
         <app-error controlName="address.city" *ngIf="!hideCityInput">
             <app-select
-                [label]="'City'"
+                [label]="'form.city'"
                 [control]="this.form.get('address.city')"
                 [list]="cityList"
                 >
@@ -58,21 +58,21 @@
         </app-error>
         <app-error controlName="phone">
             <app-input
-                [label]="'Phone *'"
+                [label]="'form.phone'"
                 [control]="this.form.get('phone')"
                 [type]="'number'">
             </app-input>
         </app-error>
         <app-error controlName="email">
             <app-input
-                [label]="'Email *'"
+                [label]="'form.email'"
                 [control]="this.form.get('email')"
                 [type]="'email'">
             </app-input>
         </app-error>
         <div class="edit__profile__buttons">
             <app-buttons 
-                [textButton]="'Save'"
+                [textButton]="'buttons.save'"
                 [isValid]="isValid" 
                 [isLoading]="isLoading"
             ></app-buttons>

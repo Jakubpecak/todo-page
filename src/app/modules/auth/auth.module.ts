@@ -6,6 +6,7 @@ import { AuthComponent } from './auth.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     CommonModule,
     SharedModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    TranslateModule
   ]
 })
 export class AuthModule { }

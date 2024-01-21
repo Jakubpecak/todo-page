@@ -75,8 +75,8 @@ export class TodosComponent implements OnInit, OnDestroy{
   }
 
   openDialog(): void {
-    const title = 'Delete Todo';
-    const description = 'Are you sure you want to proceed with this action?';
+    const title = 'dialog.delete-todo';
+    const description = 'dialog.delete-todo-description';
     const dialogRef = this.dialog.open(DialogComponent, {
       data: {
         title,

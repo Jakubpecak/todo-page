@@ -1,16 +1,16 @@
 <div class="dialog" *ngIf="!isHistory">
-  <h1 mat-dialog-title>{{ title }}</h1>
+  <h1 mat-dialog-title>{{ title | translate }}</h1>
   <div mat-dialog-content class="dialog__content">
-    <h3>{{ description }}</h3>
+    <h3>{{ description | translate }}</h3>
   </div>
   <div mat-dialog-actions class="dialog__buttons">
-    <button mat-raised-button color="warn" [mat-dialog-close]="true">Yes</button>
-    <button mat-stroked-button color="warn" [mat-dialog-close]="false">No</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true">{{ 'buttons.yes' | translate }}</button>
+    <button mat-stroked-button color="warn" [mat-dialog-close]="false">{{ 'buttons.no' | translate }}</button>
   </div>
 </div>
 
 <div class="dialog__history" *ngIf="isHistory">
-  <h1 mat-dialog-title>{{ title }}</h1>
+  <h1 mat-dialog-title>{{ title | translate }}</h1>
   <ul mat-dialog-actions class="dialog__history__list">
     <li *ngFor="let item of historyList"><span>{{ item.title }}</span> - {{ item.createdAt | date: 'dd.MM.yyyy' }}</li>
   </ul>

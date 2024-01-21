@@ -9,6 +9,12 @@
         "en": "en",
         "pl": "pl"
     },
+    "login": {
+        "title": "Login"
+    },
+    "register": {
+        "title": "Register"
+    },
     "home": {
         "title": "Welcome to Todo Website!",
         "subtitle": "This page has been specially designed for you. Share it effortlessly and manage your tasks with ease. Begin by adding your first task and embark on a more organized journey!",
@@ -72,7 +78,8 @@
         "region": "Region",
         "city": "City",
         "todo-title": "Todo title",
-        "todo-description": "Todo description"
+        "todo-description": "Todo description",
+        "extra-text": "If you want extra fields like region or city write Poland"
     },
     "validation": {
         "name": "Name"
@@ -81,11 +88,30 @@
         "title": "My Todos",
         "description": "Description",
         "history": "History",
-        "edit": "Edit todo"
+        "edit": "Edit todo",
+        "todo-title": "Todo title",
+        "todo-description": "Todo description",
+        "add-todo": "Add todo"
 
-
+    },
+    "placeholder": {
+        "title-description": "by title and description",
+        "shopping": "Ex. Go shopping",
+        "date-time": "Ex. Date or time..."
+    },
+    "search": {
+        "name": "Search"
+    },
+    "sort": {
+        "name": "Sort",
+        "ascending": "Ascending",
+        "descending": "Descending",
+        "title": "Title",
+        "date": "Date"
+    },
+    "dialog": {
+        "history-todo": "History Todo",
+        "delete-todo": "Delete Todo",
+        "delete-todo-description": "Are you sure you want to proceed with this action?"
     }
-
-
-
 }
