@@ -86,34 +86,34 @@ export class UserEditComponent implements OnInit, OnDestroy {
     this.currentUser = this.auth.getCurrentUser();
     this.form = this.fb.group({
       name: [this.currentUser?.name, 
-        [required('Name is required'), 
-        minLength(3, 'Minimum length is 3 characters'), 
-        maxLength(15, 'Maximum length is 15 characters')]
+        [required('validation.name-required'), 
+        minLength(3, 'Minimum length is {{length}} characters'), 
+        maxLength(15, 'Maximum length is {{length}} characters')]
         ],
-      gender: [this.currentUser?.gender, [required('Gender is required')]],
+      gender: [this.currentUser?.gender, [required('validation.gender-required')]],
       address: this.fb.group({
         country: [this.currentUser?.address?.country, [
-          required('Country is required'), 
-          minLength(3, 'Minimum length is 3 characters'),
-          maxLength(15, 'Maximum length is 15 characters')]
+          required('validation.country-required'), 
+          minLength(3, 'Minimum length is {{length}} characters'),
+          maxLength(15, 'Maximum length is {{length}} characters')]
         ],
         region: [this.currentUser?.address?.region],
         city: [this.currentUser?.address?.city],
         street: [this.currentUser?.address?.street]
       }),
       birthDate: [this.currentUser?.birthDate, [
-        required('Date of birth is required'), 
-        minLength(3, 'Minimum length is 3 characters')]
+        required('validation.date-of-birth-required'), 
+        minLength(3, 'Minimum length is {{length}} characters')]
       ],
       phone: [this.currentUser?.phone, 
-        [required('Phone is required'), 
-        minLength(3, 'Minimum length is 3 numbers'), 
-        maxLength(15, 'Maximum length is 15 numbers')]
+        [required('validation.phone-required'), 
+        minLength(3, 'Minimum length is {{length}} characters'), 
+        maxLength(15, 'Maximum length is {{length}} characters')]
       ],
       email: [this.currentUser?.email, [
-        required('Email is required'), 
-        minLength(3, 'Minimum length is 3 characters'),
-        email('Email address is invalid')]
+        required('validation.email-required'), 
+        minLength(3, 'Minimum length is {{length}} characters'),
+        email('validation.email-invalid')]
       ]
     });
   }
@@ -122,7 +122,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
     if (this.isValid) {
       this.subscriptions.add(this.userService.updateUser(this.currentUser?.id, this.form.value).subscribe((newData) => {
         this.auth.updateCurrentUser(newData);
-        this.snackBar.openSnackBar('Profile updated', 2000, false);
+        this.snackBar.openSnackBar('snackbar.profile-updated', 2000, false);
         this.router.navigate(['/profile']);
       }));
     } else {

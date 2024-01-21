@@ -1,4 +1,4 @@
 <ng-content></ng-content>
 <div class="error" *ngIf="control.errors && (control.dirty || control.touched)">
-    {{ control?.errors?.message || message }}
+    {{ control?.errors?.message || message | translate }}
 </div>

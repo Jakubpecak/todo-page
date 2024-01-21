@@ -9,7 +9,7 @@ import { FormGroupDirective } from '@angular/forms';
 export class ErrorComponent implements OnInit {
   @Input() control: any;
   @Input() controlName: any;
-  @Input() message: string = "Invalid value";
+  @Input() message: string = "validation.invalid-value";
 
   constructor(private formGroup: FormGroupDirective) {}
 

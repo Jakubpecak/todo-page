@@ -48,7 +48,7 @@ export class TodosComponent implements OnInit, OnDestroy{
       this.subscriptions.add(this.todosService.deleteTodo(todoId).subscribe(() => {
         this.isAgree = false;
         this.todosService.addHistoryTodo(this.currentTodo);
-        this.snackBar.openSnackBar('Todo deleted', 2000, true);
+        this.snackBar.openSnackBar('snackbar.todo-deleted', 2000, true);
       }));
     } else {
       this.openDialog();

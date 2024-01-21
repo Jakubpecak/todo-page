@@ -1,86 +1,142 @@
 {
-  "navigation": {
-      "home": "strona główna",
-      "profile": "profil",
-      "todos": "zadania",
-      "login": "zaloguj",
-      "register": "rejestracja",
-      "logout": "wyloguj",
-      "en": "ang",
-      "pl": "pl"
-  },
-  "home": {
-      "title": "Witaj na stronie Todo!",
-      "subtitle": "Ta strona została specjalnie zaprojektowana dla Ciebie. Udostępniaj ją bez wysiłku i zarządzaj swoimi zadaniami z łatwością. Zacznij od dodania swojego pierwszego zadania i rozpocznij bardziej zorganizowaną podróż!",
-      "list-title": "Oto kilka dodatkowych funkcji, które masz do dyspozycji, aby w pełni wykorzystać to narzędzie do zarządzania zadaniami:",
-      "list-item-add": "Dodaj zadania: ",
-      "list-item-add-1": "Łatwo dodawaj nowe zadania do swojej listy, klikając przycisk 'Dodaj zadanie'. Możesz nadać każdemu zadaniu tytuł, opis i termin wykonania.",
-      "list-item-remove": "Usuń zadania: ",
-      "list-item-remove-1": "Jeśli ukończyłeś zadanie lub już go nie potrzebujesz, możesz je usunąć z listy jednym kliknięciem.",
-      "list-item-edit": "Edytuj zadania: ",
-      "list-item-edit-1": "Potrzebujesz dokonać zmian w zadaniu? Nie ma problemu! Możesz edytować tytuł zadania, opis lub termin wykonania, aby Twoja lista była na bieżąco."
-  },
-  "buttons": {
-      "home": "Aby zacząć, przejdź do Logowania!",
-      "submit": "Wyślij",
-      "register": "Zarejestruj",
-      "create": "Utwórz",
-      "back": "Wstecz",
-      "edit-profile": "Edytuj profil",
-      "save": "Zapisz",
-      "yes": "Tak",
-      "no": "Nie",
-      "add-todo": "Dodaj zadanie",
-      "edit-todo": "Edytuj zadanie",
-      "history": "Historia",
-      "edit": "Edytuj",
-      "delete": "Usuń",
-      "cancel": "Anuluj"
-  },
-  "footer": {
-      "copyright-1": "Prawa autorskie © ",
-      "copyright-2": " Jakub Pęcak. Wszelkie prawa zastrzeżone."
-  },
-  "profile": {
-      "my": "Mój profil",
-      "edit": "Edytuj profil",
-      "basic-info": "Podstawowe informacje",
-      "contact": "Kontakt",
-      "settings": "Ustawienia",
-      "info": {
-          "basic-name": "Imię",
-          "basic-gender": "Płeć",
-          "basic-date-of-birth": "Data urodzenia",
-          "basic-country": "Kraj",
-          "basic-region": "Region",
-          "basic-city": "Miasto",
-          "contact-phone": "Telefon",
-          "contact-email": "Email",
-          "settings-delete": "Usuń konto"
-      }
-  },
-  "form": {
-      "name": "Imię",
-      "username": "Nazwa użytkownika",
-      "password": "Hasło",
-      "repeat-password": "Powtórz hasło",
-      "email": "Email",
-      "date-of-birth": "Data urodzenia",
-      "gender": "Płeć",
-      "country": "Kraj",
-      "phone": "Telefon",
-      "region": "Region",
-      "city": "Miasto",
-      "todo-title": "Tytuł zadania",
-      "todo-description": "Opis zadania"
-  },
-  "validation": {
-      "name": "Imię"
-  },
-  "todos": {
-      "title": "Moje zadania",
-      "description": "Opis",
-      "history": "Historia",
-      "edit": "Edytuj zadanie"
-  }
+    "navigation": {
+        "home": "strona główna",
+        "profile": "profil",
+        "todos": "zadania",
+        "login": "logowanie",
+        "register": "rejestracja",
+        "logout": "wyloguj",
+        "en": "ang",
+        "pl": "pl"
+    },
+    "login": {
+        "title": "Logowanie"
+    },
+    "register": {
+        "title": "Rejestracja"
+    },
+    "home": {
+        "title": "Witamy na stronie Todo!",
+        "subtitle": "Ta strona została specjalnie zaprojektowana dla Ciebie. Udostępniaj ją bez trudu i zarządzaj zadaniami z łatwością. Zacznij od dodania swojego pierwszego zadania i wyrusz w bardziej zorganizowaną podróż!",
+        "list-title": "Oto dodatkowe funkcje, które masz do dyspozycji, aby w pełni wykorzystać to narzędzie do zarządzania zadaniami:",
+        "list-item-add": "Dodaj zadania: ",
+        "list-item-add-1": "Łatwo dodawaj nowe zadania do swojej listy, klikając przycisk 'Dodaj zadanie'. Możesz nadać każdemu zadaniu tytuł, opis i termin wykonania.",
+        "list-item-remove": "Usuń zadania: ",
+        "list-item-remove-1": "Jeśli ukończyłeś zadanie lub już go nie potrzebujesz, możesz usunąć je z listy jednym kliknięciem.",
+        "list-item-edit": "Edytuj zadania: ",
+        "list-item-edit-1": "Potrzebujesz dokonać zmian w zadaniu? Nie ma problemu! Możesz edytować tytuł, opis lub termin wykonania zadania, aby Twoja lista była aktualna."
+    },
+    "buttons": {
+        "home": "Aby rozpocząć, przejdź do Logowania!",
+        "submit": "Zatwierdź",
+        "register": "Zarejestruj się",
+        "create": "Utwórz",
+        "back": "Wróć",
+        "edit-profile": "Edytuj profil",
+        "save": "Zapisz",
+        "yes": "Tak",
+        "no": "Nie",
+        "add-todo": "Dodaj Todo",
+        "edit-todo": "Edytuj Todo",
+        "history": "Historia",
+        "edit": "Edytuj",
+        "delete": "Usuń",
+        "cancel": "Anuluj"
+    },
+    "footer": {
+        "copyright-1": "Prawa autorskie © ",
+        "copyright-2": " Jakub Pęcak. Wszelkie prawa zastrzeżone."
+    },
+    "profile": {
+        "my": "Mój profil",
+        "edit": "Edytuj profil",
+        "basic-info": "Podstawowe informacje",
+        "contact": "Kontakt",
+        "settings": "Ustawienia",
+        "info": {
+            "basic-name": "Imię",
+            "basic-gender": "Płeć",
+            "basic-date-of-birth": "Data urodzenia",
+            "basic-country": "Kraj",
+            "basic-region": "Region",
+            "basic-city": "Miasto",
+            "contact-phone": "Telefon",
+            "contact-email": "Email",
+            "settings-delete": "Usuń konto"
+        }
+    },
+    "form": {
+        "name": "Imię",
+        "username": "Nazwa użytkownika",
+        "password": "Hasło",
+        "repeat-password": "Powtórz hasło",
+        "email": "Email",
+        "date-of-birth": "Data urodzenia",
+        "gender": "Płeć",
+        "country": "Kraj",
+        "phone": "Telefon",
+        "region": "Region",
+        "city": "Miasto",
+        "todo-title": "Tytuł Todo",
+        "todo-description": "Opis Todo",
+        "extra-text": "Jeśli chcesz dodatkowych pól jak region czy miasto, wpisz Polska"
+    },
+    "validation": {
+        "username-required": "Nazwa użytkownika jest wymagana",
+        "invalid-value": "Nieprawidłowa wartość",
+        "min-length": "Minimalna długość to {{length}} znaków",
+        "max-length": "Maksymalna długość to {{length}} znaków",
+        "password-required": "Hasło jest wymagane",
+        "password-pattern": "Hasło musi zawierać co najmniej jedną wielką literę, jedną cyfrę i jeden znak specjalny",
+        "email-required": "Email jest wymagany",
+        "email-invalid": "Adres email jest nieprawidłowy",
+        "repeat-password-required": "Powtórzenie hasła jest wymagane",
+        "not-match": "Hasła nie pasują do siebie",
+        "name-required": "Imię jest wymagane",
+        "gender-required": "Płeć jest wymagana",
+        "country-required": "Kraj jest wymagany",
+        "date-of-birth-required": "Data urodzenia jest wymagana",
+        "phone-required": "Telefon jest wymagany",
+        "title-required": "Tytuł jest wymagany",
+        "description-required": "Opis jest wymagany"
+    },
+    "todos": {
+        "title": "Moje Todo",
+        "description": "Opis",
+        "history": "Historia",
+        "edit": "Edytuj Todo",
+        "todo-title": "Tytuł Todo",
+        "todo-description": "Opis Todo",
+        "add-todo": "Dodaj Todo"
+    },
+    "placeholder": {
+        "title-description": "po tytule i opisie",
+        "shopping": "Np. Idź na zakupy",
+        "date-time": "Np. Data lub czas..."
+    },
+    "search": {
+        "name": "Szukaj"
+    },
+    "sort": {
+        "name": "Sortuj",
+        "ascending": "Rosnąco",
+        "descending": "Malejąco",
+        "title": "Tytuł",
+        "date": "Data"
+    },
+    "dialog": {
+        "history-todo": "Historia Todo",
+        "delete-todo": "Usuń Todo",
+        "delete-todo-description": "Czy na pewno chcesz kontynuować tę akcję?"
+    },
+    "snackbar": {
+        "success-login": "Logowanie powiodło się",
+        "success-logout": "Wylogowanie powiodło się",
+        "account-deleted": "Konto usunięte",
+        "user-created": "Użytkownik utworzony",
+        "todo-deleted": "Todo usunięte",
+        "todo-added": "Todo dodane",
+        "todo-updated": "Todo zaktualizowane",
+        "profile-updated": "Profil zaktualizowany"
+    }
 }

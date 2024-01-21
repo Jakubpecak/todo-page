@@ -34,14 +34,14 @@ export class AddTodoComponent implements OnInit, OnDestroy {
   setForm() {
     this.form = this.fb.group({
       title: ['', 
-      [required('Title is required'),
-      minLength(5, 'Minimum length is 5 characters'), 
-      maxLength(30, 'Maximum length is 30 characters')]
+      [required('validation.title-required'),
+      minLength(5, 'Minimum length is {{length}} characters'), 
+      maxLength(30, 'Maximum length is {{length}} characters')]
     ],
       description: ['', 
-      [required('Description is required'),
-      minLength(20, 'Minimum length is 20 characters'), 
-      maxLength(150, 'Maximum length is 150 characters')]
+      [required('validation.description-required'),
+      minLength(20, 'Minimum length is {{length}} characters'), 
+      maxLength(150, 'Maximum length is {{length}} characters')]
     ],
     });
   }
@@ -59,7 +59,7 @@ export class AddTodoComponent implements OnInit, OnDestroy {
         resetForm(this.form);
         this.isValid = false;
         this.isLoading = false;
-        this.snackBar.openSnackBar('Todo added', 2000, false);
+        this.snackBar.openSnackBar('snackbar.todo-added', 2000, false);
         this.onHideAddTodo();
       }));
     } else {

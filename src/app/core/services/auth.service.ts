@@ -69,7 +69,7 @@ export class AuthService {
         this.session.next(session);
         this.storeSession(session);
         this.router.navigate(['/profile']);
-        this.snackBar.openSnackBar('Success login', 2000, false);
+        this.snackBar.openSnackBar('snackbar.success-login', 2000, false);
       },
       error: err => {
         if(err instanceof HttpErrorResponse) {
@@ -83,7 +83,7 @@ export class AuthService {
     localStorage.removeItem('session');
     this.router.navigate(['/login']);
     const session = this.session.getValue();
-    isDeleted ? this.snackBar.openSnackBar('Account deleted', 2000, true) : this.snackBar.openSnackBar('Success logout', 2000, false);
+    isDeleted ? this.snackBar.openSnackBar('snackbar.account-deleted', 2000, true) : this.snackBar.openSnackBar('snackbar.success-logout', 2000, false);
     if (session) {
       this.session.next({
         ...session,

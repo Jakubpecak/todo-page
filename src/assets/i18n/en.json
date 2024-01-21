@@ -82,7 +82,23 @@
         "extra-text": "If you want extra fields like region or city write Poland"
     },
     "validation": {
-        "name": "Name"
+        "username-required": "Username is required",
+        "invalid-value": "Invalid value",
+        "min-length": "Minimum length is {{length}} characters",
+        "max-length": "Maximum length is {{length}} characters",
+        "password-required": "Password is required",
+        "password-pattern": "Password must contain at least one uppercase letter, one digit, and one special character",
+        "email-required": "Email is required",
+        "email-invalid": "Email address is invalid",
+        "repeat-password-required": "Repeat password is required",
+        "not-match": "Password not match",
+        "name-required": "Name is required",
+        "gender-required": "Gender is required",
+        "country-required": "Country is required",
+        "date-of-birth-required": "Date of birth is required",
+        "phone-required": "Phone is required",
+        "title-required": "Title is required",
+        "description-required": "Description is required"
     },
     "todos": {
         "title": "My Todos",
@@ -92,7 +108,6 @@
         "todo-title": "Todo title",
         "todo-description": "Todo description",
         "add-todo": "Add todo"
-
     },
     "placeholder": {
         "title-description": "by title and description",
@@ -113,5 +128,15 @@
         "history-todo": "History Todo",
         "delete-todo": "Delete Todo",
         "delete-todo-description": "Are you sure you want to proceed with this action?"
+    },
+    "snackbar": {
+        "success-login": "Success login",
+        "success-logout": "Success logout",
+        "account-deleted": "Account deleted",
+        "user-created": "User created",
+        "todo-deleted": "Todo deleted",
+        "todo-added": "Todo added",
+        "todo-updated": "Todo updated",
+        "profile-updated": "Profile updated"
     }
 }

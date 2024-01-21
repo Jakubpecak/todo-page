@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   setForm() {
     this.form = this.fb.group({
       username: ['', 
-      [required('Username is required'), 
-      minLength(3, 'Minimum length is 3 characters'), 
-      maxLength(15, 'Maximum length is 15 characters')]
+      [required('validation.username-required'), 
+      minLength(3, 'Minimum length is {{length}} characters'), 
+      maxLength(15, 'Maximum length is {{length}} characters')]
     ],
       password: ['', 
-      [required('Password is required'), 
-      minLength(5, 'Minimum length is 5 characters'), 
-      maxLength(15, 'Maximum length is 15 characters'),
-      password('Password must contain at least one uppercase letter, one digit, and one special character')]
+      [required('validation.password-required'), 
+      minLength(5, 'Minimum length is {{length}} characters'), 
+      maxLength(15, 'Maximum length is {{length}} characters'),
+      password('validation.password-pattern')]
     ],
     });
   }
