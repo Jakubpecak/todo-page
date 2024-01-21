@@ -3,10 +3,10 @@
     (toggleAccordion)="setOpenAccordion(1)"
     >
     <div *ngIf="user" class="contact__info">
-        <h3 *ngIf="user.phone"><i class="fa fa-phone"></i> Phone: <a [href]="'tel:' + user.phone">{{ user.phone }}</a></h3>
-        <h3 *ngIf="!user.phone"><i class="fa fa-phone"></i> Phone: -</h3>
+        <h3 *ngIf="user.phone"><i class="fa fa-phone"></i> {{ 'profile.info.contact-phone' | translate }}: <a [href]="'tel:' + user.phone">{{ user.phone }}</a></h3>
+        <h3 *ngIf="!user.phone"><i class="fa fa-phone"></i> {{ 'profile.info.contact-phone' | translate }}: -</h3>
 
-        <h3 *ngIf="user.email"><i class="fa fa-envelope"></i> Email: <a [href]="'mailto:' + user.email">{{ user.email}}</a></h3>
-        <h3 *ngIf="!user.email"><i class="fa fa-envelope"></i> Email: -</h3>
+        <h3 *ngIf="user.email"><i class="fa fa-envelope"></i> {{ 'profile.info.contact-email' | translate }}: <a [href]="'mailto:' + user.email">{{ user.email}}</a></h3>
+        <h3 *ngIf="!user.email"><i class="fa fa-envelope"></i> {{ 'profile.info.contact-email' | translate }}: -</h3>
     </div>
 </app-accordion>

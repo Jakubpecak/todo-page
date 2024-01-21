@@ -3,22 +3,22 @@
     (toggleAccordion)="setOpenAccordion(0)"
     >
     <div *ngIf="user" class="basic__info">
-        <h3 *ngIf="user.name"><i class="fa fa-star"></i> Name: {{ user.name }}</h3>
-        <h3 *ngIf="!user.name"><i class="fa fa-star"></i> Name: -</h3>
+        <h3 *ngIf="user.name"><i class="fa fa-star"></i> {{ 'profile.info.basic-name' | translate }}: {{ user.name }}</h3>
+        <h3 *ngIf="!user.name"><i class="fa fa-star"></i> {{ 'profile.info.basic-name' | translate }}: -</h3>
 
-        <h3 *ngIf="user.gender"><i class="fa fa-venus-mars"></i> Gender: {{ user.gender }}</h3>
-        <h3 *ngIf="!user.gender"><i class="fa fa-venus-mars"></i> Gender: -</h3>
+        <h3 *ngIf="user.gender"><i class="fa fa-venus-mars"></i> {{ 'profile.info.basic-gender' | translate }}: {{ user.gender }}</h3>
+        <h3 *ngIf="!user.gender"><i class="fa fa-venus-mars"></i> {{ 'profile.info.basic-gender' | translate }}: -</h3>
 
-        <h3 *ngIf="user.birthDate"><i class="fa fa-birthday-cake"></i> Date of birth: {{ user.birthDate | date: 'dd-MM-yyyy' }}</h3>
-        <h3 *ngIf="!user.birthDate"><i class="fa fa-birthday-cake"></i> Date of birth: -</h3>
+        <h3 *ngIf="user.birthDate"><i class="fa fa-birthday-cake"></i> {{ 'profile.info.basic-date-of-birth' | translate }}: {{ user.birthDate | date: 'dd-MM-yyyy' }}</h3>
+        <h3 *ngIf="!user.birthDate"><i class="fa fa-birthday-cake"></i> {{ 'profile.info.basic-date-of-birth' | translate }}: -</h3>
 
-        <h3 *ngIf="user.address?.country"><i class="fa fa-globe"></i> Country: {{ user.address?.country }}</h3>
-        <h3 *ngIf="!user.address?.country"><i class="fa fa-globe"></i> Country: -</h3>
+        <h3 *ngIf="user.address?.country"><i class="fa fa-globe"></i> {{ 'profile.info.basic-country' | translate }}: {{ user.address?.country }}</h3>
+        <h3 *ngIf="!user.address?.country"><i class="fa fa-globe"></i> {{ 'profile.info.basic-country' | translate }}: -</h3>
 
-        <h3 *ngIf="user.address?.region"><i class="fa fa-map"></i> Region: {{ user.address?.region }}</h3>
-        <h3 *ngIf="!user.address?.region"><i class="fa fa-map"></i> Region: -</h3>
+        <h3 *ngIf="user.address?.region"><i class="fa fa-map"></i> {{ 'profile.info.basic-region' | translate }}: {{ user.address?.region }}</h3>
+        <h3 *ngIf="!user.address?.region"><i class="fa fa-map"></i> {{ 'profile.info.basic-region' | translate }}: -</h3>
 
-        <h3 *ngIf="user.address?.city"><i class="fa fa-map-marker"></i> City: {{ user.address?.city }}</h3>
-        <h3 *ngIf="!user.address?.city"><i class="fa fa-map-marker"></i> City: -</h3>
+        <h3 *ngIf="user.address?.city"><i class="fa fa-map-marker"></i> {{ 'profile.info.basic-city' | translate }}: {{ user.address?.city }}</h3>
+        <h3 *ngIf="!user.address?.city"><i class="fa fa-map-marker"></i> {{ 'profile.info.basic-city' | translate }}: -</h3>
     </div>
 </app-accordion>

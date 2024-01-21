@@ -11,6 +11,7 @@ import { FiltersTodoComponent } from './pages/todos/filters-todo/filters-todo.co
 import { EditTodoComponent } from './pages/todos/edit-todo/edit-todo.component';
 import { HistoryTodoComponent } from './pages/todos/history-todo/history-todo.component';
 import { TodosResolve } from 'src/app/core/guards/todos-resolve';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { TodosResolve } from 'src/app/core/guards/todos-resolve';
   imports: [
     CommonModule,
     SharedModule,
-    LandingRoutingModule
+    LandingRoutingModule,
+    TranslateModule
   ],
   providers: [
     TodosResolve

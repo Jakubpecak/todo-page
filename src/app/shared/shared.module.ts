@@ -34,13 +34,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MenuListComponent } from './components/navigation/menu/menu-list/menu-list.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
+import { HomeComponent } from '../modules/landing/pages/home/home.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -58,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonsComponent,
     DataPickerComponent,
     SelectComponent,
-    MenuListComponent
+    MenuListComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -80,13 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatNativeDateModule,
     LayoutModule,
     MatSlideToggleModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+    TranslateModule
   ],
   exports: [
     NavigationComponent, 

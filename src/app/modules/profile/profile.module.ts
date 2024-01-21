@@ -14,6 +14,7 @@ import { UserSettingsComponent } from './user/user-settings/user-settings.compon
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { UserProgressBarComponent } from './user/user-edit/user-progress-bar/user-progress-bar.component';
 import { ProfileResolve } from 'src/app/core/guards/profile-resolve';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProfileResolve } from 'src/app/core/guards/profile-resolve';
     ProfileRoutingModule,
     ImageCropperModule,
     HammerModule,
+    TranslateModule,
     NgCircleProgressModule.forRoot({
       backgroundColor: "#FDB900",
       backgroundPadding: 5,

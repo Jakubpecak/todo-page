@@ -16,15 +16,15 @@ export class NavigationComponent implements OnInit {
   @Output() languageChanged = new EventEmitter<string>();
 
   authorizedMenuItems = [
-    { label: 'Home', routerLink: '/home' },
-    { label: 'Profile', routerLink: '/profile' },
-    { label: 'Todos', routerLink: '/todos' }
+    { label: 'navigation.home', routerLink: '/home' },
+    { label: 'navigation.profile', routerLink: '/profile' },
+    { label: 'navigation.todos', routerLink: '/todos' }
   ];
 
   notAuthorizedMenuItems = [
-    { label: 'Home', routerLink: '/home' },
-    { label: 'Login', routerLink: '/login' },
-    { label: 'Register', routerLink: '/register' },
+    { label: 'navigation.home', routerLink: '/home' },
+    { label: 'navigation.login', routerLink: '/login' },
+    { label: 'navigation.register', routerLink: '/register' },
   ];
   
   constructor(protected auth: AuthService) {}

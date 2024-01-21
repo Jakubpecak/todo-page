@@ -20,8 +20,6 @@ export class AppComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-
-
     this.auth.state.subscribe((isAuthenticated) => {
       this.isAuthenticated = isAuthenticated;
     });
@@ -30,6 +28,8 @@ export class AppComponent implements OnInit {
     if (this.darkMode) {
       this.renderer.addClass(document.body, 'dark-mode');
     };
+
+    this.setDefaultLanguage();
   }
 
   setDefaultLanguage() {

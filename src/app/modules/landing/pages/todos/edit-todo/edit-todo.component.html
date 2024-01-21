@@ -1,5 +1,5 @@
 <form class="edit__form" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h1>Edit todo:</h1>
+    <h1>{{ 'todos.edit' | translate }}:</h1>
     <app-error controlName="title">
       <app-input
         [label]="'Todo title'"
@@ -22,4 +22,4 @@
       [isLoading]="isLoading"
     ></app-buttons>
 </form>
-<button class="edit__button delete" (click)="onHideEditTodo()">Cancel</button>
+<button class="edit__button delete" (click)="onHideEditTodo()">{{ 'buttons.cancel' | translate }}</button>

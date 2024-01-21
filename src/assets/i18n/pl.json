@@ -1,0 +1,65 @@
+{
+    "navigation": {
+      "home": "strona główna",
+      "profile": "profil",
+      "todos": "zadania",
+      "login": "logowanie",
+      "register": "rejestracja",
+      "logout": "wyloguj",
+      "en": "en",
+      "pl": "pl"
+    },
+    "home": {
+      "title": "Witaj na stronie Todo!",
+      "subtitle": "Ta strona została specjalnie zaprojektowana dla Ciebie. Dziel się nią łatwo i zarządzaj swoimi zadaniami bez problemu. Zacznij od dodania swojego pierwszego zadania i rozpocznij bardziej zorganizowaną podróż!",
+      "list-title": "Oto kilka dodatkowych funkcji, które masz do dyspozycji, aby jak najlepiej wykorzystać ten narzędzie do zarządzania zadaniami:",
+      "list-item-1": "Dodawanie zadań: Łatwo dodawaj nowe zadania do swojej listy, klikając przycisk 'Dodaj zadanie'. Możesz nadać każdemu zadaniu tytuł, opis i termin wykonania.",
+      "list-item-2": "Usuwanie zadań: Jeśli ukończyłeś zadanie lub nie jest już potrzebne, możesz je usunąć z listy jednym kliknięciem.",
+      "list-item-3": "Edytowanie zadań: Potrzebujesz dokonać zmian w zadaniu? Nie ma problemu! Możesz edytować tytuł, opis lub termin wykonania zadania, aby utrzymać swoją listę na bieżąco."
+    },
+    "buttons": {
+      "home": "Aby rozpocząć, przejdź do logowania!",
+      "submit": "Zatwierdź",
+      "register": "Zarejestruj",
+      "create": "Utwórz",
+      "back": "Powrót",
+      "edit-profile": "Edytuj profil",
+      "save": "Zapisz",
+      "yes": "Tak",
+      "no": "Nie",
+      "add-todo": "Dodaj zadanie",
+      "edit-todo": "Edytuj zadanie",
+      "history": "Historia",
+      "edit": "Edytuj",
+      "delete": "Usuń",
+      "cancel": "Anuluj"
+    },
+    "footer": {
+      "copyright-1": "Prawa autorskie ©",
+      "copyright-2": "Jakub Pęcak. Wszelkie prawa zastrzeżone."
+    },
+    "profile": {
+      "my": "Mój profil",
+      "basic-info": "Informacje podstawowe",
+      "contact": "Kontakt",
+      "settings": "Ustawienia"
+    },
+    "form": {
+      "name": "Imię",
+      "username": "Nazwa użytkownika",
+      "password": "Hasło",
+      "repeat-password": "Powtórz hasło",
+      "email": "Adres e-mail",
+      "date-of-birth": "Data urodzenia",
+      "gender": "Płeć",
+      "country": "Kraj",
+      "phone": "Telefon",
+      "region": "Region",
+      "city": "Miasto",
+      "todo-title": "Tytuł zadania",
+      "todo-description": "Opis zadania"
+    },
+    "validation": {
+      "name": "Imię"
+    }
+  }

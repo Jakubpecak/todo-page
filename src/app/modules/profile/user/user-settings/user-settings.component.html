@@ -3,6 +3,6 @@
     (toggleAccordion)="setOpenAccordion(2)"
     >
     <div *ngIf="user.id" class="settings__info">
-        <h3 (click)="deleteUser(user.id)"><i class="fa fa-trash"></i> Delete account</h3>
+        <h3 (click)="deleteUser(user.id)"><i class="fa fa-trash"></i> {{ 'profile.info.settings-delete' | translate }}</h3>
     </div>
 </app-accordion>

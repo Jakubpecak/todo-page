@@ -1,0 +1,91 @@
+{
+    "navigation": {
+        "home": "home",
+        "profile": "profile",
+        "todos": "todos",
+        "login": "login",
+        "register": "register",
+        "logout": "logout",
+        "en": "en",
+        "pl": "pl"
+    },
+    "home": {
+        "title": "Welcome to Todo Website!",
+        "subtitle": "This page has been specially designed for you. Share it effortlessly and manage your tasks with ease. Begin by adding your first task and embark on a more organized journey!",
+        "list-title": "Here are some additional features at your disposal to help you make the most of this task management tool:",
+        "list-item-add": "Add tasks: ",
+        "list-item-add-1": "Easily add new tasks to your list by clicking the 'Add Task' button. You can give each task a title, description, and due date.",
+        "list-item-remove": "Remove tasks: ",
+        "list-item-remove-1": "If you've completed a task or no longer need it, you can delete it from your list with a simple click.",
+        "list-item-edit": "Edit tasks: ",
+        "list-item-edit-1": "Need to make changes to a task? No problem! You can edit the task title, description, or due date to keep your list up to date."
+    },
+    "buttons": {
+        "home": "To get started, go to Login!",
+        "submit": "Submit",
+        "register": "Register",
+        "create": "Create",
+        "back": "Back",
+        "edit-profile": "Edit profile",
+        "save": "Save",
+        "yes": "Yes",
+        "no": "No",
+        "add-todo": "Add Todo",
+        "edit-todo": "Edit Todo",
+        "history": "History",
+        "edit": "Edit",
+        "delete": "Delete",
+        "cancel": "Cancel"
+    },
+    "footer": {
+        "copyright-1": "Copyright © ",
+        "copyright-2": " Jakub Pęcak. All rights reserved."
+    },
+    "profile": {
+        "my": "My profile",
+        "edit": "Edit profile",
+        "basic-info": "Basic info",
+        "contact": "Contact",
+        "settings": "Settings",
+        "info": {
+            "basic-name": "Name",
+            "basic-gender": "Gender",
+            "basic-date-of-birth": "Date of birth",
+            "basic-country": "Country",
+            "basic-region": "Region",
+            "basic-city": "City",
+            "contact-phone": "Phone",
+            "contact-email": "Email",
+            "settings-delete": "Delete account"
+        }
+    },
+    "form": {
+        "name": "Name",
+        "username": "Username",
+        "password": "Password",
+        "repeat-password": "Repeat password",
+        "email": "Email",
+        "date-of-birth": "Date of birth",
+        "gender": "Gender",
+        "country": "Country",
+        "phone": "Phone",
+        "region": "Region",
+        "city": "City",
+        "todo-title": "Todo title",
+        "todo-description": "Todo description"
+    },
+    "validation": {
+        "name": "Name"
+    },
+    "todos": {
+        "title": "My Todos",
+        "description": "Description",
+        "history": "History",
+        "edit": "Edit todo"
+
+
+    }
+
+
+
+}

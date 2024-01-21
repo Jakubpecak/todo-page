@@ -1,6 +1,6 @@
 <div class="container user">
     <ng-container *ngIf="user">
-        <h1>My profile</h1>
+        <h1>{{ 'profile.my' | translate }}</h1>
         <div class="user__picture">
             <label for="fileInput" class="user__picture__label" [ngClass]="{'editIcon' : !isDisplayEditIcon }">
                 <i class="fa fa-pencil"></i>
@@ -18,7 +18,7 @@
             <img *ngIf="!imageChangedEvent && !croppedImage" class="user__picture__image" />
         </div>
         <div class="user__button">
-            <button *ngIf="isDisplaySaveBtn" (click)="saveImage(user.id, croppedImage)">Save</button>
+            <button *ngIf="isDisplaySaveBtn" (click)="saveImage(user.id, croppedImage)">{{ 'buttons.save' | translate }}</button>
         </div>
 
         <div class="user__info">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="user__edit">
-            <button class="edit" [routerLink]="'/profile/edit/' + user.id">Edit profile</button>
+            <button class="edit" [routerLink]="'/profile/edit/' + user.id">{{ 'buttons.edit-profile' | translate }}</button>
         </div>
     </ng-container>
 </div>
