@@ -36,13 +36,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       username: ['', 
       [required('validation.username-required'), 
-      minLength(3, 'Minimum length is {{length}} characters'), 
-      maxLength(15, 'Maximum length is {{length}} characters')]
+      minLength(3, 'validation.min-length'), 
+      maxLength(15, 'validation.max-length')]
     ],
       password: ['', 
       [required('validation.password-required'), 
-      minLength(5, 'Minimum length is {{length}} characters'), 
-      maxLength(15, 'Maximum length is {{length}} characters'),
+      minLength(5, 'validation.min-length'), 
+      maxLength(15, 'validation.max-length'),
       password('validation.password-pattern')]
     ],
     });

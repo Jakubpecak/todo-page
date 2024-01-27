@@ -32,6 +32,14 @@ export class TodosComponent implements OnInit, OnDestroy{
     this.userId = this.auth.getCurrentUser()?.id;
   }
 
+  completeTodo(todoId: number) {
+    //metoda bedzie dzialac tak ze zmienia tylko isComplete z false na true dla danego id todo
+    this.todosService.completeTodo(todoId).subscribe(() => {
+      // get todos bedzie wyswietlac tylko liste z isComplete na false
+      this.getTodos();
+    });
+  }
+
   editTodo(index: number) {
     this.selectedIndex = index;
     this.isEditTodo = true;

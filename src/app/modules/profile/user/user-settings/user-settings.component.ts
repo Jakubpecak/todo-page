@@ -35,8 +35,8 @@ export class UserSettingsComponent implements OnDestroy {
   }
 
   openDialog(): void {
-    const title = 'Delete User';
-    const description = 'Are you sure you want to proceed with this action?';
+    const title = 'dialog.delete-user';
+    const description = 'dialog.delete-todo-description';
     const dialogRef = this.dialog.open(DialogComponent, {
       data: {
         title,

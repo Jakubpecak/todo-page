@@ -35,13 +35,13 @@ export class AddTodoComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       title: ['', 
       [required('validation.title-required'),
-      minLength(5, 'Minimum length is {{length}} characters'), 
-      maxLength(30, 'Maximum length is {{length}} characters')]
+      minLength(5, 'validation.min-length'), 
+      maxLength(30, 'validation.max-length')]
     ],
       description: ['', 
       [required('validation.description-required'),
-      minLength(20, 'Minimum length is {{length}} characters'), 
-      maxLength(150, 'Maximum length is {{length}} characters')]
+      minLength(20, 'validation.min-length'), 
+      maxLength(150, 'validation.max-length')]
     ],
     });
   }
@@ -50,7 +50,7 @@ export class AddTodoComponent implements OnInit, OnDestroy {
     if (this.isValid) {
       this.isLoading = true;
       const todo = {
-        title: this.form.get('title')?.value,
+        name: this.form.get('title')?.value,
         description: this.form.get('description')?.value,
         completed: false,
         userId: this.userId

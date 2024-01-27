@@ -35,9 +35,13 @@ export class TodosService {
   constructor(private http: HttpClient) { }
 
   createTodo(todo: Todo) {
-    return this.http.post<Todo>(this.apiUrl, todo).pipe(
+    return this.http.post<Todo>('http://localhost:8080/task/api/add', todo).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
+  }
+
+  completeTodo(id: number) {
+    return this.http.post('http://localhost:8080/task/api/complete', id);
   }
 
   editTodo(id: number | undefined, newTitle: Todo) {

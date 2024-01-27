@@ -87,15 +87,15 @@ export class UserEditComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       name: [this.currentUser?.name, 
         [required('validation.name-required'), 
-        minLength(3, 'Minimum length is {{length}} characters'), 
-        maxLength(15, 'Maximum length is {{length}} characters')]
+        minLength(3, 'validation.min-length'), 
+        maxLength(15, 'validation.max-length')]
         ],
       gender: [this.currentUser?.gender, [required('validation.gender-required')]],
       address: this.fb.group({
         country: [this.currentUser?.address?.country, [
           required('validation.country-required'), 
-          minLength(3, 'Minimum length is {{length}} characters'),
-          maxLength(15, 'Maximum length is {{length}} characters')]
+          minLength(3, 'validation.min-length'),
+          maxLength(15, 'validation.max-length')]
         ],
         region: [this.currentUser?.address?.region],
         city: [this.currentUser?.address?.city],
@@ -103,16 +103,16 @@ export class UserEditComponent implements OnInit, OnDestroy {
       }),
       birthDate: [this.currentUser?.birthDate, [
         required('validation.date-of-birth-required'), 
-        minLength(3, 'Minimum length is {{length}} characters')]
+        minLength(3, 'validation.min-length')]
       ],
       phone: [this.currentUser?.phone, 
         [required('validation.phone-required'), 
-        minLength(3, 'Minimum length is {{length}} characters'), 
-        maxLength(15, 'Maximum length is {{length}} characters')]
+        minLength(3, 'validation.min-length'), 
+        maxLength(15, 'validation.max-length')]
       ],
       email: [this.currentUser?.email, [
         required('validation.email-required'), 
-        minLength(3, 'Minimum length is {{length}} characters'),
+        minLength(3, 'validation.min-length'),
         email('validation.email-invalid')]
       ]
     });

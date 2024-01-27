@@ -18,7 +18,7 @@
                     <li><span>{{ 'home.list-item-remove' | translate }}</span>{{ 'home.list-item-remove-1' | translate }}</li>
                     <li><span>{{ 'home.list-item-edit' | translate }}</span>{{ 'home.list-item-edit-1' | translate }}</li>
                 </ul>
-                <div class="home__login">
+                <div class="home__login" *ngIf="!isAuthenticated">
                     <button class="edit" routerLink="/login">{{ 'buttons.home' | translate }}</button>
                 </div>
             </ng-container>

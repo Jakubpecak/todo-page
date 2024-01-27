@@ -33,6 +33,7 @@
                     <span>{{ todo.createdAt | date: 'dd.MM.yyyy' }}</span>
                   </a>
                   <div class="todos__list__buttons">
+                    <button class="add" (click)="completeTodo(index)">{{ 'buttons.complete' | translate }}</button>
                     <button class="edit" (click)="editTodo(index)">{{ 'buttons.edit' | translate }}</button>
                     <button class="delete" (click)="deleteTodo(todo.id)">{{ 'buttons.delete' | translate }}</button>
                   </div>

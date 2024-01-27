@@ -1,4 +1,12 @@
 <ng-content></ng-content>
-<div class="error" *ngIf="control.errors && (control.dirty || control.touched)">
-    {{ control?.errors?.message || message | translate }}
-</div>
+<ng-container *ngIf="control.errors && (control.dirty || control.touched)">
+    <div class="error" *ngIf="!control.errors?.minLength && !control.errors?.maxLength">
+        {{ control?.errors?.message || message | translate }}
+    </div>
+    <div class="error" *ngIf="control.errors?.minLength && !control.errors?.maxLength">
+        {{ control?.errors?.minLength?.message | translate:{ length: control?.errors?.minLength?.length } }}
+    </div> 
+    <div class="error" *ngIf="control.errors?.maxLength && !control.errors?.minLength">
+        {{ control?.errors?.maxLength?.message | translate:{ length: control?.errors?.maxLength?.length } }}
+    </div>
+</ng-container>

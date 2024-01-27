@@ -30,6 +30,8 @@ export class EditTodoComponent implements OnInit, OnDestroy {
 
     this.subscriptions.add(this.form.valueChanges.subscribe(() => {
       this.isValid = this.form.valid;
+
+      console.log(this.form.get('description')?.errors)
     }));
   }
 
@@ -37,13 +39,13 @@ export class EditTodoComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       title: ['', 
       [required('validation.title-required'),
-      minLength(5, 'Minimum length is {{length}} characters'), 
-      maxLength(30, 'Maximum length is {{length}} characters')]
+      minLength(5, 'validation.min-length'), 
+      maxLength(30, 'validation.max-length')]
     ],
       description: ['', 
       [required('validation.description-required'),
-      minLength(20, 'Minimum length is {{length}} characters'), 
-      maxLength(150, 'Maximum length is {{length}} characters')]
+      minLength(20, 'validation.min-length'), 
+      maxLength(150, 'validation.max-length')]
     ],
     });
   }

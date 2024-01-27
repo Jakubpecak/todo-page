@@ -41,7 +41,8 @@
         "history": "Historia",
         "edit": "Edytuj",
         "delete": "Usuń",
-        "cancel": "Anuluj"
+        "cancel": "Anuluj",
+        "complete": "Skończony"
     },
     "footer": {
         "copyright-1": "Prawa autorskie © ",
@@ -127,6 +128,7 @@
     "dialog": {
         "history-todo": "Historia Todo",
         "delete-todo": "Usuń Todo",
+        "delete-user": "Usuń Użytkownika",
         "delete-todo-description": "Czy na pewno chcesz kontynuować tę akcję?"
     },
     "snackbar": {
