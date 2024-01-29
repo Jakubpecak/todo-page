@@ -66,6 +66,35 @@
                     }
                 }
             }
+            .home-cat {
+                position: relative;
+                width: 100%;
+                margin: 0 auto;
+                border-radius: 10px;
+                height: 500px;
+                background-image: url('../../../../../assets/images/todocat_optimized.png');
+                background-size: cover;
+                background-position: center;
+                .eye {
+                    position: absolute;
+                    width: 37px;
+                    height: 37px;
+                    background-color: black;
+                    border-radius: 50%;
+                    top: 228px;
+                    left: 226px;
+                    .pupil {
+                        position: absolute;
+                        width: 17px;
+                        height: 17px;
+                        background-color: white;
+                        border-radius: 50%;
+                        top: 10px;
+                        left: 10px;
+                        transition: transform 0.2s ease;
+                    }
+                }
+            }
             img {
                 width: 90%;
                 border-radius: 10px;

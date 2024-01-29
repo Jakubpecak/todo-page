@@ -102,3 +102,7 @@ a {
 a.active {
   text-shadow: 4px 4px 6px rgba(13, 16, 45, 0.8);
 }
+
+.dark-mode a.active {
+  text-shadow: 4px 4px 6px rgba(200, 200, 200, 0.8);
+}

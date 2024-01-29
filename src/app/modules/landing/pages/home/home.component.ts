@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { ResponsiveService } from 'src/app/core/services/responsive.service';
@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   isTablet!: boolean;
   isAuthenticated!: boolean;
   subscriptions = new Subscription();
+  isDesktop: boolean = false;
+  @ViewChild('leftEye') leftEye!: ElementRef;
+  @ViewChild('rightEye') rightEye!: ElementRef;
 
   constructor(private responsive: ResponsiveService, private auth: AuthService) {}
 
@@ -21,9 +24,36 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.isTablet = isTablet;
     }));
 
-    this.auth.state.subscribe((isAuthenticated) => {
+    this.subscriptions.add(this.auth.state.subscribe((isAuthenticated) => {
       this.isAuthenticated = isAuthenticated;
-    });
+    }));
+
+    this.isDesktop = window.innerWidth > 1700;
+  }
+
+  @HostListener('document: mousemove', ['$event'])
+  onMouseMove(e: MouseEvent) {
+    this.moveEye(this.leftEye?.nativeElement, e);
+    this.moveEye(this.rightEye?.nativeElement, e);
+  }
+
+  moveEye(eye: HTMLElement, mouseEvent: MouseEvent) {
+    if (eye) {
+      const rect = eye.getBoundingClientRect();
+      const eyeCenterX = rect.left + eye.clientWidth / 2;
+      const eyeCenterY = rect.top + eye.clientHeight / 2;
+  
+      const deltaX = mouseEvent.pageX - eyeCenterX;
+      const deltaY = mouseEvent.pageY - eyeCenterY;
+  
+      const maxMove = eye.clientWidth / 4;
+  
+      const newX = Math.min(Math.max(deltaX, -maxMove), maxMove);
+      const newY = Math.min(Math.max(deltaY, -maxMove), maxMove);
+  
+      const pupil = eye.firstChild as HTMLElement;
+      pupil.style.transform = `translate(${newX}px, ${newY}px)`;
+    }
   }
 
   ngOnDestroy(): void {

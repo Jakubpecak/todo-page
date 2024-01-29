@@ -1,7 +1,15 @@
 <div class="container">
     <h1>{{ 'home.title' | translate }}</h1>
     <div class="home">
-        <img src="/assets/images/todocat_optimized.png" alt="to-do cat">
+        <img src="/assets/images/todocat_optimized.png" alt="to-do cat" *ngIf="!isDesktop">
+        <div class="home-cat" #catImage *ngIf="isDesktop">
+            <div class="eye" #leftEye>
+                <div class="pupil"></div>
+            </div>
+            <div class="eye" style="left: 307px" #rightEye>
+                <div class="pupil"></div>
+            </div>
+        </div>
         <div class="home__login" *ngIf="!isTablet">
             <button class="edit" routerLink="/login">To get started, go to Login!</button>
         </div>
