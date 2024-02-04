@@ -137,7 +137,6 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
   handleValidFieldsCount(count: number) {
     this.completeProfile = count;
-    console.log('parent', this.completeProfile, 'count', count)
   }
 
   ngOnDestroy(): void {

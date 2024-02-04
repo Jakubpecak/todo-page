@@ -1,3 +1,4 @@
+import { take } from 'rxjs';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from './core/services/auth.service';
 import { DarkModeService } from './core/services/dark-mode.service';
@@ -36,15 +37,10 @@ export class AppComponent implements OnInit {
   }
 
   setDefaultLanguage() {
-    this.language = this.languageService.getLanguage();
-    console.log(this.language)
-    if (this.language === 'en') {
-      this.translate.use('en');
-    } else if (this.language === 'pl') {
-      this.translate.use('pl');
-    } else {
-      this.translate.use('en');
-    }
+    this.languageService.getLanguage().pipe(take(1)).subscribe(lang => {
+      this.language = lang;
+      this.translate.use(lang === 'en' ? 'en' : 'pl');
+    });
   }
 
   changeLanguage(lang: string) {

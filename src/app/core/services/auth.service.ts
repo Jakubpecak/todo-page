@@ -29,7 +29,6 @@ export class AuthService {
   state = this.session.pipe(
     map((session) => !!session && !!session.token),
     tap((state) => {
-      console.log('isAuthenticated', state)
       this.isAuthenticated = state
     })
   );

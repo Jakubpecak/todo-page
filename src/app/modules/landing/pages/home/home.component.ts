@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { LanguageService } from 'src/app/core/services/language.service';
 import { ResponsiveService } from 'src/app/core/services/responsive.service';
 import { BREAKPOINTS } from 'src/app/core/utils/break-points';
 
@@ -14,10 +15,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   isAuthenticated!: boolean;
   subscriptions = new Subscription();
   isDesktop: boolean = false;
+  isLangEn: boolean = true;
   @ViewChild('leftEye') leftEye!: ElementRef;
   @ViewChild('rightEye') rightEye!: ElementRef;
 
-  constructor(private responsive: ResponsiveService, private auth: AuthService) {}
+  constructor(private responsive: ResponsiveService, private auth: AuthService, private languageService: LanguageService) {}
 
   ngOnInit(): void {
     this.subscriptions.add(this.responsive.setIsDeviceBasedOnBreakpoint(BREAKPOINTS.isTablet).subscribe((isTablet) => {
@@ -29,6 +31,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     }));
 
     this.isDesktop = window.innerWidth > 1700;
+
+    this.subscriptions.add(this.languageService.getLanguage().subscribe((language) => {
+      language === 'en' ? this.isLangEn = true : this.isLangEn = false;
+    }));
   }
 
   @HostListener('document: mousemove', ['$event'])

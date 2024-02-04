@@ -19,7 +19,6 @@ export class UserProgressBarComponent implements OnDestroy, OnChanges {
     const change = changes['completeProfile'];
     if (change) {
       this.completeProfile = change.currentValue;
-      console.log('change', this.completeProfile);
     }
   }
 

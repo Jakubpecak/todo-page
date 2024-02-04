@@ -139,6 +139,7 @@
         "todo-deleted": "Todo usunięte",
         "todo-added": "Todo dodane",
         "todo-updated": "Todo zaktualizowane",
-        "profile-updated": "Profil zaktualizowany"
+        "profile-updated": "Profil zaktualizowany",
+        "todo-completed": "Todo zakończone"
     }
 }

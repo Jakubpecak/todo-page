@@ -3,11 +3,11 @@
     <div class="home">
         <img src="/assets/images/todocat_optimized.png" alt="to-do cat" *ngIf="!isDesktop">
         <div class="home-cat" #catImage *ngIf="isDesktop">
-            <div class="eye" #leftEye>
-                <div class="pupil"></div>
+            <div class="home-cat-eye" #leftEye [ngStyle]="isLangEn ? {'left': '254px', 'top': '226px'} : {'left': '226px', 'top': '228px'}">
+                <div class="home-cat-eye-pupil"></div>
             </div>
-            <div class="eye" style="left: 307px" #rightEye>
-                <div class="pupil"></div>
+            <div class="home-cat-eye" #rightEye [ngClass]="isLangEn ? 'eyePositionEn' : 'eyePositionPl'">
+                <div class="home-cat-eye-pupil"></div>
             </div>
         </div>
         <div class="home__login" *ngIf="!isTablet">

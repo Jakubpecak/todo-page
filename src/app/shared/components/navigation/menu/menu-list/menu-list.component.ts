@@ -1,12 +1,13 @@
+import { Subscription } from 'rxjs';
 import { LanguageService } from './../../../../../core/services/language.service';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu-list',
   templateUrl: './menu-list.component.html',
   styleUrls: ['./menu-list.component.scss']
 })
-export class MenuListComponent implements OnInit {
+export class MenuListComponent implements OnInit, OnDestroy {
   isDefaultLang: boolean = true;
   @Input() isAuthenticated: boolean = false;
   @Input() authorizedMenuItems: any;
@@ -14,6 +15,7 @@ export class MenuListComponent implements OnInit {
   @Output() closeMenuEmitter = new EventEmitter<boolean>();
   @Output() userLoggedOut = new EventEmitter<boolean>();
   @Output() languageChanged = new EventEmitter<string>();
+  subscriptions = new Subscription();
 
   constructor(private languageService: LanguageService) {}
 
@@ -23,16 +25,21 @@ export class MenuListComponent implements OnInit {
 
   checkCurentLanguage() {
     const currentLanguage = this.languageService.getLanguage();
-    if (currentLanguage === 'en') {
-      this.isDefaultLang = true;
-    } else {
-      this.isDefaultLang = false;
-    }
+    this.subscriptions.add(currentLanguage.subscribe((language) => {
+      if (language === 'en') {
+        this.isDefaultLang = true;
+      } else {
+        this.isDefaultLang = false;
+      }
+    }));
   }
 
   changeLanguage(language: string) {
     this.languageChanged.emit(language);
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
   
 }

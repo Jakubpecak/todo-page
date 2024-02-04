@@ -50,7 +50,7 @@ export class AddTodoComponent implements OnInit, OnDestroy {
     if (this.isValid) {
       this.isLoading = true;
       const todo = {
-        name: this.form.get('title')?.value,
+        title: this.form.get('title')?.value,
         description: this.form.get('description')?.value,
         completed: false,
         userId: this.userId

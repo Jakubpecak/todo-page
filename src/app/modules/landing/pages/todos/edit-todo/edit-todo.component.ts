@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Todo } from 'src/app/core/models/todo';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 import { TodosService } from 'src/app/core/services/todos.service';
 import { required } from 'src/app/core/validators/required';
@@ -8,6 +7,7 @@ import { setFormAsDirty, resetForm } from 'src/app/core/utils/form';
 import { minLength } from 'src/app/core/validators/min';
 import { maxLength } from 'src/app/core/validators/max';
 import { Subscription } from 'rxjs';
+import { Todo } from 'src/app/core/models/todo';
 
 @Component({
   selector: 'app-edit-todo',
@@ -16,8 +16,8 @@ import { Subscription } from 'rxjs';
 })
 export class EditTodoComponent implements OnInit, OnDestroy {
   form!: FormGroup;
-  @Input() todoList: Todo[] | null | undefined = [];
-  @Input() selectedIndex!: number | null;
+  @Input() todoList!: Todo[];
+  @Input() selectedIndex!: number;
   @Output() hideEditTodo = new EventEmitter<boolean>();
   isValid: boolean = false;
   isLoading: boolean = false;
@@ -30,19 +30,17 @@ export class EditTodoComponent implements OnInit, OnDestroy {
 
     this.subscriptions.add(this.form.valueChanges.subscribe(() => {
       this.isValid = this.form.valid;
-
-      console.log(this.form.get('description')?.errors)
     }));
   }
 
   setForm() {
     this.form = this.fb.group({
-      title: ['', 
+      title: [this.todoList[this.selectedIndex].title, 
       [required('validation.title-required'),
       minLength(5, 'validation.min-length'), 
       maxLength(30, 'validation.max-length')]
     ],
-      description: ['', 
+      description: [this.todoList[this.selectedIndex].description, 
       [required('validation.description-required'),
       minLength(20, 'validation.min-length'), 
       maxLength(150, 'validation.max-length')]

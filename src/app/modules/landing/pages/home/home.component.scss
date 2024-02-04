@@ -75,15 +75,13 @@
                 background-image: url('../../../../../assets/images/todocat_optimized.png');
                 background-size: cover;
                 background-position: center;
-                .eye {
+                &-eye {
                     position: absolute;
                     width: 37px;
                     height: 37px;
                     background-color: black;
                     border-radius: 50%;
-                    top: 228px;
-                    left: 226px;
-                    .pupil {
+                    &-pupil {
                         position: absolute;
                         width: 17px;
                         height: 17px;
@@ -105,6 +103,14 @@
                     object-fit: cover;
                     object-position: center;
                 }
+            }
+            .eyePositionEn {
+                top: 225px;
+                left: 340px;
+            }
+            .eyePositionPl {
+                top: 227px;
+                left: 307px;
             }
         }
     }

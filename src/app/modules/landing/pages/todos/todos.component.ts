@@ -14,10 +14,10 @@ import { SnackBarService } from 'src/app/core/services/snack-bar.service';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit, OnDestroy{
-  todoList: Todo[] | null | undefined = [];
+  todoList!: Todo[];
   options: number[] = [5, 10, 25];
   userId: number | undefined;
-  selectedIndex!: number | null;
+  selectedIndex!: number;
   subscriptions = new Subscription();
   isAddTodo: boolean =  false;
   isEditTodo: boolean =  false;
@@ -32,10 +32,10 @@ export class TodosComponent implements OnInit, OnDestroy{
     this.userId = this.auth.getCurrentUser()?.id;
   }
 
-  completeTodo(todoId: number) {
-    //metoda bedzie dzialac tak ze zmienia tylko isComplete z false na true dla danego id todo
-    this.todosService.completeTodo(todoId).subscribe(() => {
-      // get todos bedzie wyswietlac tylko liste z isComplete na false
+  completeTodo(todoId: any, completeTodo: Todo) {
+    const completedTodo = { ...completeTodo, completed: true };
+    this.todosService.completeTodo(todoId, completedTodo).subscribe(() => {
+      this.snackBar.openSnackBar('snackbar.todo-completed', 2000, false);
       this.getTodos();
     });
   }
@@ -64,7 +64,7 @@ export class TodosComponent implements OnInit, OnDestroy{
   }
 
   getTodos() {
-    this.subscriptions.add(this.todosService.getTodos().subscribe((todos) => {
+    this.subscriptions.add(this.todosService.getTodos().subscribe((todos: any) => {
       this.todoList = todos;
     }));
   }

@@ -35,13 +35,13 @@ export class TodosService {
   constructor(private http: HttpClient) { }
 
   createTodo(todo: Todo) {
-    return this.http.post<Todo>('http://localhost:8080/task/api/add', todo).pipe(
+    return this.http.post<Todo>(this.apiUrl, todo).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
   }
 
-  completeTodo(id: number) {
-    return this.http.post('http://localhost:8080/task/api/complete', id);
+  completeTodo(id: number, completeTodo: Todo) {
+    return this.http.patch(this.apiUrl + '/' + id, completeTodo);
   }
 
   editTodo(id: number | undefined, newTitle: Todo) {
@@ -99,6 +99,10 @@ export class TodosService {
     }
   }
 
+  getAllTodos() {
+    return this.http.get<Todo[]>(this.apiUrl);
+  }
+
   getTodos() {
     return this.params.pipe(
       debounceTime(0),
@@ -123,10 +127,6 @@ export class TodosService {
   
   getTodo(id: number) {
     return this.http.get<Todo>(this.apiUrl + '/' + id);
-  }
-
-  getHistoryTodos() {
-    return this.http.get<Todo[]>(this.apiUrlHistory);
   }
 
   addHistoryTodo(todo: Todo) {

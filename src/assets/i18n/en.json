@@ -139,6 +139,7 @@
         "todo-deleted": "Todo deleted",
         "todo-added": "Todo added",
         "todo-updated": "Todo updated",
-        "profile-updated": "Profile updated"
+        "profile-updated": "Profile updated",
+        "todo-completed": "Todo completed"
     }
 }
