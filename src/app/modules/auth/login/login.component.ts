@@ -34,12 +34,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   setForm() {
     this.form = this.fb.group({
-      username: ['', 
+      username: ['User', 
       [required('validation.username-required'), 
       minLength(3, 'validation.min-length'), 
       maxLength(15, 'validation.max-length')]
     ],
-      password: ['', 
+      password: ['Test123!@#', 
       [required('validation.password-required'), 
       minLength(5, 'validation.min-length'), 
       maxLength(15, 'validation.max-length'),

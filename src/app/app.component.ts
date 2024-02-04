@@ -28,18 +28,14 @@ export class AppComponent implements OnInit {
       this.isAuthenticated = isAuthenticated;
     });
 
-    this.darkMode = this.darkModeService.getDarkMode();
-    if (this.darkMode) {
-      this.renderer.addClass(document.body, 'dark-mode');
-    };
-
+    this.setDarkMode();
     this.setDefaultLanguage();
   }
 
   setDefaultLanguage() {
     this.languageService.getLanguage().pipe(take(1)).subscribe(lang => {
       this.language = lang;
-      this.translate.use(lang === 'en' ? 'en' : 'pl');
+      this.translate.use(this.language);
     });
   }
 
@@ -48,10 +44,16 @@ export class AppComponent implements OnInit {
     this.languageService.setStorage(lang);
   }
 
+  setDarkMode() {
+    this.darkMode = this.darkModeService.getDarkMode();
+    if (this.darkMode) {
+      this.renderer.addClass(document.body, 'dark-mode');
+    };
+  }
+
   toggleDarkMode() {
     this.darkModeService.toggleDarkMode();
     this.darkMode = this.darkModeService.getDarkMode();
-
     if (this.darkMode) {
       this.renderer.addClass(document.body, 'dark-mode');
     } else {

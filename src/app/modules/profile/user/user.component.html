@@ -5,7 +5,7 @@
             <label for="fileInput" class="user__picture__label" [ngClass]="{'editIcon' : !isDisplayEditIcon }">
                 <i class="fa fa-pencil"></i>
             </label>
-            <input type="file" id="fileInput" (change)="fileChangeEvent($event)" />
+            <input type="file" id="fileInput" (change)="fileChangeEvent($event)" accept="image/png, image/jpeg" />
             <image-cropper
               *ngIf="imageChangedEvent"
               [imageChangedEvent]="imageChangedEvent"
