@@ -16,6 +16,7 @@ export class DialogComponent implements OnInit, OnDestroy {
   isHistory: boolean | undefined = false;
   historyList!: Todo[] | undefined;
   subscriptions = new Subscription();
+  isLoading = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string, description: string, id?: any, isHistory?: boolean }, 
   private todosService: TodosService) {}
@@ -30,8 +31,9 @@ export class DialogComponent implements OnInit, OnDestroy {
     }
 
     if (this.isHistory) {
-      this.subscriptions.add(this.todosService.getAllTodos().subscribe((todos) => {
-        this.historyList = todos?.filter(todo => todo.completed);
+      this.subscriptions.add(this.todosService.getCompletedTodos().subscribe((todos) => {
+        this.historyList = todos;
+        this.isLoading = false;
       }));
     }
   }

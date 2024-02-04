@@ -41,7 +41,9 @@ export class TodosService {
   }
 
   completeTodo(id: number, completeTodo: Todo) {
-    return this.http.patch(this.apiUrl + '/' + id, completeTodo);
+    return this.http.patch(this.apiUrl + '/' + id, completeTodo).pipe(
+      tap(() => this.params.next(this.params.getValue()))
+    );
   }
 
   editTodo(id: number | undefined, newTitle: Todo) {
@@ -99,10 +101,6 @@ export class TodosService {
     }
   }
 
-  getAllTodos() {
-    return this.http.get<Todo[]>(this.apiUrl);
-  }
-
   getTodos() {
     return this.params.pipe(
       debounceTime(0),
@@ -124,13 +122,22 @@ export class TodosService {
       })
     );
   }
+
+  getCompletedTodos() {
+    return this.http.get<Todo[]>(this.apiUrlHistory, {
+      params: {
+        _sort: 'createdAt',
+        _order: 'desc'
+      }
+    });
+  }
   
   getTodo(id: number) {
     return this.http.get<Todo>(this.apiUrl + '/' + id);
   }
 
   addHistoryTodo(todo: Todo) {
-    return this.http.post<Todo>(this.apiUrlHistory, todo).subscribe();
+    return this.http.post<Todo>(this.apiUrlHistory, todo);
   }
 
 }

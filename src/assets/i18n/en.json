@@ -13,7 +13,8 @@
         "title": "Login"
     },
     "register": {
-        "title": "Register"
+        "title": "Register",
+        "data-info": "Please be aware that all account creation information is provided for demonstration purposes only and lacks any form of protection. Therefore, kindly employ fictional datas exclusively for testing purposes."
     },
     "home": {
         "title": "Welcome to Todo Website!",

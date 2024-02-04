@@ -24,6 +24,7 @@ export class TodosComponent implements OnInit, OnDestroy{
   todoId: number = 0;
   isAgree: boolean =  false;
   currentTodo!: Todo;
+  isLoading: boolean = true;
 
   constructor(protected todosService: TodosService, private auth: AuthService, public dialog: MatDialog, private snackBar: SnackBarService){}
 
@@ -34,10 +35,10 @@ export class TodosComponent implements OnInit, OnDestroy{
 
   completeTodo(todoId: any, completeTodo: Todo) {
     const completedTodo = { ...completeTodo, completed: true };
-    this.todosService.completeTodo(todoId, completedTodo).subscribe(() => {
+    this.subscriptions.add(this.todosService.addHistoryTodo(completedTodo).subscribe(() => {
+      this.todosService.deleteTodo(todoId).subscribe();
       this.snackBar.openSnackBar('snackbar.todo-completed', 2000, false);
-      this.getTodos();
-    });
+    }));
   }
 
   editTodo(index: number) {
@@ -48,9 +49,9 @@ export class TodosComponent implements OnInit, OnDestroy{
   deleteTodo(todoId: any) {
     this.todoId = todoId;
     if (!this.isAgree) {
-      this.todosService.getTodo(this.todoId).subscribe((todo) => {
+      this.subscriptions.add(this.todosService.getTodo(this.todoId).subscribe((todo) => {
         this.currentTodo = todo;
-      });
+      }));
     }
     if (this.isAgree) {
       this.subscriptions.add(this.todosService.deleteTodo(todoId).subscribe(() => {
@@ -66,6 +67,7 @@ export class TodosComponent implements OnInit, OnDestroy{
   getTodos() {
     this.subscriptions.add(this.todosService.getTodos().subscribe((todos: any) => {
       this.todoList = todos;
+      this.isLoading = false;
     }));
   }
 

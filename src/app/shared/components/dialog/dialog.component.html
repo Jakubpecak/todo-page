@@ -11,7 +11,10 @@
 
 <div class="dialog__history" *ngIf="isHistory">
   <h1 mat-dialog-title>{{ title | translate }}</h1>
-  <ul mat-dialog-actions class="dialog__history__list">
-    <li *ngFor="let item of historyList"><span>{{ item.title }}</span> - {{ item.createdAt | date: 'dd.MM.yyyy' }}</li>
+  <app-spinner *ngIf="isLoading"></app-spinner>
+  <ul mat-dialog-actions class="dialog__history__list" *ngIf="!isLoading">
+    <ng-container *ngFor="let item of historyList">
+      <li *ngIf="item.completed"><span>{{ item.title }}</span> - {{ item.createdAt | date: 'dd.MM.yyyy' }}</li>
+    </ng-container>
   </ul>
 </div>

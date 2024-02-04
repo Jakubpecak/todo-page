@@ -26,9 +26,10 @@
                 <app-history-todo></app-history-todo>
                 <button class="add" (click)="isAddTodo = true">{{ 'buttons.add-todo' | translate }}</button>
             </div>
-            <ul>
+            <app-spinner *ngIf="isLoading"></app-spinner>
+            <ul *ngIf="!isLoading">
                 <ng-container *ngFor="let todo of todoList; let index = index">
-                    <li class="todos__list" *ngIf="!todo.completed">
+                    <li class="todos__list">
                         <a [routerLink]="'/todo/' + todo.id">
                           {{ todo.title }}
                           <span>{{ todo.createdAt | date: 'dd.MM.yyyy' }}</span>

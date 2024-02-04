@@ -13,7 +13,8 @@
         "title": "Logowanie"
     },
     "register": {
-        "title": "Rejestracja"
+        "title": "Rejestracja",
+        "data-info": "Należy pamiętać, że wszystkie informacje dotyczące tworzenia konta służą wyłącznie celom demonstracyjnym i nie są objęte żadną formą ochrony. Dlatego prosimy o wykorzystanie fikcyjnych danych wyłącznie do celów testowych."
     },
     "home": {
         "title": "Witamy na stronie Todo!",

@@ -37,6 +37,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { HomeComponent } from '../modules/landing/pages/home/home.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { TranslateModule } from '@ngx-translate/core';
     DataPickerComponent,
     SelectComponent,
     MenuListComponent,
-    HomeComponent
+    HomeComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -100,7 +102,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ButtonsComponent,
     DataPickerComponent,
     SelectComponent,
-    LayoutModule
+    LayoutModule,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }
