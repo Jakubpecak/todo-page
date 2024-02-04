@@ -34,8 +34,13 @@ export class AppComponent implements OnInit {
 
   setDefaultLanguage() {
     this.languageService.getLanguage().pipe(take(1)).subscribe(lang => {
-      this.language = lang;
-      this.translate.use(this.language);
+      if (!!lang) {
+        this.language = lang;
+        this.translate.use(this.language);
+      } else {
+        this.language = 'en';
+        this.translate.use('en');
+      }
     });
   }
 
