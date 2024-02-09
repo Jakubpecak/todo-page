@@ -49,6 +49,7 @@ export class UserProgressBarComponent implements OnDestroy, OnChanges {
         ? completionPercentages[profileCompletionSteps.indexOf(validCount)] : 0;
     }
     this.validFieldsCount.emit(this.completeProfile);
+    console.log('test', this.completeProfile)
   }
 
   ngOnDestroy(): void {
