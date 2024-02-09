@@ -27,6 +27,7 @@
                 <button class="add" (click)="isAddTodo = true">{{ 'buttons.add-todo' | translate }}</button>
             </div>
             <app-spinner *ngIf="isLoading"></app-spinner>
+            <p class="todos-notification" *ngIf="todoList?.length === 0 && !isLoading">Nothing to do right now. Add some tasks!</p>
             <ul *ngIf="!isLoading">
                 <ng-container *ngFor="let todo of todoList; let index = index">
                     <li class="todos__list">

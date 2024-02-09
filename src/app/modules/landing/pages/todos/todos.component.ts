@@ -34,7 +34,13 @@ export class TodosComponent implements OnInit, OnDestroy{
   }
 
   completeTodo(todoId: any, completeTodo: Todo) {
-    const completedTodo = { ...completeTodo, completed: true };
+    const completedTodo = {
+      title: completeTodo.title,
+      completed: true,
+      userId: completeTodo.userId,
+      description: completeTodo.description,
+      createdAt: completeTodo.createdAt
+    };
     this.subscriptions.add(this.todosService.addHistoryTodo(completedTodo).subscribe(() => {
       this.todosService.deleteTodo(todoId).subscribe();
       this.snackBar.openSnackBar('snackbar.todo-completed', 2000, false);

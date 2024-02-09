@@ -10,13 +10,20 @@
         justify-content: space-between;
     }
 
-    .todos__buttons {
-        text-align: right;
-        padding-bottom: 25px;
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
+    .todos {
+        &-notification {
+            text-align: center;
+            padding: 50px;
+        }
+        &__buttons {
+            text-align: right;
+            padding-bottom: 25px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
     }
+
 
     ul {
         display: flex;
