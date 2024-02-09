@@ -26,12 +26,11 @@ export class MenuListComponent implements OnInit, OnDestroy {
   checkCurentLanguage() {
     const currentLanguage = this.languageService.getLanguage();
     this.subscriptions.add(currentLanguage.subscribe((language) => {
-      if (language === 'en' || language === undefined) {
+      if (language === 'en' || language === null) {
         this.isDefaultLang = true;
       } else {
         this.isDefaultLang = false;
       }
-      console.log(language, this.isDefaultLang)
     }));
   }
 

@@ -1,6 +1,6 @@
 import { Subscription } from 'rxjs';
 import { Location } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { required } from 'src/app/core/validators/required';
 import { setFormAsDirty } from 'src/app/core/utils/form';
@@ -39,7 +39,8 @@ export class UserEditComponent implements OnInit, OnDestroy {
     private auth: AuthService, 
     private router: Router,
     private countryService: CountryService,
-    private snackBar: SnackBarService
+    private snackBar: SnackBarService,
+    private crf: ChangeDetectorRef
     ) {}
 
   ngOnInit(): void {
@@ -139,6 +140,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
   handleValidFieldsCount(count: number) {
     this.completeProfile = count;
+    this.crf.detectChanges();
   }
 
   ngOnDestroy(): void {

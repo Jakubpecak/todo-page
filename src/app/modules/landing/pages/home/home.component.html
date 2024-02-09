@@ -10,8 +10,8 @@
                 <div class="home-cat-eye-pupil"></div>
             </div>
         </div>
-        <div class="home__login" *ngIf="!isTablet">
-            <button class="edit" routerLink="/login">To get started, go to Login!</button>
+        <div class="home__login" *ngIf="!isTablet && !isAuthenticated">
+            <button class="edit" routerLink="/login">{{ 'buttons.home' | translate }}</button>
         </div>
         <div>
             <h2>

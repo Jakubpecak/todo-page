@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.isDesktop = window.innerWidth > 1700;
 
     this.subscriptions.add(this.languageService.getLanguage().subscribe((language) => {
-      language === 'en' ? this.isLangEn = true : this.isLangEn = false;
+      language === 'en' || language === null ? this.isLangEn = true : this.isLangEn = false;
     }));
   }
 
