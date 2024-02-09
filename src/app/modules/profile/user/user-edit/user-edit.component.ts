@@ -1,6 +1,6 @@
 import { Subscription } from 'rxjs';
 import { Location } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { required } from 'src/app/core/validators/required';
 import { setFormAsDirty } from 'src/app/core/utils/form';
@@ -39,7 +39,8 @@ export class UserEditComponent implements OnInit, OnDestroy {
     private auth: AuthService, 
     private router: Router,
     private countryService: CountryService,
-    private snackBar: SnackBarService
+    private snackBar: SnackBarService,
+    private zone: NgZone
     ) {}
 
   ngOnInit(): void {
@@ -58,10 +59,6 @@ export class UserEditComponent implements OnInit, OnDestroy {
         this.hideCityInput = true;
       }
     }));
-
-    this.form.valueChanges.subscribe(() => {
-      this.checkFieldsValid();
-    });
   }
 
   setRegionList(countryValue: string) {
@@ -120,14 +117,15 @@ export class UserEditComponent implements OnInit, OnDestroy {
         email('validation.email-invalid')]
       ]
     });
-    this.checkFieldsValid();
   }
 
   save() {
     if (this.isValid) {
+      this.isLoading = true;
       this.subscriptions.add(this.userService.updateUser(this.currentUser?.id, this.form.value).subscribe((newData) => {
         this.auth.updateCurrentUser(newData);
         this.snackBar.openSnackBar('snackbar.profile-updated', 2000, false);
+        this.isLoading = false;
         this.router.navigate(['/profile']);
       }));
     } else {
@@ -147,26 +145,5 @@ export class UserEditComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
-
-  checkFieldsValid() {
-    const fields = [
-        'name',
-        'birthDate',
-        'gender',
-        'address.country',
-        'phone',
-        'email'
-    ];
-    const validCount = fields.reduce((count, field) => this.form.get(field)?.valid ? count + 1 : count, 0);
-    if (this.form.valid) {
-        this.completeProfile = 100;
-    } else {
-        const profileCompletionSteps = [6, 5, 4, 3, 2, 1];
-        const completionPercentages = [100, 85, 70, 50, 35, 15];
-        this.completeProfile = profileCompletionSteps.includes(validCount)
-        ? completionPercentages[profileCompletionSteps.indexOf(validCount)] : 0;
-    }
-  }
-
 
 }
