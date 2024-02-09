@@ -31,6 +31,7 @@ export class MenuListComponent implements OnInit, OnDestroy {
       } else {
         this.isDefaultLang = false;
       }
+      console.log(language, this.isDefaultLang)
     }));
   }
 
