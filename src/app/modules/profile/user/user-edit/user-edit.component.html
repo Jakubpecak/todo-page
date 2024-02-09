@@ -8,6 +8,7 @@
         (isValid)="isValid = $event"
         >
         </app-user-progress-bar>   
+        <h3>Test: {{completeProfile}}</h3>
     </div> 
     <form [formGroup]="form" (ngSubmit)="save()">
         <app-error controlName="name">

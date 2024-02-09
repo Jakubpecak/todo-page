@@ -58,6 +58,10 @@ export class UserEditComponent implements OnInit, OnDestroy {
         this.hideCityInput = true;
       }
     }));
+
+    this.form.valueChanges.subscribe(() => {
+      this.checkFieldsValid();
+    });
   }
 
   setRegionList(countryValue: string) {
@@ -116,6 +120,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
         email('validation.email-invalid')]
       ]
     });
+    this.checkFieldsValid();
   }
 
   save() {
@@ -142,4 +147,26 @@ export class UserEditComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
+
+  checkFieldsValid() {
+    const fields = [
+        'name',
+        'birthDate',
+        'gender',
+        'address.country',
+        'phone',
+        'email'
+    ];
+    const validCount = fields.reduce((count, field) => this.form.get(field)?.valid ? count + 1 : count, 0);
+    if (this.form.valid) {
+        this.completeProfile = 100;
+    } else {
+        const profileCompletionSteps = [6, 5, 4, 3, 2, 1];
+        const completionPercentages = [100, 85, 70, 50, 35, 15];
+        this.completeProfile = profileCompletionSteps.includes(validCount)
+        ? completionPercentages[profileCompletionSteps.indexOf(validCount)] : 0;
+    }
+  }
+
+
 }
