@@ -54,7 +54,8 @@ import { TranslateModule } from '@ngx-translate/core';
       showInnerStroke: false,
       responsive: true,
       showZeroOuterStroke: false,
-      lazy: true})
+      lazy: true
+    })
   ],
   providers: [
     ProfileResolve

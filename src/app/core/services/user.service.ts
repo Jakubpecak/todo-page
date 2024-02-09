@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
