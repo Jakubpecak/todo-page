@@ -1,6 +1,6 @@
 import { Subscription } from 'rxjs';
 import { Location } from '@angular/common';
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { required } from 'src/app/core/validators/required';
 import { setFormAsDirty } from 'src/app/core/utils/form';
@@ -39,8 +39,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
     private auth: AuthService, 
     private router: Router,
     private countryService: CountryService,
-    private snackBar: SnackBarService,
-    private zone: NgZone
+    private snackBar: SnackBarService
     ) {}
 
   ngOnInit(): void {

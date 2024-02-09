@@ -25,7 +25,6 @@ export class UserProgressBarComponent implements OnDestroy, OnChanges {
     this.subscriptions.add(this.form.valueChanges.subscribe(() => {
       this.isValid.emit(this.form.valid);
       this.checkFieldsValid();
-      this.completeProfile = 50;
     }));
 
     this.checkFieldsValid();
@@ -55,5 +54,4 @@ export class UserProgressBarComponent implements OnDestroy, OnChanges {
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
-
 }

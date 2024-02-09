@@ -26,7 +26,7 @@ export class MenuListComponent implements OnInit, OnDestroy {
   checkCurentLanguage() {
     const currentLanguage = this.languageService.getLanguage();
     this.subscriptions.add(currentLanguage.subscribe((language) => {
-      if (language === 'en') {
+      if (language === 'en' || language === undefined) {
         this.isDefaultLang = true;
       } else {
         this.isDefaultLang = false;
