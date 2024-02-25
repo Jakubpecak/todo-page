@@ -4,5 +4,9 @@ export interface Todo {
     completed?: boolean;
     userId?: number;
     description?: string;
+    name?: string;
+    externalId?: string;
     createdAt?: number;
+    createdOn?: number;
+    task?: any;
 }

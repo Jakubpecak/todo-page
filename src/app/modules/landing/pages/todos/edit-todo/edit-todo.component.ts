@@ -35,7 +35,7 @@ export class EditTodoComponent implements OnInit, OnDestroy {
 
   setForm() {
     this.form = this.fb.group({
-      title: [this.todoList[this.selectedIndex].title, 
+      title: [this.todoList[this.selectedIndex].name, 
       [required('validation.title-required'),
       minLength(5, 'validation.min-length'), 
       maxLength(30, 'validation.max-length')]
@@ -54,7 +54,7 @@ export class EditTodoComponent implements OnInit, OnDestroy {
       if (this.todoList && (this.selectedIndex === 0 || this.selectedIndex)) {
         const { title, description } = this.form.value;
         const newTitle = { title, description };
-        this.subscriptions.add(this.todosService.editTodo(this.todoList[this.selectedIndex].id, newTitle).subscribe(() => {
+        this.subscriptions.add(this.todosService.editTodo(this.todoList[this.selectedIndex].externalId, newTitle).subscribe(() => {
           resetForm(this.form);
           this.isValid = false;
           this.isLoading = false;

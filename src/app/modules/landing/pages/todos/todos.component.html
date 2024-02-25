@@ -31,14 +31,14 @@
             <ul *ngIf="!isLoading">
                 <ng-container *ngFor="let todo of todoList; let index = index">
                     <li class="todos__list">
-                        <a [routerLink]="'/todo/' + todo.id">
-                          {{ todo.title }}
-                          <span>{{ todo.createdAt | date: 'dd.MM.yyyy' }}</span>
+                        <a [routerLink]="'/todo/' + todo.externalId">
+                          {{ todo.name }}
+                          <span>{{ todo.createdOn | date: 'dd.MM.yyyy' }}</span>
                         </a>
                         <div class="todos__list__buttons">
-                          <button class="add" (click)="completeTodo(todo.id, todo)">{{ 'buttons.complete' | translate }}</button>
+                          <button class="add" (click)="completeTodo(todo.externalId, todo)">{{ 'buttons.complete' | translate }}</button>
                           <button class="edit" (click)="editTodo(index)">{{ 'buttons.edit' | translate }}</button>
-                          <button class="delete" (click)="deleteTodo(todo.id)">{{ 'buttons.delete' | translate }}</button>
+                          <button class="delete" (click)="deleteTodo(todo.externalId)">{{ 'buttons.delete' | translate }}</button>
                         </div>
                     </li>
                 </ng-container>

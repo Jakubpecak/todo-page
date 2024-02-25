@@ -35,7 +35,7 @@ export class TodosService {
   constructor(private http: HttpClient) { }
 
   createTodo(todo: Todo) {
-    return this.http.post<Todo>(this.apiUrl, todo).pipe(
+    return this.http.post<Todo>('http://localhost:8080/task/api/add', todo).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
   }
@@ -46,14 +46,26 @@ export class TodosService {
     );
   }
 
-  editTodo(id: number | undefined, newTitle: Todo) {
-    return this.http.patch(this.apiUrl + '/' + id, newTitle).pipe(
+  // editTodo(id: number | undefined, newTitle: Todo) {
+  //   return this.http.patch(this.apiUrl + '/' + id, newTitle).pipe(
+  //     tap(() => this.params.next(this.params.getValue()))
+  //   );
+  // }
+
+  editTodo(id: any, newTitle: Todo) {
+    return this.http.patch(`http://localhost:8080/task/api/update/${id}`, newTitle).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
   }
 
+  // deleteTodo(id: number) {
+  //   return this.http.delete(this.apiUrl + '/' + id).pipe(
+  //     tap(() => this.params.next(this.params.getValue()))
+  //   );
+  // }
+
   deleteTodo(id: number) {
-    return this.http.delete(this.apiUrl + '/' + id).pipe(
+    return this.http.delete(`http://localhost:8080/task/api/delete/${id}/1`).pipe(
       tap(() => this.params.next(this.params.getValue()))
     );
   }
@@ -101,26 +113,30 @@ export class TodosService {
     }
   }
 
-  getTodos() {
-    return this.params.pipe(
-      debounceTime(0),
-      switchMap((params) => {
-        return this.http.get<Todo[]>(this.apiUrl, {
-          params: {
-            q: params.query,
-            _limit: params.perPage,
-            _page: params.page,
-            _sort: params.sort,
-            _order: params.order
-          },
-          observe: 'response'
-        })
-      }),
-      map((response: HttpResponse<Todo[]>) => {
-        this.setTotalCount(Number(response.headers.get('X-Total-Count')))
-        return response.body;
-      })
-    );
+  // getTodos() {
+  //   return this.params.pipe(
+  //     debounceTime(0),
+  //     switchMap((params) => {
+  //       return this.http.get<Todo[]>(this.apiUrl, {
+  //         params: {
+  //           q: params.query,
+  //           _limit: params.perPage,
+  //           _page: params.page,
+  //           _sort: params.sort,
+  //           _order: params.order
+  //         },
+  //         observe: 'response'
+  //       })
+  //     }),
+  //     map((response: HttpResponse<Todo[]>) => {
+  //       this.setTotalCount(Number(response.headers.get('X-Total-Count')))
+  //       return response.body;
+  //     })
+  //   );
+  // }
+
+  getTodos(userId: any = 1) {
+    return this.http.get<any>(`http://localhost:8080/task/api/getTasks/${userId}`);
   }
 
   getCompletedTodos() {
@@ -132,8 +148,12 @@ export class TodosService {
     });
   }
   
-  getTodo(id: number) {
-    return this.http.get<Todo>(this.apiUrl + '/' + id);
+  // getTodo(id: number) {
+  //   return this.http.get<Todo>(this.apiUrl + '/' + id);
+  // }
+
+  getTodo(id: any) {
+    return this.http.get<Todo>(`http://localhost:8080/task/api/get/${id}/1`);
   }
 
   addHistoryTodo(todo: Todo) {

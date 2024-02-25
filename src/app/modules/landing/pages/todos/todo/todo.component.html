@@ -1,7 +1,7 @@
 <div class="container">
     <button (click)="goPrevPage()">{{ 'buttons.back' | translate }}</button>
     <div *ngIf="todo | async as todo">
-      <h1>{{ todo.title }}</h1>
+      <h1>{{ todo.name }}</h1>
       <p>{{ 'todos.description' | translate }}:</p>
       <h3>{{ todo.description }}</h3>
     </div>

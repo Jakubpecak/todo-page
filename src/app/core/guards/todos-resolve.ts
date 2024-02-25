@@ -7,7 +7,7 @@ import { TodosService } from "../services/todos.service";
 @Injectable()
 export class TodosResolve implements Resolve<any> {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-       return this.todosService.getTodos();
+
     }
 
     constructor(private todosService: TodosService) {}

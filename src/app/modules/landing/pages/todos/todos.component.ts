@@ -71,8 +71,9 @@ export class TodosComponent implements OnInit, OnDestroy{
   }
 
   getTodos() {
-    this.subscriptions.add(this.todosService.getTodos().subscribe((todos: any) => {
-      this.todoList = todos;
+    this.subscriptions.add(this.todosService.getTodos(this.userId).subscribe((todos: any) => {
+      this.todoList = todos.tasks;
+      console.log(todos)
       this.isLoading = false;
     }));
   }
